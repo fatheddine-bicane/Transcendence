@@ -8,6 +8,7 @@ import {
 } from '@nestjs/common';
 import {
     JWTPair,
+    RefreshAccessTokenDto,
     SignInDto,
     type SignUpDto,
 } from './dto/auth.dto.js';
@@ -51,5 +52,18 @@ export class AuthController {
 
         return jwt_pair;
     }
+
+    @Post('refresh')
+    async refreshAccessToken(
+        @Body(
+            new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
+        )
+        body: RefreshAccessTokenDto,
+    ): Promise<JWTPair> {
+        const jwt_pair = await this.auth_service.refreshAccessToken(
+            body.refresh_token,
+        );
+
+        return jwt_pair;
     }
 }

@@ -11,6 +11,7 @@ import { CreateCounselorDto } from '../users/dto/counselor-user.dto.js';
 import { CreatePatientDto } from '../users/dto/patient-user.dto.js';
 import { CreateInternalDto } from '../users/dto/internal-user.dto.js';
 import { UserType } from './enums/user-type.enum.js';
+import { refresh_token_status } from '../generated/prisma/enums.js';
 import { JWTPair } from './dto/auth.dto.js';
 import { UUID } from 'node:crypto';
 
@@ -87,6 +88,56 @@ export class AuthService {
                 throw new InternalServerErrorException();
             }
         }
+    }
+
+    async refreshAccessToken(refresh_token_encoded: string) {
+        try {
+            this.jwt_service.verify(refresh_token_encoded);
+        } catch {
+            throw new UnauthorizedException();
+        }
+
+        const refresh_token = this.jwt_service.decode(refresh_token_encoded);
+
+        const refresh_token_record =
+            await this.prisma.refresh_tokens.findUnique({
+                where: {
+                    jti: refresh_token.jti,
+                },
+                select: {
+                    family: true,
+                    status: true,
+                },
+            });
+
+        if (
+            !refresh_token_record ||
+            refresh_token_record.status == refresh_token_status.REVOKED
+        ) {
+            throw new UnauthorizedException();
+        } else if (refresh_token_record.status == refresh_token_status.USED) {
+            await this.prisma.refresh_tokens.updateMany({
+                where: { family: refresh_token_record.family },
+                data: { status: refresh_token_status.REVOKED },
+            });
+
+            throw new UnauthorizedException();
+        }
+
+        const family = refresh_token_record.family as UUID;
+        const { subject, user_type } = refresh_token;
+        const jwt_pair = await this.issueJwtTokenPair(
+            subject,
+            user_type,
+            family,
+        );
+
+        await this.prisma.refresh_tokens.update({
+            where: { jti: refresh_token.jti },
+            data: { status: refresh_token_status.USED },
+        });
+
+        return jwt_pair;
     }
 
     async issueJwtTokenPair(

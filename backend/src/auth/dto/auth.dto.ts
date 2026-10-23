@@ -15,6 +15,12 @@ export class SignInDto {
     password: string;
 }
 
+export class RefreshAccessTokenDto {
+    @IsString()
+    @IsNotEmpty()
+    refresh_token: string;
+}
+
 export type JWTPair = {
     access_token: string;
     refresh_token: string;
