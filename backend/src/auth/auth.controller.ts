@@ -15,7 +15,10 @@ import {
 import { AuthService } from './auth.service.js';
 import { UserType } from './enums/user-type.enum.js';
 import { SignUpValidationPipe } from './pipes/user-signup.pipe.js';
+import { Public, RequiredUserTypes } from './decorators/auth.decorator.js';
 
+@RequiredUserTypes()
+@Public()
 @Controller('auth')
 export class AuthController {
     constructor(private readonly auth_service: AuthService) {}
