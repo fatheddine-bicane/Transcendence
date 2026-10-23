@@ -34,3 +34,10 @@ export const SIGNUP_DTO_MAP: Record<UserType, Type<SignUpDto>> = {
     [UserType.COUNSELOR]: CreateCounselorDto,
     [UserType.PATIENT]: CreatePatientDto,
 };
+
+export type RequestUserObject = {
+    user: {
+        id: number;
+        user_type: UserType;
+    };
+};
