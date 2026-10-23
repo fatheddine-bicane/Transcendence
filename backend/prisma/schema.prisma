@@ -12,6 +12,19 @@ datasource db {
     provider = "postgresql"
 }
 
+enum refresh_token_status {
+    ACTIVE
+    USED
+    REVOKED
+}
+
+model refresh_tokens {
+    jti        String               @id @db.Uuid
+    family     String               @db.Uuid
+    expires_at DateTime
+    status     refresh_token_status @default(ACTIVE)
+}
+
 model users {
     id                Int       @id @default(autoincrement())
     first_name        String    @db.VarChar(150)

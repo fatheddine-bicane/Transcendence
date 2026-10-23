@@ -4,17 +4,21 @@ import {
     UnauthorizedException,
 } from '@nestjs/common';
 import { hash, verify } from 'argon2';
+import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
 import { CreateCounselorDto } from '../users/dto/counselor-user.dto.js';
 import { CreatePatientDto } from '../users/dto/patient-user.dto.js';
 import { CreateInternalDto } from '../users/dto/internal-user.dto.js';
 import { UserType } from './enums/user-type.enum.js';
+import { JWTPair } from './dto/auth.dto.js';
+import { UUID } from 'node:crypto';
 
 @Injectable()
 export class AuthService {
     constructor(
         private readonly prisma: PrismaService,
+        private readonly jwt_service: JwtService,
     ) {}
 
     async signIn(
@@ -83,6 +87,42 @@ export class AuthService {
                 throw new InternalServerErrorException();
             }
         }
+    }
+
+    async issueJwtTokenPair(
+        id: number,
+        user_type: UserType,
+        family: UUID = crypto.randomUUID(),
+    ): Promise<JWTPair> {
+        const access_toke_payload = { user_type };
+        const access_token = await this.jwt_service.signAsync(
+            access_toke_payload,
+            { subject: String(id) },
+        );
+
+        const expiration_date = Math.floor(
+            Date.now() / 1000 + 60 * 60 * 24 * 7,
+        );
+        const refresh_token_payload = { family, user_type };
+        const jwt_id = crypto.randomUUID();
+        const refresh_token = await this.jwt_service.signAsync(
+            refresh_token_payload,
+            {
+                jwtid: jwt_id,
+                expiresIn: expiration_date,
+                subject: String(id),
+            },
+        );
+
+        await this.prisma.refresh_tokens.create({
+            data: {
+                jti: jwt_id,
+                family,
+                expires_at: new Date(expiration_date * 1000),
+            },
+        });
+
+        return { access_token, refresh_token };
     }
 
     private createUserRelation(user_type: UserType) {

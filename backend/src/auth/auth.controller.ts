@@ -30,6 +30,13 @@ export class AuthController {
             body.email,
             body.password,
         );
+        const jwt_pair = await this.auth_service.issueJwtTokenPair(
+            id,
+            user_type,
+        );
+
+        return jwt_pair;
+    }
 
     @Post('sign-up/:user_type')
     async signUp(
@@ -37,6 +44,12 @@ export class AuthController {
         @Param('user_type', new ParseEnumPipe(UserType)) user_type: UserType,
     ): Promise<JWTPair> {
         const id = await this.auth_service.signUp(body, user_type);
+        const jwt_pair = await this.auth_service.issueJwtTokenPair(
+            id,
+            user_type,
+        );
+
+        return jwt_pair;
     }
     }
 }
