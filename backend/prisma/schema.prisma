@@ -4,22 +4,68 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+    provider = "prisma-client"
+    output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+    provider = "postgresql"
 }
 
-model User {
-  id Int @id @default(autoincrement())
-  first_name String @db.VarChar(150)
-  last_name String @db.VarChar(150)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  email String @unique @db.VarChar(255)
-  email_verified_at DateTime?
-  hashed_password String? @db.VarChar(255)
-  @@index([email])
+enum refresh_token_status {
+    ACTIVE
+    USED
+    REVOKED
+}
+
+model refresh_tokens {
+    jti        String               @id @db.Uuid
+    family     String               @db.Uuid
+    expires_at DateTime
+    status     refresh_token_status @default(ACTIVE)
+}
+
+model users {
+    id                Int       @id @default(autoincrement())
+    first_name        String    @db.VarChar(150)
+    last_name         String    @db.VarChar(150)
+    created_at        DateTime  @default(now())
+    updated_at        DateTime  @updatedAt
+    email             String    @unique @db.VarChar(255)
+    email_verified_at DateTime?
+    hashed_password   String?   @db.VarChar(255)
+
+    // one on one with the Internal table
+    internals internals?
+
+    // one on one with the Counselor table
+    counselors counselors?
+
+    // one on one with the Patient table
+    patients patients?
+
+}
+
+model internals {
+    id Int @id @default(autoincrement())
+
+    // one on one with the User table
+    user_id Int   @unique
+    users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model counselors {
+    id Int @id @default(autoincrement())
+
+    // one on one with the User table
+    user_id Int  @unique
+    users    users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model patients {
+    id Int @id @default(autoincrement())
+
+    // one on one with the User table
+    user_id Int  @unique
+    users    users @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }

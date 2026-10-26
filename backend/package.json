@@ -19,15 +19,26 @@
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk --no-file-parallelism",
-    "test:e2e": "vitest run --config ./vitest.config.e2e.ts"
+    "test:e2e:conf": "vitest run --config ./vitest.config.e2e.ts",
+	"test:e2e": "npm run db:test:up && npm run db:test:push && dotenv run -f .env.test -- vitest run --config ./vitest.config.e2e.ts && npm run db:test:down",
+
+	"db:test:up": "dotenv run -f .env.test -- docker compose -f docker-compose.test.yml up -d",
+	"db:test:down": "docker compose -f docker-compose.test.yml down",
+	"db:test:push": "dotenv run -f .env.test -- npx prisma db push --accept-data-loss"
   },
   "dependencies": {
     "@nestjs/common": "^12.0.1",
     "@nestjs/core": "^12.0.1",
+    "@nestjs/jwt": "^12.0.3",
+    "@nestjs/mapped-types": "^12.0.0",
     "@nestjs/observe": "^0.1.8",
     "@nestjs/platform-express": "^12.0.1",
+    "@nestjs/schedule": "^12.0.2",
     "@prisma/adapter-pg": "^7.10.0",
     "@prisma/client": "^7.10.0",
+    "argon2": "^0.45.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
     "pg": "^8.23.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
