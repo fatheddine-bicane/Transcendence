@@ -19,7 +19,12 @@
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk --no-file-parallelism",
-    "test:e2e": "vitest run --config ./vitest.config.e2e.ts"
+    "test:e2e:conf": "vitest run --config ./vitest.config.e2e.ts",
+	"test:e2e": "npm run db:test:up && npm run db:test:push && dotenv run -f .env.test -- vitest run --config ./vitest.config.e2e.ts && npm run db:test:down",
+
+	"db:test:up": "dotenv run -f .env.test -- docker compose -f docker-compose.test.yml up -d",
+	"db:test:down": "docker compose -f docker-compose.test.yml down",
+	"db:test:push": "dotenv run -f .env.test -- npx prisma db push --accept-data-loss"
   },
   "dependencies": {
     "@nestjs/common": "^12.0.1",
