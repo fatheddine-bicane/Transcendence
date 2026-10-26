@@ -79,6 +79,9 @@ export class AuthService {
 
             return user.id;
         } catch (error) {
+            // ERROR_LOG
+            console.error('[AuthService -> signUp]: ', error);
+
             if (
                 error instanceof PrismaClientKnownRequestError &&
                 error.code === 'P2002'

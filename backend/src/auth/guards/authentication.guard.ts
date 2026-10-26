@@ -47,7 +47,10 @@ export class AuthenticationGuard implements CanActivate {
                 user_type: token.user_type,
             };
             return true;
-        } catch {
+        } catch (error) {
+            // ERROR_LOG
+            console.error('[AuthenticationGuard]: ', error);
+
             throw new UnauthorizedException();
         }
     }
