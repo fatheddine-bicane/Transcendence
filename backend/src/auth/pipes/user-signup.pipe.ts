@@ -1,9 +1,4 @@
-import {
-    ArgumentMetadata,
-    BadRequestException,
-    Injectable,
-    PipeTransform,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, PipeTransform } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { SIGNUP_DTO_MAP } from '../dto/auth.dto.js';
 import { validate } from 'class-validator';
@@ -11,7 +6,7 @@ import { UserType } from '../enums/user-type.enum.js';
 
 @Injectable()
 export class SignUpValidationPipe implements PipeTransform {
-    async transform(value: any, metadata: ArgumentMetadata) {
+    async transform(value: any) {
         if (!value || typeof value !== 'object' || !value.type) {
             throw new BadRequestException('Missing payload type discriminator');
         }
@@ -31,7 +26,6 @@ export class SignUpValidationPipe implements PipeTransform {
         });
 
         if (errors.length > 0) {
-            // TODO:?? flatMap
             const errorMessages = errors.flatMap((err) =>
                 Object.values(err.constraints || {}),
             );

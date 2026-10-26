@@ -26,7 +26,7 @@ export class AuthController {
     constructor(private readonly auth_service: AuthService) {}
 
     @Post('sign-in')
-	@HttpCode(HttpStatus.OK)
+    @HttpCode(HttpStatus.OK)
     async signIn(
         @Body(
             new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
@@ -60,7 +60,7 @@ export class AuthController {
     }
 
     @Post('refresh')
-	@HttpCode(HttpStatus.OK)
+    @HttpCode(HttpStatus.OK)
     async refreshAccessToken(
         @Body(
             new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
