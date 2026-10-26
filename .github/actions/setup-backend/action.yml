@@ -1,0 +1,14 @@
+name: Setup backend
+description: Install Node.js and backend npm dependencies
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v7
+      with:
+        node-version: "24.22.x"
+        cache: npm
+        cache-dependency-path: backend/package-lock.json
+    - run: npm ci
+      shell: bash
+      working-directory: backend
