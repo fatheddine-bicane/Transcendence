@@ -90,7 +90,7 @@ export class AuthService {
         }
     }
 
-    async refreshAccessToken(refresh_token_encoded: string) {
+    async refreshAccessToken(refresh_token_encoded: string): Promise<JWTPair> {
         try {
             this.jwt_service.verify(refresh_token_encoded);
         } catch {
