@@ -11,16 +11,16 @@ export class SignUpValidationPipe implements PipeTransform {
             throw new BadRequestException('Missing payload type discriminator');
         }
 
-        const target_dto_class = SIGNUP_DTO_MAP[value.type as UserType];
-        if (!target_dto_class) {
+        const targetDtoClass = SIGNUP_DTO_MAP[value.type as UserType];
+        if (!targetDtoClass) {
             throw new BadRequestException(
                 `Unsupported dto type: ${value.type}`,
             );
         }
 
-        const object_instance = plainToInstance(target_dto_class, value);
+        const objectInstance = plainToInstance(targetDtoClass, value);
 
-        const errors = await validate(object_instance, {
+        const errors = await validate(objectInstance, {
             whitelist: true,
             forbidNonWhitelisted: true,
         });
@@ -32,6 +32,6 @@ export class SignUpValidationPipe implements PipeTransform {
             throw new BadRequestException(errorMessages);
         }
 
-        return object_instance;
+        return objectInstance;
     }
 }

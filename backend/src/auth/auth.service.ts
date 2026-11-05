@@ -20,13 +20,13 @@ import { Response } from 'express';
 export class AuthService {
     constructor(
         private readonly prisma: PrismaService,
-        private readonly jwt_service: JwtService,
+        private readonly jwtService: JwtService,
     ) {}
 
     async signIn(
         email: string,
         password: string,
-    ): Promise<{ id: number; user_type: UserType }> {
+    ): Promise<{ id: number; userType: UserType }> {
         const user = await this.prisma.users.findUnique({
             where: { email },
             select: {
@@ -54,26 +54,26 @@ export class AuthService {
         }
 
         if (user.internals) {
-            return { id: user.id, user_type: UserType.INTERNAL };
+            return { id: user.id, userType: UserType.INTERNAL };
         } else if (user.patients) {
-            return { id: user.id, user_type: UserType.PATIENT };
+            return { id: user.id, userType: UserType.PATIENT };
         } else {
-            return { id: user.id, user_type: UserType.COUNSELOR };
+            return { id: user.id, userType: UserType.COUNSELOR };
         }
     }
 
     async signUp(
         data: CreateInternalDto | CreateCounselorDto | CreatePatientDto,
-        user_type: UserType,
+        userType: UserType,
     ): Promise<number> {
         try {
             const user = await this.prisma.users.create({
                 data: {
-                    first_name: data.first_name,
-                    last_name: data.last_name,
+                    first_name: data.firstName,
+                    last_name: data.lastName,
                     email: data.email,
                     hashed_password: await hash(data.password),
-                    ...this.createUserRelation(user_type),
+                    ...this.createUserRelation(userType),
                 },
                 select: { id: true },
             });
@@ -94,90 +94,82 @@ export class AuthService {
         }
     }
 
-    async refreshAccessToken(refresh_token_encoded: string): Promise<JWTPair> {
+    async refreshAccessToken(refreshTokenEncoded: string): Promise<JWTPair> {
         try {
-            this.jwt_service.verify(refresh_token_encoded);
+            this.jwtService.verify(refreshTokenEncoded);
         } catch {
             throw new UnauthorizedException();
         }
 
-        const refresh_token = this.jwt_service.decode(refresh_token_encoded);
+        const refreshToken = this.jwtService.decode(refreshTokenEncoded);
 
-        const refresh_token_record =
-            await this.prisma.refresh_tokens.findUnique({
-                where: {
-                    jti: refresh_token.jti,
-                },
-                select: {
-                    family: true,
-                    status: true,
-                },
-            });
+        const refreshTokenRecord = await this.prisma.refresh_tokens.findUnique({
+            where: {
+                jti: refreshToken.jti,
+            },
+            select: {
+                family: true,
+                status: true,
+            },
+        });
 
         if (
-            !refresh_token_record ||
-            refresh_token_record.status == refresh_token_status.REVOKED
+            !refreshTokenRecord ||
+            refreshTokenRecord.status == refresh_token_status.REVOKED
         ) {
             throw new UnauthorizedException();
-        } else if (refresh_token_record.status == refresh_token_status.USED) {
+        } else if (refreshTokenRecord.status == refresh_token_status.USED) {
             await this.prisma.refresh_tokens.updateMany({
-                where: { family: refresh_token_record.family },
+                where: { family: refreshTokenRecord.family },
                 data: { status: refresh_token_status.REVOKED },
             });
 
             throw new UnauthorizedException();
         }
 
-        const family = refresh_token_record.family as UUID;
-        const { subject, user_type } = refresh_token;
-        const jwt_pair = await this.issueJwtTokenPair(
-            subject,
-            user_type,
-            family,
-        );
+        const family = refreshTokenRecord.family as UUID;
+        const { subject, userType } = refreshToken;
+        const jwtPair = await this.issueJwtTokenPair(subject, userType, family);
 
         await this.prisma.refresh_tokens.update({
-            where: { jti: refresh_token.jti },
+            where: { jti: refreshToken.jti },
             data: { status: refresh_token_status.USED },
         });
 
-        return jwt_pair;
+        return jwtPair;
     }
 
     async issueJwtTokenPair(
         id: number,
-        user_type: UserType,
+        userType: UserType,
         family: UUID = crypto.randomUUID(),
     ): Promise<JWTPair> {
-        const access_toke_payload = { user_type };
-        const access_token = await this.jwt_service.signAsync(
-            access_toke_payload,
-            { subject: String(id) },
-        );
+        const accessTokePayload = { user_type: userType };
+        const accessToken = await this.jwtService.signAsync(accessTokePayload, {
+            subject: String(id),
+        });
 
-        const expiration_date = Math.floor(
-            Date.now() / 1000 + 60 * 60 * 24 * 7,
-        );
-        const refresh_token_payload = { family, user_type };
-        const jwt_id = crypto.randomUUID();
-        const refresh_token = await this.jwt_service.signAsync(
-            refresh_token_payload,
+        const expirationDate = Math.floor(Date.now() / 1000 + 60 * 60 * 24 * 7);
+        const refreshTokenPayload = { family, user_type: userType };
+        const jwtId = crypto.randomUUID();
+        const refreshToken = await this.jwtService.signAsync(
+            refreshTokenPayload,
             {
-                jwtid: jwt_id,
-                expiresIn: expiration_date,
+                jwtid: jwtId,
+                expiresIn: expirationDate,
                 subject: String(id),
             },
         );
 
         await this.prisma.refresh_tokens.create({
             data: {
-                jti: jwt_id,
+                jti: jwtId,
                 family,
-                expires_at: new Date(expiration_date * 1000),
+                expires_at: new Date(expirationDate * 1000),
             },
         });
 
-        return { access_token, refresh_token };
+        return { accessToken, refreshToken };
     }
 
     setRefreshTokenCookie(res: Response, refreshToken: string) {

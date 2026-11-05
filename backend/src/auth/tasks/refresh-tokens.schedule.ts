@@ -8,10 +8,10 @@ export class RefreshTokenSchedule {
 
     @Cron(CronExpression.EVERY_DAY_AT_1AM)
     async cleanExpiredRefreshTokens() {
-        const curent_time = new Date();
+        const curentTime = new Date();
 
         await this.prisma.refresh_tokens.deleteMany({
-            where: { expires_at: { lt: curent_time } },
+            where: { expires_at: { lt: curentTime } },
         });
     }
 }

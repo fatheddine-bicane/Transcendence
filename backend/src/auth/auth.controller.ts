@@ -22,7 +22,7 @@ import type { Response } from 'express';
 @Public()
 @Controller('auth')
 export class AuthController {
-    constructor(private readonly auth_service: AuthService) {}
+    constructor(private readonly authService: AuthService) {}
 
     @Post('sign-in')
     @HttpCode(HttpStatus.OK)
@@ -32,34 +32,34 @@ export class AuthController {
         )
         body: SignInDto,
         @Res({ passthrough: true }) res: Response,
-    ): Promise<{ access_token: string }> {
-        const { id, user_type } = await this.auth_service.signIn(
+    ): Promise<{ accessToken: string }> {
+        const { id, userType } = await this.authService.signIn(
             body.email,
             body.password,
         );
 
-        const { access_token, refresh_token } =
-            await this.auth_service.issueJwtTokenPair(id, user_type);
+        const { accessToken, refreshToken } =
+            await this.authService.issueJwtTokenPair(id, userType);
 
-        this.auth_service.setRefreshTokenCookie(res, refresh_token);
+        this.authService.setRefreshTokenCookie(res, refreshToken);
 
-        return { access_token };
+        return { accessToken };
     }
 
     @Post('sign-up/:user_type')
     async signUp(
         @Body(new SignUpValidationPipe()) body: SignUpDto,
-        @Param('user_type', new ParseEnumPipe(UserType)) user_type: UserType,
+        @Param('user_type', new ParseEnumPipe(UserType)) userType: UserType,
         @Res({ passthrough: true }) res: Response,
-    ): Promise<{ access_token: string }> {
-        const id = await this.auth_service.signUp(body, user_type);
+    ): Promise<{ accessToken: string }> {
+        const id = await this.authService.signUp(body, userType);
 
-        const { access_token, refresh_token } =
-            await this.auth_service.issueJwtTokenPair(id, user_type);
+        const { accessToken, refreshToken } =
+            await this.authService.issueJwtTokenPair(id, userType);
 
-        this.auth_service.setRefreshTokenCookie(res, refresh_token);
+        this.authService.setRefreshTokenCookie(res, refreshToken);
 
-        return { access_token };
+        return { accessToken };
     }
 
     @Post('refresh')
@@ -70,17 +70,17 @@ export class AuthController {
         )
         _body: EmptyBodyDto,
         @Res({ passthrough: true }) res: Response,
-        @Cookies('refreshToken') refreshToken?: string,
-    ): Promise<{ access_token: string }> {
-        if (!refreshToken) {
+        @Cookies('refreshToken') cookieRefreshToken?: string,
+    ): Promise<{ accessToken: string }> {
+        if (!cookieRefreshToken) {
             throw new UnauthorizedException();
         }
 
-        const { access_token, refresh_token } =
-            await this.auth_service.refreshAccessToken(refreshToken);
+        const { accessToken, refreshToken } =
+            await this.authService.refreshAccessToken(cookieRefreshToken);
 
-        this.auth_service.setRefreshTokenCookie(res, refresh_token);
+        this.authService.setRefreshTokenCookie(res, refreshToken);
 
-        return { access_token };
+        return { accessToken };
     }
 }
