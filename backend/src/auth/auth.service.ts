@@ -14,6 +14,7 @@ import { UserType } from './enums/user-type.enum.js';
 import { refresh_token_status } from '../generated/prisma/enums.js';
 import { JWTPair } from './dto/auth.dto.js';
 import { UUID } from 'node:crypto';
+import { Response } from 'express';
 
 @Injectable()
 export class AuthService {
@@ -177,6 +178,17 @@ export class AuthService {
         });
 
         return { access_token, refresh_token };
+    }
+
+    setRefreshTokenCookie(res: Response, refreshToken: string) {
+        const expirationDate = Math.floor(Date.now() / 1000 + 60 * 60 * 24 * 7);
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            path: '/auth/refresh',
+            maxAge: expirationDate,
+        });
     }
 
     private createUserRelation(user_type: UserType) {
