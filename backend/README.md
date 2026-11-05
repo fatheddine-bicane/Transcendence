@@ -28,6 +28,8 @@ MIN_POOL_CONNECTIONS=number_of_idle connections
 
 JWT_SECRET_KEY=JWT secret key
 
+NODE_ENV=the node env
+
 ```
 
 
@@ -45,6 +47,8 @@ Format: postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 ```MIN_POOL_CONNECTIONS```: Number of allowed idle connections default is 2
 
 ```JWT_SECRET_KEY```: A secure cryptographic key used to sign and verify the integrity of the JWT tokens
+
+```NODE_ENV```: Defines the envirement where the backedn servers runs: development or production
 
 ## Database & Prisma Setup
 
