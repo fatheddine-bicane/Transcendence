@@ -1,0 +1,17 @@
+{
+    "manifest": {
+        "name": "NafsCare",
+        "description": "Soins de santé mentale bienveillants et confidentiels — 100 % en ligne dans tout le Maroc"
+    },
+    "homePage": {
+        "title": "Bonjour le monde !"
+    },
+    "notFoundPage": {
+        "title": "Page introuvable",
+        "description": "vous semblez être perdu"
+    },
+    "errorPage": {
+        "description": "<p>Nous avons malheureusement rencontré une erreur.</p><p>Vous pouvez essayer de <retry>recharger la page</retry> que vous consultiez.</p>",
+        "title": "Une erreur s'est produite !"
+    }
+}

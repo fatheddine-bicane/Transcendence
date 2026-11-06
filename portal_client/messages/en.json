@@ -1,0 +1,17 @@
+{
+    "manifest": {
+        "name": "NafsCare",
+        "description": "Compassionate, Confidential Mental Health Care — 100% Online Across Morocco"
+    },
+    "homePage": {
+        "title": "Hello world!"
+    },
+    "notFoundPage": {
+        "title": "Page not found",
+        "description": "you seem to be lost"
+    },
+    "errorPage": {
+        "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+        "title": "Something went wrong!"
+    }
+}

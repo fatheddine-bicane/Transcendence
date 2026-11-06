@@ -1,0 +1,17 @@
+{
+    "manifest": {
+        "name": "NafsCare",
+        "description": "Atención de salud mental compasiva y confidencial — 100 % en línea en todo Marruecos"
+    },
+    "homePage": {
+        "title": "¡Hola, mundo!"
+    },
+    "notFoundPage": {
+        "title": "Página no encontrada",
+        "description": "parece que te has perdido"
+    },
+    "errorPage": {
+        "description": "<p>Lamentablemente hemos encontrado un error.</p><p>Puedes intentar <retry>recargar la página</retry> que estabas visitando.</p>",
+        "title": "¡Algo salió mal!"
+    }
+}

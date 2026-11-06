@@ -1,5 +1,8 @@
-function Hero() {
-    return <div>Hero</div>;
+interface Props {
+    title: string;
+}
+function Hero({ title }: Props) {
+    return <div>{title}</div>;
 }
 
 export default Hero;
