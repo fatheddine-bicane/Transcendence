@@ -3,7 +3,7 @@ import { CreateInternalDto } from '../../users/dto/internal-user.dto.js';
 import { CreateCounselorDto } from '../../users/dto/counselor-user.dto.js';
 import { CreatePatientDto } from '../../users/dto/patient-user.dto.js';
 import { Record } from '@prisma/client/runtime/client';
-import { UserType } from '../enums/user-type.enum.js';
+import { UserType } from '../../users/enums/user-type.enum.js';
 import { Type } from '@nestjs/common';
 
 export class SignInDto {

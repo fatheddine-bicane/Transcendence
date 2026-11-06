@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, PipeTransform } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { SIGNUP_DTO_MAP } from '../dto/auth.dto.js';
 import { validate } from 'class-validator';
-import { UserType } from '../enums/user-type.enum.js';
+import { UserType } from '../../users/enums/user-type.enum.js';
 
 @Injectable()
 export class SignUpValidationPipe implements PipeTransform {

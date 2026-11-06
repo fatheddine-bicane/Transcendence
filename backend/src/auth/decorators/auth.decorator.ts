@@ -1,5 +1,5 @@
 import { SetMetadata } from '@nestjs/common';
-import { UserType } from '../enums/user-type.enum.js';
+import { UserType } from '../../users/enums/user-type.enum.js';
 
 export const USER_TYPE_KEY = 'user_type';
 export const PUBLIC_ROUTE_KEY = 'public_key';

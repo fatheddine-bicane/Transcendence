@@ -6,7 +6,7 @@ import { PrismaModule } from '../src/prisma/prisma.module.js';
 import { JwtModule } from '@nestjs/jwt';
 import { PrismaService } from '../src/prisma/prisma.service.js';
 import { hash } from 'argon2';
-import { UserType } from '../src/auth/enums/user-type.enum.js';
+import { UserType } from '../src/users/enums/user-type.enum.js';
 
 describe('Auth', () => {
     let authController: INestApplication;

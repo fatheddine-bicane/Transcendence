@@ -8,7 +8,7 @@ import { USER_TYPE_KEY } from '../decorators/auth.decorator.js';
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
 import { RequestUserObject } from '../dto/auth.dto.js';
-import { UserType } from '../enums/user-type.enum.js';
+import { UserType } from '../../users/enums/user-type.enum.js';
 
 @Injectable()
 export class AuthorizationGuard implements CanActivate {

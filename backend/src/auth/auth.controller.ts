@@ -13,7 +13,7 @@ import {
 } from '@nestjs/common';
 import { EmptyBodyDto, SignInDto, type SignUpDto } from './dto/auth.dto.js';
 import { AuthService } from './auth.service.js';
-import { UserType } from './enums/user-type.enum.js';
+import { UserType } from '../users/enums/user-type.enum.js';
 import { SignUpValidationPipe } from './pipes/user-signup.pipe.js';
 import { Public, RequiredUserTypes } from './decorators/auth.decorator.js';
 import type { Response } from 'express';

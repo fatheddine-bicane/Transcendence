@@ -10,7 +10,7 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
 import { CreateCounselorDto } from '../users/dto/counselor-user.dto.js';
 import { CreatePatientDto } from '../users/dto/patient-user.dto.js';
 import { CreateInternalDto } from '../users/dto/internal-user.dto.js';
-import { UserType } from './enums/user-type.enum.js';
+import { UserType } from '../users/enums/user-type.enum.js';
 import { refresh_token_status } from '../generated/prisma/enums.js';
 import { JWTPair } from './dto/auth.dto.js';
 import { UUID } from 'node:crypto';
