@@ -15,18 +15,18 @@ export class AuthorizationGuard implements CanActivate {
     constructor(private readonly reflector: Reflector) {}
 
     canActivate(context: ExecutionContext): boolean | Promise<boolean> {
-        const allowed_user_types: UserType[] | string[] =
+        const allowedUserTypes: UserType[] | string[] =
             this.reflector.getAllAndOverride(USER_TYPE_KEY, [
                 context.getHandler(),
                 context.getClass(),
             ]);
 
         // no decorator used
-        if (!allowed_user_types) {
+        if (!allowedUserTypes) {
             throw new ForbiddenException();
         }
 
-        if (allowed_user_types.length == 0) {
+        if (allowedUserTypes.length == 0) {
             return true;
         }
 
@@ -34,8 +34,8 @@ export class AuthorizationGuard implements CanActivate {
             .switchToHttp()
             .getRequest<Request & RequestUserObject>();
 
-        const user_type = request.user.user_type;
-        if (allowed_user_types.find((type) => type == user_type)) {
+        const userType = request.user.userType;
+        if (allowedUserTypes.find((type) => type == userType)) {
             return true;
         } else {
             throw new ForbiddenException();

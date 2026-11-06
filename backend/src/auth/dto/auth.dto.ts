@@ -15,15 +15,11 @@ export class SignInDto {
     password: string;
 }
 
-export class RefreshAccessTokenDto {
-    @IsString()
-    @IsNotEmpty()
-    refresh_token: string;
-}
+export class EmptyBodyDto {}
 
 export type JWTPair = {
-    access_token: string;
-    refresh_token: string;
+    accessToken: string;
+    refreshToken: string;
 };
 
 export type SignUpDto =
@@ -38,6 +34,6 @@ export const SIGNUP_DTO_MAP: Record<UserType, Type<SignUpDto>> = {
 export type RequestUserObject = {
     user: {
         id: number;
-        user_type: UserType;
+        userType: UserType;
     };
 };

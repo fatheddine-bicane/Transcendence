@@ -14,37 +14,37 @@ import { RequestUserObject } from '../dto/auth.dto.js';
 export class AuthenticationGuard implements CanActivate {
     constructor(
         private readonly reflector: Reflector,
-        private readonly jwt_service: JwtService,
+        private readonly jwtService: JwtService,
     ) {}
 
     canActivate(context: ExecutionContext): boolean {
-        const is_public_route = this.reflector.getAllAndOverride(
+        const isPublicRoute = this.reflector.getAllAndOverride(
             PUBLIC_ROUTE_KEY,
             [context.getHandler(), context.getClass()],
         );
-        if (is_public_route) return true;
+        if (isPublicRoute) return true;
 
         const request = context
             .switchToHttp()
             .getRequest<Request & RequestUserObject>();
 
-        const auth_header = request.headers.authorization;
-        if (!auth_header) {
+        const authHeader = request.headers.authorization;
+        if (!authHeader) {
             throw new UnauthorizedException();
         }
 
-        const [type, access_token] = auth_header.split(' ');
-        if (type !== 'Bearer' || !access_token) {
+        const [type, accessToken] = authHeader.split(' ');
+        if (type !== 'Bearer' || !accessToken) {
             throw new UnauthorizedException();
         }
 
         try {
-            this.jwt_service.verify(access_token);
+            this.jwtService.verify(accessToken);
             //insert minimal user object into the request
-            const token = this.jwt_service.decode(access_token);
+            const token = this.jwtService.decode(accessToken);
             request['user'] = {
                 id: token.subject,
-                user_type: token.user_type,
+                userType: token.user_type,
             };
             return true;
         } catch (error) {

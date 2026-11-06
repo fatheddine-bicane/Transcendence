@@ -11,11 +11,11 @@ import { PartialType } from '@nestjs/mapped-types';
 export class CreateUserDto {
     @IsString()
     @IsNotEmpty()
-    first_name: string;
+    firstName: string;
 
     @IsString()
     @IsNotEmpty()
-    last_name: string;
+    lastName: string;
 
     @IsEmail()
     email: string;

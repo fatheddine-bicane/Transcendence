@@ -1,29 +1,28 @@
 import {
     Body,
     Controller,
+    Cookies,
     HttpCode,
     HttpStatus,
     Param,
     ParseEnumPipe,
     Post,
+    Res,
+    UnauthorizedException,
     ValidationPipe,
 } from '@nestjs/common';
-import {
-    JWTPair,
-    RefreshAccessTokenDto,
-    SignInDto,
-    type SignUpDto,
-} from './dto/auth.dto.js';
+import { EmptyBodyDto, SignInDto, type SignUpDto } from './dto/auth.dto.js';
 import { AuthService } from './auth.service.js';
 import { UserType } from './enums/user-type.enum.js';
 import { SignUpValidationPipe } from './pipes/user-signup.pipe.js';
 import { Public, RequiredUserTypes } from './decorators/auth.decorator.js';
+import type { Response } from 'express';
 
 @RequiredUserTypes()
 @Public()
 @Controller('auth')
 export class AuthController {
-    constructor(private readonly auth_service: AuthService) {}
+    constructor(private readonly authService: AuthService) {}
 
     @Post('sign-in')
     @HttpCode(HttpStatus.OK)
@@ -32,31 +31,35 @@ export class AuthController {
             new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
         )
         body: SignInDto,
-    ): Promise<JWTPair> {
-        const { id, user_type } = await this.auth_service.signIn(
+        @Res({ passthrough: true }) res: Response,
+    ): Promise<{ accessToken: string }> {
+        const { id, userType } = await this.authService.signIn(
             body.email,
             body.password,
         );
-        const jwt_pair = await this.auth_service.issueJwtTokenPair(
-            id,
-            user_type,
-        );
 
-        return jwt_pair;
+        const { accessToken, refreshToken } =
+            await this.authService.issueJwtTokenPair(id, userType);
+
+        this.authService.setRefreshTokenCookie(res, refreshToken);
+
+        return { accessToken };
     }
 
     @Post('sign-up/:user_type')
     async signUp(
         @Body(new SignUpValidationPipe()) body: SignUpDto,
-        @Param('user_type', new ParseEnumPipe(UserType)) user_type: UserType,
-    ): Promise<JWTPair> {
-        const id = await this.auth_service.signUp(body, user_type);
-        const jwt_pair = await this.auth_service.issueJwtTokenPair(
-            id,
-            user_type,
-        );
+        @Param('user_type', new ParseEnumPipe(UserType)) userType: UserType,
+        @Res({ passthrough: true }) res: Response,
+    ): Promise<{ accessToken: string }> {
+        const id = await this.authService.signUp(body, userType);
 
-        return jwt_pair;
+        const { accessToken, refreshToken } =
+            await this.authService.issueJwtTokenPair(id, userType);
+
+        this.authService.setRefreshTokenCookie(res, refreshToken);
+
+        return { accessToken };
     }
 
     @Post('refresh')
@@ -65,12 +68,19 @@ export class AuthController {
         @Body(
             new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
         )
-        body: RefreshAccessTokenDto,
-    ): Promise<JWTPair> {
-        const jwt_pair = await this.auth_service.refreshAccessToken(
-            body.refresh_token,
-        );
+        _body: EmptyBodyDto,
+        @Res({ passthrough: true }) res: Response,
+        @Cookies('refreshToken') cookieRefreshToken?: string,
+    ): Promise<{ accessToken: string }> {
+        if (!cookieRefreshToken) {
+            throw new UnauthorizedException();
+        }
 
-        return jwt_pair;
+        const { accessToken, refreshToken } =
+            await this.authService.refreshAccessToken(cookieRefreshToken);
+
+        this.authService.setRefreshTokenCookie(res, refreshToken);
+
+        return { accessToken };
     }
 }

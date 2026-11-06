@@ -10,8 +10,8 @@ user types that can access an endpoint.
 WARN: if used to decorate a method with zero params its
 then allowing all user types in
 */
-export const RequiredUserTypes = (...user_types: UserType[]) =>
-    SetMetadata(USER_TYPE_KEY, user_types);
+export const RequiredUserTypes = (...userTypes: UserType[]) =>
+    SetMetadata(USER_TYPE_KEY, userTypes);
 
 /*
 INFO: This decorator can be user to expose an endpoint

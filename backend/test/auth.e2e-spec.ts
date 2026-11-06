@@ -9,7 +9,7 @@ import { hash } from 'argon2';
 import { UserType } from '../src/auth/enums/user-type.enum.js';
 
 describe('Auth', () => {
-    let auth_controller: INestApplication;
+    let authController: INestApplication;
     let prisma: PrismaService;
 
     beforeAll(async () => {
@@ -26,12 +26,12 @@ describe('Auth', () => {
         }).compile();
 
         prisma = moduleRef.get(PrismaService);
-        auth_controller = moduleRef.createNestApplication();
-        await auth_controller.init();
+        authController = moduleRef.createNestApplication();
+        await authController.init();
     });
 
     afterAll(async () => {
-        await auth_controller.close();
+        await authController.close();
     });
 
     beforeEach(async () => {
@@ -43,27 +43,31 @@ describe('Auth', () => {
     // -------------------------------------------------------
     async function signIn(obj: any) {
         const email = 'test-email@service.com';
-        const plain_password = 'Testing@2026';
-        const hashed_password = await hash(plain_password);
+        const plainPassword = 'Testing@2026';
+        const hashedPassword = await hash(plainPassword);
 
         await prisma.users.create({
             data: {
                 first_name: 'testFirstName',
                 last_name: 'testLastName',
                 email,
-                hashed_password,
+                hashed_password: hashedPassword,
                 ...obj,
             },
         });
 
-        const response = await request(auth_controller.getHttpServer())
+        const response = await request(authController.getHttpServer())
             .post('/auth/sign-in')
-            .send({ email, password: plain_password })
+            .send({ email, password: plainPassword })
             .expect(HttpStatus.OK);
 
+        const cookies = response.headers['set-cookie'];
+        expect(cookies).toBeDefined();
+        expect(cookies[0]).toContain('refreshToken=');
+        expect(cookies[0]).toContain('HttpOnly');
+
         expect(response.body).toEqual({
-            access_token: expect.any(String),
-            refresh_token: expect.any(String),
+            accessToken: expect.any(String),
         });
     }
 
@@ -82,23 +86,27 @@ describe('Auth', () => {
 
     // TEST: /auth/sign-up/:user_type
     // -------------------------------------------------------
-    async function signUp(user_type: UserType) {
-        const request_payload = {
-            type: user_type,
-            first_name: 'testFirstName',
-            last_name: 'testLastName',
+    async function signUp(userType: UserType) {
+        const requestPayload = {
+            type: userType,
+            firstName: 'testFirstName',
+            lastName: 'testLastName',
             email: 'test-email@service.com',
             password: 'TestPassword@2026',
         };
 
-        const response = await request(auth_controller.getHttpServer())
-            .post(`/auth/sign-up/${user_type}`)
-            .send(request_payload)
+        const response = await request(authController.getHttpServer())
+            .post(`/auth/sign-up/${userType}`)
+            .send(requestPayload)
             .expect(HttpStatus.CREATED);
 
+        const cookies = response.headers['set-cookie'];
+        expect(cookies).toBeDefined();
+        expect(cookies[0]).toContain('refreshToken=');
+        expect(cookies[0]).toContain('HttpOnly');
+
         expect(response.body).toEqual({
-            access_token: expect.any(String),
-            refresh_token: expect.any(String),
+            accessToken: expect.any(String),
         });
     }
 
@@ -120,8 +128,8 @@ describe('Auth', () => {
     // -------------------------------------------------------
     it('should successfully create a new access refresh pair of tokens', async () => {
         const email = 'test-email@service.com';
-        const plain_password = 'Testing@2026';
-        const hashed_password = await hash(plain_password);
+        const plainPassword = 'Testing@2026';
+        const hashedPassword = await hash(plainPassword);
 
         // create the user
         await prisma.users.create({
@@ -129,26 +137,34 @@ describe('Auth', () => {
                 first_name: 'testFirstName',
                 last_name: 'testLastName',
                 email,
-                hashed_password,
+                hashed_password: hashedPassword,
                 patients: { create: {} },
             },
         });
 
         // singIn and get the refresh token
-        const { body } = await request(auth_controller.getHttpServer())
+        const { headers } = await request(authController.getHttpServer())
             .post('/auth/sign-in')
-            .send({ email, password: plain_password });
-        const { refresh_token } = body;
+            .send({ email, password: plainPassword });
+        let signInCookies = headers['set-cookie'] as any as string[];
+        let refreshToken = signInCookies
+            .find((cookie) => cookie.startsWith('refreshToken='))
+            ?.split(';')[0]
+            .split('=')[1];
 
         // act and assert the refresh endpoint
-        const response = await request(auth_controller.getHttpServer())
+        const response = await request(authController.getHttpServer())
             .post('/auth/refresh')
-            .send({ refresh_token })
+            .set('Cookie', `refreshToken=${refreshToken}`)
             .expect(HttpStatus.OK);
 
+        const cookies = response.headers['set-cookie'];
+        expect(cookies).toBeDefined();
+        expect(cookies[0]).toContain('refreshToken=');
+        expect(cookies[0]).toContain('HttpOnly');
+
         expect(response.body).toEqual({
-            access_token: expect.any(String),
-            refresh_token: expect.any(String),
+            accessToken: expect.any(String),
         });
     });
     // -------------------------------------------------------
