@@ -21,12 +21,8 @@ export class AuthorizationGuard implements CanActivate {
                 context.getClass(),
             ]);
 
-        // no decorator used
-        if (!allowedUserTypes) {
-            throw new ForbiddenException();
-        }
-
-        if (allowedUserTypes.length == 0) {
+        // no decorator used or used empty
+        if (!allowedUserTypes || allowedUserTypes.length == 0) {
             return true;
         }
 
