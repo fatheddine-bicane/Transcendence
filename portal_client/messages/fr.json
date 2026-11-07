@@ -3,6 +3,15 @@
         "name": "NafsCare",
         "description": "Soins de santé mentale bienveillants et confidentiels — 100 % en ligne dans tout le Maroc"
     },
+    "navigation": {
+        "home": "Accueil",
+        "howItWorks": "Comment ça marche",
+        "about": "À propos",
+        "psychologists": "Nos Psychologues",
+        "forProfessionals": "Pour Professionnels",
+        "login": "Connexion",
+        "getStarted": "Commencer"
+    },
     "homePage": {
         "title": "Bonjour le monde !"
     },

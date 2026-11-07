@@ -7,12 +7,12 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getLocaleTxtDir, routing } from '@/i18n/routing';
 
 const inter = Inter({
-    variable: '--font-inter',
+    variable: '--font-inter-family',
     subsets: ['latin'],
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
-    variable: '--font-jakarta-sans',
+    variable: '--font-jakarta-family',
     subsets: ['latin'],
 });
 

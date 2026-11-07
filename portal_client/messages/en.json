@@ -3,6 +3,18 @@
         "name": "NafsCare",
         "description": "Compassionate, Confidential Mental Health Care — 100% Online Across Morocco"
     },
+    "navigation": {
+        "home": "Home",
+        "howItWorks": "How it works",
+        "about": "About Us",
+        "psychologists": "Our Psychologists",
+        "forProfessionals": "For Professionals",
+        "login": "Log in",
+        "getStarted": "Get started"
+    },
+    "sidenav": {
+        "appointments": "Appointments"
+    },
     "homePage": {
         "title": "Hello world!"
     },

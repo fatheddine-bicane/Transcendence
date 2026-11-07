@@ -3,6 +3,15 @@
         "name": "NafsCare",
         "description": "Atención de salud mental compasiva y confidencial — 100 % en línea en todo Marruecos"
     },
+    "navigation": {
+        "home": "Inicio",
+        "howItWorks": "Cómo funciona",
+        "about": "Sobre nosotros",
+        "psychologists": "Nuestros psicólogos",
+        "forProfessionals": "Para profesionales",
+        "login": "Iniciar sesión",
+        "getStarted": "Empezar"
+    },
     "homePage": {
         "title": "¡Hola, mundo!"
     },

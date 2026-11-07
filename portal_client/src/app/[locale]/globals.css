@@ -2,22 +2,50 @@
 
 :root {
     --background: #f4f3ee;
+    --foreground-light: #4b5563;
     --foreground: #4b5563;
+    --primary-light: #1d6033;
     --primary: #387949;
     --secondary: #457777;
     --ternary: #a75d00;
+    --neutral-light: #121c2a;
     --neutral: #1f2937;
+    --input: #121c2a;
+    --ring: #ffffff;
+    --destructive: #ea4335;
+    --popover: #f4f3ee;
+    --popover-foreground: #404940;
+    --accent: #fafaf7;
+    --accent-foreground: #4b5563;
+    --border: #4b5563;
+    --muted-foreground: #4b5563;
 }
 
 @theme inline {
     --color-background: var(--background);
+    --color-foreground-light: var(--foreground-light);
     --color-foreground: var(--foreground);
+    --color-primary-light: var(--primary-light);
     --color-primary: var(--primary);
     --color-secondary: var(--secondary);
     --color-ternary: var(--ternary);
+    --color-neutral-light: var(--neutral-light);
     --color-neutral: var(--neutral);
-    --font-sans: var(--font-jakarta-sans);
-    --font-mono: var(--font-inter);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-destructive: var(--destructive);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-border: var(--border);
+    --color-muted-foreground: var(--muted-foreground);
+    --font-sans: var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;
+    --font-jakarta:
+        var(--font-jakarta-family), ui-sans-serif, system-ui, sans-serif;
+    --font-inter:
+        var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;
+    --container-8xl: 96rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,7 +58,7 @@
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-sans);
 }
 
 [dir='rtl'] .icon-forward {

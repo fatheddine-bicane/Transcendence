@@ -3,6 +3,15 @@
         "name": "NafsCare",
         "description": "رعاية نفسية رحيمة وسرية — عبر الإنترنت بالكامل في جميع أنحاء المغرب"
     },
+    "navigation": {
+        "home": "الرئيسية",
+        "howItWorks": "كيف يعمل",
+        "about": "من نحن",
+        "psychologists": "أطباؤنا النفسيون",
+        "forProfessionals": "للمحترفين",
+        "login": "تسجيل الدخول",
+        "getStarted": "ابدأ الآن"
+    },
     "homePage": {
         "title": "مرحباً بالعالم!"
     },
