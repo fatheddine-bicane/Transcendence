@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import './globals.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
+import { getLocaleTxtDir, routing } from '@/i18n/routing';
 
 const inter = Inter({
     variable: '--font-inter',
@@ -35,6 +35,7 @@ async function RootLayout({ children }: LayoutProps<'/[locale]'>) {
     return (
         <html
             lang={locale}
+            dir={getLocaleTxtDir(locale)}
             className={cn(
                 inter.variable,
                 plusJakartaSans.variable,

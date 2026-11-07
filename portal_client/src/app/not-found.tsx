@@ -1,6 +1,6 @@
 'use client';
 
-import { routing } from '@/i18n/routing';
+import { getLocaleTxtDir, routing } from '@/i18n/routing';
 import Error from 'next/error';
 
 // This page renders when a route like `/unknown.txt` is requested.
@@ -9,7 +9,10 @@ import Error from 'next/error';
 
 export default function GlobalNotFound() {
     return (
-        <html lang={routing.defaultLocale}>
+        <html
+            lang={routing.defaultLocale}
+            dir={getLocaleTxtDir(routing.defaultLocale)}
+        >
             <body>
                 <Error statusCode={404} />;
             </body>
