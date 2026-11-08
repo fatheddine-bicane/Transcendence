@@ -10,7 +10,12 @@
         "psychologists": "Nos Psychologues",
         "forProfessionals": "Pour Professionnels",
         "login": "Connexion",
-        "getStarted": "Commencer"
+        "getStarted": "Commencer",
+        "openMenu": "Ouvrir le menu",
+        "closeMenu": "Fermer"
+    },
+    "sidenav": {
+        "appointments": "Rendez-vous"
     },
     "homePage": {
         "title": "Bonjour le monde !"

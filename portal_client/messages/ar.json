@@ -10,7 +10,12 @@
         "psychologists": "أطباؤنا النفسيون",
         "forProfessionals": "للمحترفين",
         "login": "تسجيل الدخول",
-        "getStarted": "ابدأ الآن"
+        "getStarted": "ابدأ الآن",
+        "openMenu": "فتح القائمة",
+        "closeMenu": "إغلاق"
+    },
+    "sidenav": {
+        "appointments": "المواعيد"
     },
     "homePage": {
         "title": "مرحباً بالعالم!"

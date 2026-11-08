@@ -4,6 +4,17 @@ import { cn } from '@/lib/utils';
 import { LocaleSwitcher } from '@/components/ui/localeSwitcher';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { getLocaleLabel } from '@/i18n/routing';
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from '@/components/ui/drawer';
+import { Menu } from 'lucide-react';
 
 interface Props {
     locale: string;
@@ -23,7 +34,7 @@ function Navbar({ locale, t, className }: Props) {
         >
             <Logo label={t.home} />
 
-            <div className="text-secondary-light flex items-center gap-5 text-sm font-medium">
+            <div className="text-secondary-light hidden text-xs font-medium md:flex md:items-center md:gap-5 lg:text-sm">
                 <Link
                     href="/how-it-works"
                     className="hover:text-primary transition-colors"
@@ -53,18 +64,104 @@ function Navbar({ locale, t, className }: Props) {
             <div className="ms-auto flex items-center gap-3">
                 <Link
                     href="/signin"
-                    className={buttonVariants({ variant: 'ghost', size: 'lg' })}
+                    className={cn(
+                        buttonVariants({
+                            variant: 'ghost',
+                            size: 'lg',
+                            className: 'hidden md:inline-flex',
+                        }),
+                    )}
                 >
                     {t.login}
                 </Link>
 
-                <Link href="/signup" className={buttonVariants({ size: 'lg' })}>
+                <Link
+                    href="/signup"
+                    className={cn(
+                        buttonVariants({
+                            size: 'lg',
+                            className: 'hidden md:inline-flex',
+                        }),
+                    )}
+                >
                     {t.getStarted}
                 </Link>
 
                 <LocaleSwitcher locale={locale}>
-                    {localeLabel.name}
+                    <span className="sm:hidden lg:inline">
+                        {localeLabel.name}
+                    </span>
                 </LocaleSwitcher>
+                <Drawer swipeDirection="right">
+                    <DrawerTrigger
+                        render={
+                            <Button
+                                variant="ghost"
+                                className="hover:text-primary md:hidden"
+                            />
+                        }
+                    >
+                        <span className="sr-only">{t.openMenu}</span>
+                        <Menu className="size-4" />
+                    </DrawerTrigger>
+                    <DrawerContent className="md:hidden">
+                        <div className="flex flex-col gap-5 p-4">
+                            <div className="space-y-2">
+                                <Link
+                                    href="/signin"
+                                    className={buttonVariants({
+                                        variant: 'ghost',
+                                        size: 'lg',
+                                        className: 'w-full',
+                                    })}
+                                >
+                                    {t.login}
+                                </Link>
+
+                                <Link
+                                    href="/signup"
+                                    className={buttonVariants({
+                                        size: 'lg',
+                                        className: 'w-full',
+                                    })}
+                                >
+                                    {t.getStarted}
+                                </Link>
+                            </div>
+                            <div className="text-secondary-light mt-auto flex flex-col gap-5 text-sm font-medium">
+                                <Link
+                                    href="/how-it-works"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    {t.howItWorks}
+                                </Link>
+                                <Link
+                                    href="/about"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    {t.about}
+                                </Link>
+                                <Link
+                                    href="/psychologists"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    {t.psychologists}
+                                </Link>
+                                <Link
+                                    href="/for-professionals"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    {t.forProfessionals}
+                                </Link>
+                            </div>
+                        </div>
+                        <DrawerFooter>
+                            <DrawerClose render={<Button variant="outline" />}>
+                                {t.closeMenu}
+                            </DrawerClose>
+                        </DrawerFooter>
+                    </DrawerContent>
+                </Drawer>
             </div>
         </nav>
     );
@@ -89,7 +186,10 @@ function Logo({ label }: { label: string }) {
                     />
                 </svg>
             </Link>
-            <p aria-hidden className="font-jakarta text-xl font-semibold">
+            <p
+                aria-hidden
+                className="font-jakarta text-lg font-semibold lg:text-xl"
+            >
                 Nafs
                 <span className="text-primary-light">Care</span>
             </p>

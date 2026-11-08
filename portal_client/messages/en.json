@@ -10,7 +10,9 @@
         "psychologists": "Our Psychologists",
         "forProfessionals": "For Professionals",
         "login": "Log in",
-        "getStarted": "Get started"
+        "getStarted": "Get started",
+        "openMenu": "Open menu",
+        "closeMenu": "Close"
     },
     "sidenav": {
         "appointments": "Appointments"
