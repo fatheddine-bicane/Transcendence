@@ -1,7 +1,6 @@
 'use client';
 
 import { PropsWithChildren, Suspense, useState } from 'react';
-import { Locale } from 'next-intl';
 import { Globe } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { useRouter, usePathname } from '@/i18n/navigation';
@@ -16,7 +15,7 @@ import {
 } from '@/components/ui/select';
 
 interface Props extends PropsWithChildren {
-    locale: Locale;
+    locale: string;
     className?: string;
 }
 

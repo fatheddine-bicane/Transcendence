@@ -1,12 +1,12 @@
-import { Locale, Messages } from 'next-intl';
+import { Messages } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { LocaleSwitcher } from '@/components/ui/localeSwitcher';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { getLocaleLabel } from '@/i18n/routing';
 
 interface Props {
-    locale: Locale;
+    locale: string;
     t: Messages['navigation'];
     className?: string;
 }
@@ -51,12 +51,16 @@ function Navbar({ locale, t, className }: Props) {
             </div>
 
             <div className="ms-auto flex items-center gap-3">
-                <Button type="button" size="lg" variant="ghost">
+                <Link
+                    href="/signin"
+                    className={buttonVariants({ variant: 'ghost', size: 'lg' })}
+                >
                     {t.login}
-                </Button>
-                <Button type="button" size="lg">
+                </Link>
+
+                <Link href="/signup" className={buttonVariants({ size: 'lg' })}>
                     {t.getStarted}
-                </Button>
+                </Link>
 
                 <LocaleSwitcher locale={locale}>
                     {localeLabel.name}
