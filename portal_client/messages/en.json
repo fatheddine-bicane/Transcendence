@@ -61,6 +61,19 @@
             "step3Footer": "Encrypted tele-suite",
             "quizPrompt": "Not sure which therapy modality suits you best (CBT, Systemic, Psychoanalytic)? Our matching quiz clarifies it instantly.",
             "quizCta": "Start 3-Minute Quiz"
+        },
+        "benefits": {
+            "badge": "Designed for Modern Morocco",
+            "title": "Why Online Therapy is Redefining Wellness in Morocco",
+            "description": "Breaking traditional barriers so you can focus entirely on healing and self-discovery.",
+            "benefit1Title": "Zero Stigma & Total Anonymity",
+            "benefit1Description": "No bumping into neighbors, colleagues, or relatives in clinic lobbies. Attend sessions from the total privacy and security of your own bedroom or study.",
+            "benefit2Title": "No Commuting or City Traffic",
+            "benefit2Description": "Skip hours battling Casa boulevard traffic or parking congestion. Whether you are in Agadir, Oujda, or a peaceful coastal village, quality care is just one click away.",
+            "benefit3Title": "Evenings & Weekend Flexibility",
+            "benefit3Description": "Book sessions that seamlessly fit your real life: 8:00 PM evening appointments after family dinners or quiet Sunday morning discussions.",
+            "benefit4Title": "Culturally Attuned Specialists",
+            "benefit4Description": "No need to explain Moroccan family dynamics, social obligations, or cultural nuances. Our specialists are deeply rooted in Moroccan society and traditions."
         }
     },
     "notFoundPage": {

@@ -61,6 +61,19 @@
             "step3Footer": "Espace télé sécurisé",
             "quizPrompt": "Vous hésitez entre CBT, systémique ou psychanalytique ? Notre quiz de matching clarifie cela immédiatement.",
             "quizCta": "Lancer le quiz de 3 minutes"
+        },
+        "benefits": {
+            "badge": "Conçu pour le Maroc moderne",
+            "title": "Pourquoi la thérapie en ligne redéfinit le bien-être au Maroc",
+            "description": "Briser les barrières traditionnelles pour vous concentrer entièrement sur la guérison et la découverte de soi.",
+            "benefit1Title": "Zéro stigmate et anonymat total",
+            "benefit1Description": "Plus de rencontres gênantes avec voisins, collègues ou proches dans les salles d'attente. Suivez vos séances dans l'intimité et la sécurité de votre chambre ou bureau.",
+            "benefit2Title": "Sans trajets ni embouteillages",
+            "benefit2Description": "Évitez des heures dans le trafic casablancais ou la chasse au parking. Que vous soyez à Agadir, Oujda ou dans un village côtier, des soins de qualité sont à un clic.",
+            "benefit3Title": "Flexibilité soirs et week-ends",
+            "benefit3Description": "Réservez des séances qui s'adaptent à votre vie : rendez-vous à 20 h après le dîner en famille, ou discussions calmes le dimanche matin.",
+            "benefit4Title": "Spécialistes culturellement ancrés",
+            "benefit4Description": "Plus besoin d'expliquer les dynamiques familiales marocaines, les obligations sociales ou les nuances culturelles. Nos spécialistes sont profondément ancrés dans la société marocaine."
         }
     },
     "notFoundPage": {

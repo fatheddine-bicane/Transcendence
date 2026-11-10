@@ -61,6 +61,19 @@
             "step3Footer": "Suite telesegura",
             "quizPrompt": "¿No sabes si te conviene CBT, sistémica o psicoanalítica? Nuestro quiz de matching lo aclara al instante.",
             "quizCta": "Empezar quiz de 3 minutos"
+        },
+        "benefits": {
+            "badge": "Diseñado para el Marruecos moderno",
+            "title": "Por qué la terapia online está redefiniendo el bienestar en Marruecos",
+            "description": "Rompiendo barreras tradicionales para que puedas centrarte por completo en sanar y en el autodescubrimiento.",
+            "benefit1Title": "Cero estigma y anonimato total",
+            "benefit1Description": "Sin encontrarte con vecinos, colegas o familiares en las salas de espera. Asiste a las sesiones desde la privacidad y seguridad de tu dormitorio o estudio.",
+            "benefit2Title": "Sin desplazamientos ni tráfico",
+            "benefit2Description": "Olvídate de horas en el tráfico de Casablanca o buscando aparcamiento. Estés en Agadir, Oujda o un pueblo costero, la atención de calidad está a un clic.",
+            "benefit3Title": "Flexibilidad de tardes y fines de semana",
+            "benefit3Description": "Reserva sesiones que encajen en tu vida real: citas a las 20:00 tras la cena familiar o charlas tranquilas el domingo por la mañana.",
+            "benefit4Title": "Especialistas culturalmente afines",
+            "benefit4Description": "No hace falta explicar dinámicas familiares marroquíes, obligaciones sociales o matices culturales. Nuestros especialistas están profundamente arraigados en la sociedad marroquí."
         }
     },
     "notFoundPage": {
