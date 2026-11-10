@@ -15,7 +15,7 @@ async function Hero() {
     const t = await getTranslations('homePage');
 
     return (
-        <section className="relative max-w-8xl mx-auto flex flex-col items-center justify-center gap-10 overflow-hidden px-4 pt-10 pb-14 md:px-6 lg:flex-row lg:items-center lg:gap-14 lg:px-8 lg:pt-14 lg:pb-24 xl:gap-16">
+        <section className="max-w-8xl relative mx-auto flex flex-col items-center justify-center gap-10 overflow-hidden px-4 pt-10 pb-14 md:px-6 lg:flex-row lg:items-center lg:gap-14 lg:px-8 lg:pt-14 lg:pb-24 xl:gap-16">
             <div
                 className="bg-primary-lighter/70 pointer-events-none absolute -inset-e-32 -top-32 size-96 rounded-full blur-3xl"
                 aria-hidden
@@ -92,7 +92,7 @@ async function Hero() {
                 </div>
             </div>
 
-            <div className="relative w-full max-w-119.5 shrink-0 lg:w-119.5 xl:max-w-140 xl:w-140">
+            <div className="relative w-full max-w-119.5 shrink-0 lg:w-119.5 xl:w-140 xl:max-w-140">
                 <div className="overflow-hidden rounded-3xl shadow-xl">
                     <Image
                         src="/hero.jpg"

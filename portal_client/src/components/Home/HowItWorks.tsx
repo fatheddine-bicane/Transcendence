@@ -12,9 +12,7 @@ const steps: {
     number: string;
     titleKey: 'step1Title' | 'step2Title' | 'step3Title';
     descriptionKey:
-        | 'step1Description'
-        | 'step2Description'
-        | 'step3Description';
+        'step1Description' | 'step2Description' | 'step3Description';
     tagKey: 'step1Tag' | 'step2Tag' | 'step3Tag';
     footerKey: 'step1Footer' | 'step2Footer' | 'step3Footer';
     footerIcon: LucideIcon;

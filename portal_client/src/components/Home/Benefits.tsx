@@ -8,7 +8,8 @@ import {
 } from 'lucide-react';
 
 const benefits: {
-    titleKey: 'benefit1Title' | 'benefit2Title' | 'benefit3Title' | 'benefit4Title';
+    titleKey:
+        'benefit1Title' | 'benefit2Title' | 'benefit3Title' | 'benefit4Title';
     descriptionKey:
         | 'benefit1Description'
         | 'benefit2Description'
@@ -63,12 +64,7 @@ async function Benefits() {
 
                 <ul className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {benefits.map(
-                        ({
-                            titleKey,
-                            descriptionKey,
-                            icon: Icon,
-                            tone,
-                        }) => (
+                        ({ titleKey, descriptionKey, icon: Icon, tone }) => (
                             <li
                                 key={titleKey}
                                 className="flex flex-col rounded-3xl bg-white p-7 shadow-sm"
