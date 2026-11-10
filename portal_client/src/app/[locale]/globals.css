@@ -13,6 +13,7 @@
     --secondary-soft: #b5e9e9;
     --secondary: #346666;
     --ternary: #a75d00;
+    --rating: #7f4500;
     --neutral-light: #121c2a;
     --neutral: #1f2937;
     --input: #121c2a;
@@ -39,6 +40,7 @@
     --color-secondary-soft: var(--secondary-soft);
     --color-secondary: var(--secondary);
     --color-ternary: var(--ternary);
+    --color-rating: #7f4500;
     --color-neutral-light: var(--neutral-light);
     --color-neutral: var(--neutral);
     --color-input: var(--input);

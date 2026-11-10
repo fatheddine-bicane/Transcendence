@@ -1,4 +1,5 @@
 import Benefits from '@/components/Home/Benefits';
+import CounselorShowcase from '@/components/Home/CounselorShowcase';
 import Hero from '@/components/Home/Hero';
 import HowItWorks from '@/components/Home/HowItWorks';
 import TrustHighlights from '@/components/Home/TrustHighlights';
@@ -10,6 +11,7 @@ export default function Home() {
             <TrustHighlights />
             <HowItWorks />
             <Benefits />
+            <CounselorShowcase />
         </>
     );
 }
