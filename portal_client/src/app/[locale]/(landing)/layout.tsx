@@ -14,7 +14,7 @@ async function LandingLayout({ children, params }: LayoutProps<'/[locale]'>) {
                     className="max-w-8xl mx-auto"
                 />
             </header>
-            <main className="max-w-8xl mx-auto">{children}</main>
+            <main>{children}</main>
         </>
     );
 }

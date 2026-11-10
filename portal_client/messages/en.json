@@ -32,7 +32,17 @@
         "teleRoom": "Active Tele-Room",
         "encrypted": "Encrypted",
         "doctorName": "Dr. Kenza Benani",
-        "doctorRole": "Clinical Psych • Casablanca"
+        "doctorRole": "Clinical Psych • Casablanca",
+        "trustHighlights": {
+            "remoteTitle": "100% Remote & Secure",
+            "remoteDescription": "No commuting or clinic lobbies",
+            "licensedTitle": "Licensed Moroccan Pros",
+            "licensedDescription": "Masters & Doctorate credentials",
+            "pricingTitle": "From 300 MAD / session",
+            "pricingDescription": "Transparent, local pricing",
+            "cndpTitle": "Strict CNDP Compliance",
+            "cndpDescription": "Rigid medical confidentiality"
+        }
     },
     "notFoundPage": {
         "title": "Page not found",

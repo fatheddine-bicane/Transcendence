@@ -32,7 +32,17 @@
         "teleRoom": "غرفة استشارة نشطة",
         "encrypted": "مشفر",
         "doctorName": "د. كنزة بناني",
-        "doctorRole": "أخصائية نفسية سريرية • الدار البيضاء"
+        "doctorRole": "أخصائية نفسية سريرية • الدار البيضاء",
+        "trustHighlights": {
+            "remoteTitle": "عن بُعد وآمن بنسبة 100%",
+            "remoteDescription": "دون تنقل أو غرف انتظار",
+            "licensedTitle": "محترفون مغاربة مرخصون",
+            "licensedDescription": "شهادات ماجستير ودكتوراه",
+            "pricingTitle": "من 300 درهم / جلسة",
+            "pricingDescription": "أسعار محلية وشفافة",
+            "cndpTitle": "امتثال صارم لـ CNDP",
+            "cndpDescription": "سرية طبية صارمة"
+        }
     },
     "notFoundPage": {
         "title": "الصفحة غير موجودة",

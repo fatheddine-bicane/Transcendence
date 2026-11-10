@@ -32,7 +32,17 @@
         "teleRoom": "Teleconsulta activa",
         "encrypted": "Cifrado",
         "doctorName": "Dra. Kenza Benani",
-        "doctorRole": "Psicóloga clínica • Casablanca"
+        "doctorRole": "Psicóloga clínica • Casablanca",
+        "trustHighlights": {
+            "remoteTitle": "100 % remoto y seguro",
+            "remoteDescription": "Sin desplazamientos ni salas de espera",
+            "licensedTitle": "Profesionales marroquíes licenciados",
+            "licensedDescription": "Credenciales de máster y doctorado",
+            "pricingTitle": "Desde 300 MAD / sesión",
+            "pricingDescription": "Precios locales y transparentes",
+            "cndpTitle": "Cumplimiento estricto de la CNDP",
+            "cndpDescription": "Confidencialidad médica rigurosa"
+        }
     },
     "notFoundPage": {
         "title": "Página no encontrada",
