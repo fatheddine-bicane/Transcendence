@@ -18,7 +18,21 @@
         "appointments": "Citas"
     },
     "homePage": {
-        "title": "¡Hola, mundo!"
+        "badge": "La principal red de tele-salud mental de Marruecos",
+        "title": "Atención de salud mental compasiva y confidencial — <highlight>100 % en línea</highlight> en todo Marruecos",
+        "description": "Habla con psicólogos marroquíes acreditados de Casablanca, Rabat, Marrakech, Tánger o de cualquier lugar del Reino. Sin desplazamientos, sin estigma y sin salas de espera. Disfruta de sesiones de audio y vídeo privadas y cifradas en la comodidad de tu espacio personal.",
+        "findCounselor": "Encuentra tu consejero",
+        "joinCounselor": "Únete como consejero",
+        "languages": "Disponible en dariya marroquí, inglés y árabe",
+        "discretion": "Discreción médica completa de extremo a extremo",
+        "imageAlt": "Mujer en una sesión de terapia por vídeo en su portátil al aire libre",
+        "verifiedTitle": "Terapeutas verificados",
+        "verifiedLicensed": "<percent>100 %</percent> licenciados",
+        "verifiedCertified": "Certificados en Marruecos",
+        "teleRoom": "Teleconsulta activa",
+        "encrypted": "Cifrado",
+        "doctorName": "Dra. Kenza Benani",
+        "doctorRole": "Psicóloga clínica • Casablanca"
     },
     "notFoundPage": {
         "title": "Página no encontrada",

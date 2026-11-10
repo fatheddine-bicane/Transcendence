@@ -18,7 +18,21 @@
         "appointments": "Appointments"
     },
     "homePage": {
-        "title": "Hello world!"
+        "badge": "Morocco's Premier Tele-Mental Health Network",
+        "title": "Compassionate, Confidential Mental Health Care — <highlight>100% Online</highlight> Across Morocco",
+        "description": "Speak with accredited Moroccan psychologists from Casablanca, Rabat, Marrakech, Tangier, or anywhere in the Kingdom. No travel, zero stigma, and zero waiting rooms. Experience private, encrypted audio and video sessions in the comfort of your personal space.",
+        "findCounselor": "Find Your Counselor",
+        "joinCounselor": "Join as a Counselor",
+        "languages": "Available in Moroccan Darija, English & Arabic",
+        "discretion": "Complete end-to-end medical discretion",
+        "imageAlt": "Woman in a video therapy session on her laptop outdoors",
+        "verifiedTitle": "Verified Therapists",
+        "verifiedLicensed": "<percent>100%</percent> Licensed",
+        "verifiedCertified": "Morocco Board Certified",
+        "teleRoom": "Active Tele-Room",
+        "encrypted": "Encrypted",
+        "doctorName": "Dr. Kenza Benani",
+        "doctorRole": "Clinical Psych • Casablanca"
     },
     "notFoundPage": {
         "title": "Page not found",
