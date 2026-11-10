@@ -2,6 +2,7 @@
 
 :root {
     --background: #f4f3ee;
+    --surface: #f8f9ff;
     --foreground-light: #4b5563;
     --foreground: #4b5563;
     --primary-lighter: #eaf3ed;
@@ -27,6 +28,7 @@
 
 @theme inline {
     --color-background: var(--background);
+    --color-surface: #f8f9ff;
     --color-foreground-light: var(--foreground-light);
     --color-foreground: var(--foreground);
     --color-primary-lighter: var(--primary-lighter);

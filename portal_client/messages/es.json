@@ -42,6 +42,25 @@
             "pricingDescription": "Precios locales y transparentes",
             "cndpTitle": "Cumplimiento estricto de la CNDP",
             "cndpDescription": "Confidencialidad médica rigurosa"
+        },
+        "howItWorks": {
+            "badge": "Sencillo • Guiado • Privado",
+            "title": "Cómo funciona la atención remota en NafsCare",
+            "description": "Acceder a apoyo profesional de salud mental no debería sentirse complicado ni expuesto. Comienza tu camino en tres pasos guiados desde casa.",
+            "step1Tag": "Toma ~3 min",
+            "step1Title": "Responde unas preguntas rápidas",
+            "step1Description": "Completa un breve cuestionario de admisión 100 % confidencial sobre tus sentimientos, preferencias y objetivos. ¿Prefieres no hacerlo? Puedes pasar directamente a explorar.",
+            "step1Footer": "Admisión totalmente privada",
+            "step2Tag": "Ajuste a medida",
+            "step2Title": "Encuentra al especialista adecuado",
+            "step2Description": "Recibe coincidencias inteligentes con consejeros licenciados especializados en tus retos y que hablan tu dialecto preferido (dariya marroquí, francés, inglés o árabe estándar).",
+            "step2Footer": "Alineación cultural y lingüística",
+            "step3Tag": "Acceso inmediato",
+            "step3Title": "Conéctate de forma segura",
+            "step3Description": "Asiste a sesiones cifradas de vídeo, audio o mensajería en alta definición desde tu teléfono, tableta u ordenador. Sin clínicas ni salas de espera.",
+            "step3Footer": "Suite telesegura",
+            "quizPrompt": "¿No sabes si te conviene CBT, sistémica o psicoanalítica? Nuestro quiz de matching lo aclara al instante.",
+            "quizCta": "Empezar quiz de 3 minutos"
         }
     },
     "notFoundPage": {

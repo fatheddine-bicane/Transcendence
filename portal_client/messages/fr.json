@@ -42,6 +42,25 @@
             "pricingDescription": "Tarifs locaux et transparents",
             "cndpTitle": "Conformité CNDP stricte",
             "cndpDescription": "Confidentialité médicale rigoureuse"
+        },
+        "howItWorks": {
+            "badge": "Simple • Guidé • Privé",
+            "title": "Comment fonctionnent les soins à distance sur NafsCare",
+            "description": "Accéder à un soutien en santé mentale ne devrait pas sembler compliqué ni exposé. Commencez votre parcours en trois étapes guidées depuis chez vous.",
+            "step1Tag": "Environ 3 min",
+            "step1Title": "Répondez à quelques questions",
+            "step1Description": "Complétez un court questionnaire d'accueil 100 % confidentiel sur vos ressentis, préférences et objectifs. Vous préférez ne pas le faire ? Vous pouvez passer directement à la recherche.",
+            "step1Footer": "Accueil entièrement privé",
+            "step2Tag": "Correspondance adaptée",
+            "step2Title": "Trouvez le bon spécialiste",
+            "step2Description": "Recevez des suggestions de conseillers agréés spécialisés dans vos défis et qui parlent votre dialecte préféré (darija marocaine, français, anglais ou arabe standard).",
+            "step2Footer": "Alignement culturel et linguistique",
+            "step3Tag": "Accès immédiat",
+            "step3Title": "Connectez-vous en toute sécurité",
+            "step3Description": "Participez à des séances vidéo, audio ou messagerie chiffrées en haute définition depuis votre téléphone, tablette ou ordinateur. Sans clinique, sans salle d'attente.",
+            "step3Footer": "Espace télé sécurisé",
+            "quizPrompt": "Vous hésitez entre CBT, systémique ou psychanalytique ? Notre quiz de matching clarifie cela immédiatement.",
+            "quizCta": "Lancer le quiz de 3 minutes"
         }
     },
     "notFoundPage": {

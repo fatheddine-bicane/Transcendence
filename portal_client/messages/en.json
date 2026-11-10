@@ -42,6 +42,25 @@
             "pricingDescription": "Transparent, local pricing",
             "cndpTitle": "Strict CNDP Compliance",
             "cndpDescription": "Rigid medical confidentiality"
+        },
+        "howItWorks": {
+            "badge": "Effortless • Guided • Private",
+            "title": "How Remote Care Works on NafsCare",
+            "description": "Accessing professional mental health support shouldn't feel complicated or exposed. Begin your journey in three guided steps from home.",
+            "step1Tag": "Takes ~3 mins",
+            "step1Title": "Answer Quick Questions",
+            "step1Description": "Complete a short, 100% confidential intake questionnaire regarding your current feelings, preferences, and personal goals. Prefer not to? You can easily skip straight to browsing.",
+            "step1Footer": "Completely private intake",
+            "step2Tag": "Tailored Fit",
+            "step2Title": "Match with the Right Specialist",
+            "step2Description": "Receive smart matches with licensed counselors who specialize in your specific challenges and speak your preferred dialect (Moroccan Darija, French, English, or Standard Arabic).",
+            "step2Footer": "Cultural & dialect alignment",
+            "step3Tag": "Instant Access",
+            "step3Title": "Connect Securely Anywhere",
+            "step3Description": "Attend high-definition encrypted video, audio, or continuous messaging sessions right from your phone, tablet, or laptop. No clinic visits, no awkward waiting areas.",
+            "step3Footer": "Encrypted tele-suite",
+            "quizPrompt": "Not sure which therapy modality suits you best (CBT, Systemic, Psychoanalytic)? Our matching quiz clarifies it instantly.",
+            "quizCta": "Start 3-Minute Quiz"
         }
     },
     "notFoundPage": {
