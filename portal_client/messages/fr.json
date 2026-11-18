@@ -139,6 +139,11 @@
             "secondaryCta": "Parcourir tous les thérapeutes",
             "encrypted": "Séances 100 % chiffrées",
             "flexible": "Annulez ou changez de thérapeute à tout moment"
+        },
+        "crisisNotice": {
+            "title": "En crise immédiate ou en danger ?",
+            "description": "NafsCare n'est pas destiné aux urgences psychiatriques ni aux risques aigus d'automutilation. Au Maroc, appelez le <samu>SAMU (15)</samu> ou la ligne nationale de secours médicaux <rescue>(141)</rescue> immédiatement.",
+            "emergencyCta": "Urgences Maroc : 15 / 141"
         }
     },
     "notFoundPage": {

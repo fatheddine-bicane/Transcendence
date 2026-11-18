@@ -139,6 +139,11 @@
             "secondaryCta": "Explorar todos los terapeutas",
             "encrypted": "Sesiones 100 % cifradas",
             "flexible": "Cancela o cambia de terapeuta en cualquier momento"
+        },
+        "crisisNotice": {
+            "title": "¿En crisis inmediata o en peligro?",
+            "description": "NafsCare no está pensado para emergencias psiquiátricas ni riesgos agudos de autolesión. En Marruecos, llama al <samu>SAMU (15)</samu> o a la línea nacional de rescate médico <rescue>(141)</rescue> de inmediato.",
+            "emergencyCta": "Emergencias Marruecos: 15 / 141"
         }
     },
     "notFoundPage": {

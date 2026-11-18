@@ -139,6 +139,11 @@
             "secondaryCta": "Browse All Therapists",
             "encrypted": "100% Encrypted Sessions",
             "flexible": "Cancel or switch therapists anytime"
+        },
+        "crisisNotice": {
+            "title": "In immediate crisis or feeling unsafe?",
+            "description": "NafsCare is not for psychiatric emergencies or acute self-harm risks. In Morocco, call <samu>SAMU (15)</samu> or the national medical rescue line <rescue>(141)</rescue> immediately.",
+            "emergencyCta": "Morocco Emergency: 15 / 141"
         }
     },
     "notFoundPage": {

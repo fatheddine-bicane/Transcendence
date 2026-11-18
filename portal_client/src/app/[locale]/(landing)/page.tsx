@@ -1,6 +1,7 @@
 import Benefits from '@/components/Home/Benefits';
 import ClosingCta from '@/components/Home/ClosingCta';
 import CounselorShowcase from '@/components/Home/CounselorShowcase';
+import CrisisNotice from '@/components/Home/CrisisNotice';
 import ForProfessionals from '@/components/Home/ForProfessionals';
 import Hero from '@/components/Home/Hero';
 import HowItWorks from '@/components/Home/HowItWorks';
@@ -16,6 +17,7 @@ export default function Home() {
             <CounselorShowcase />
             <ForProfessionals />
             <ClosingCta />
+            <CrisisNotice />
         </>
     );
 }
