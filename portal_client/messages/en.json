@@ -146,6 +146,19 @@
             "title": "In immediate crisis or feeling unsafe?",
             "description": "NafsCare is not for psychiatric emergencies or acute self-harm risks. In Morocco, call <samu>SAMU (15)</samu> or the national medical rescue line <rescue>(141)</rescue> immediately.",
             "emergencyCta": "Morocco Emergency: 15 / 141"
+        },
+        "footer": {
+            "emergency": "Psychiatric emergency or immediate life-threatening distress in Morocco: contact <samu>SAMU (15)</samu> or <civil>Civil Protection (150)</civil>.",
+            "availability": "24/7 • Every day",
+            "confidential": "100% Confidential & Anonymous",
+            "cndp": "CNDP Morocco Compliant",
+            "secureTeleconsult": "Secure SSL/AES Teleconsultation",
+            "madPricing": "Pricing in Dirhams (MAD)",
+            "brand": "NafsCare\nMorocco",
+            "tagline": "— Accessible, compassionate, stigma-free mental health in Casablanca, Rabat, Marrakech and across Morocco.",
+            "privacy": "Privacy",
+            "legal": "Legal notice",
+            "copyright": "© 2025 NafsCare. All rights reserved."
         }
     },
     "notFoundPage": {

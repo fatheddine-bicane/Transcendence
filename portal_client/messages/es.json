@@ -146,6 +146,19 @@
             "title": "¿En crisis inmediata o en peligro?",
             "description": "NafsCare no está pensado para emergencias psiquiátricas ni riesgos agudos de autolesión. En Marruecos, llama al <samu>SAMU (15)</samu> o a la línea nacional de rescate médico <rescue>(141)</rescue> de inmediato.",
             "emergencyCta": "Emergencias Marruecos: 15 / 141"
+        },
+        "footer": {
+            "emergency": "Emergencia psiquiátrica o peligro vital inmediato en Marruecos: contacta al <samu>SAMU (15)</samu> o a la <civil>Protección Civil (150)</civil>.",
+            "availability": "24/7 • Todos los días",
+            "confidential": "100% Confidencial y anónimo",
+            "cndp": "Conforme a la CNDP Marruecos",
+            "secureTeleconsult": "Teleconsulta segura SSL/AES",
+            "madPricing": "Tarifas en dirhams (MAD)",
+            "brand": "NafsCare\nMarruecos",
+            "tagline": "— Salud mental accesible, empática y sin tabúes en Casablanca, Rabat, Marrakech y en todo Marruecos.",
+            "privacy": "Privacidad",
+            "legal": "Aviso legal",
+            "copyright": "© 2025 NafsCare. Todos los derechos reservados."
         }
     },
     "notFoundPage": {

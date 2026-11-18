@@ -146,6 +146,19 @@
             "title": "En crise immédiate ou en danger ?",
             "description": "NafsCare n'est pas destiné aux urgences psychiatriques ni aux risques aigus d'automutilation. Au Maroc, appelez le <samu>SAMU (15)</samu> ou la ligne nationale de secours médicaux <rescue>(141)</rescue> immédiatement.",
             "emergencyCta": "Urgences Maroc : 15 / 141"
+        },
+        "footer": {
+            "emergency": "Urgence psychiatrique ou détresse vitale immédiate au Maroc : contactez le <samu>SAMU (15)</samu> ou la <civil>Protection Civile (150)</civil>.",
+            "availability": "24H/24 • 7J/7",
+            "confidential": "100% Confidentiel & Anonyme",
+            "cndp": "Conforme CNDP Maroc",
+            "secureTeleconsult": "Téléconsultation Sécurisée SSL/AES",
+            "madPricing": "Tarification en Dirhams (MAD)",
+            "brand": "NafsCare\nMaroc",
+            "tagline": "— Santé mentale accessible, bienveillante et sans tabou à Casablanca, Rabat, Marrakech et partout au Maroc.",
+            "privacy": "Confidentialité",
+            "legal": "Mentions légales",
+            "copyright": "© 2025 NafsCare. Tous droits réservés."
         }
     },
     "notFoundPage": {

@@ -1,3 +1,4 @@
+import Footer from '@/components/Home/Footer';
 import Navbar from '@/components/Navigation/Navbar';
 import { getDictionary } from '@/i18n';
 
@@ -15,6 +16,7 @@ async function LandingLayout({ children, params }: LayoutProps<'/[locale]'>) {
                 />
             </header>
             <main>{children}</main>
+            <Footer />
         </>
     );
 }
