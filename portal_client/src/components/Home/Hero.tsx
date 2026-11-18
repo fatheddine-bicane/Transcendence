@@ -12,7 +12,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 async function Hero() {
-    const t = await getTranslations('homePage');
+    const t = await getTranslations('homePage.hero');
 
     return (
         <section className="max-w-8xl relative mx-auto flex flex-col items-center justify-center gap-10 overflow-hidden px-4 pt-10 pb-14 md:px-6 lg:flex-row lg:items-center lg:gap-14 lg:px-8 lg:pt-14 lg:pb-24 xl:gap-16">
