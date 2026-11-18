@@ -51,7 +51,10 @@ async function HowItWorks() {
     const t = await getTranslations('homePage.howItWorks');
 
     return (
-        <section className="bg-surface w-full py-16 lg:py-24">
+        <section
+            id="how-it-works"
+            className="bg-surface w-full scroll-mt-24 py-16 lg:py-24"
+        >
             <div className="max-w-8xl mx-auto flex flex-col gap-12 px-4 md:px-6 lg:px-8">
                 <div className="flex max-w-2xl flex-col gap-3">
                     <p className="text-primary-deep bg-primary-lighter inline-flex w-fit rounded-full px-3 py-1 text-[0.6875rem] font-semibold tracking-wider uppercase">

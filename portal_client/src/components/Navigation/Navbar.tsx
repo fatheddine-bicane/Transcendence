@@ -33,25 +33,25 @@ function Navbar({ locale, t, className }: Props) {
 
             <div className="text-secondary-light hidden text-xs font-medium md:flex md:items-center md:gap-5 lg:text-sm">
                 <Link
-                    href="/how-it-works"
+                    href={{ pathname: '/', hash: 'how-it-works' }}
                     className="hover:text-primary transition-colors"
                 >
                     {t.howItWorks}
                 </Link>
                 <Link
-                    href="/about"
+                    href={{ pathname: '/', hash: 'about' }}
                     className="hover:text-primary transition-colors"
                 >
                     {t.about}
                 </Link>
                 <Link
-                    href="/psychologists"
+                    href={{ pathname: '/', hash: 'psychologists' }}
                     className="hover:text-primary transition-colors"
                 >
                     {t.psychologists}
                 </Link>
                 <Link
-                    href="/for-professionals"
+                    href={{ pathname: '/', hash: 'for-professionals' }}
                     className="hover:text-primary transition-colors"
                 >
                     {t.forProfessionals}
@@ -127,25 +127,34 @@ function Navbar({ locale, t, className }: Props) {
                             </div>
                             <div className="text-secondary-light mt-auto flex flex-col gap-5 text-sm font-medium">
                                 <Link
-                                    href="/how-it-works"
+                                    href={{
+                                        pathname: '/',
+                                        hash: 'how-it-works',
+                                    }}
                                     className="hover:text-primary transition-colors"
                                 >
                                     {t.howItWorks}
                                 </Link>
                                 <Link
-                                    href="/about"
+                                    href={{ pathname: '/', hash: 'about' }}
                                     className="hover:text-primary transition-colors"
                                 >
                                     {t.about}
                                 </Link>
                                 <Link
-                                    href="/psychologists"
+                                    href={{
+                                        pathname: '/',
+                                        hash: 'psychologists',
+                                    }}
                                     className="hover:text-primary transition-colors"
                                 >
                                     {t.psychologists}
                                 </Link>
                                 <Link
-                                    href="/for-professionals"
+                                    href={{
+                                        pathname: '/',
+                                        hash: 'for-professionals',
+                                    }}
                                     className="hover:text-primary transition-colors"
                                 >
                                     {t.forProfessionals}

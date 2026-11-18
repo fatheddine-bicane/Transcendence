@@ -52,7 +52,10 @@ async function ForProfessionals() {
     const t = await getTranslations('homePage.forProfessionals');
 
     return (
-        <section className="bg-secondary-lighter/50 w-full py-16 lg:py-24">
+        <section
+            id="for-professionals"
+            className="bg-secondary-lighter/50 w-full scroll-mt-24 py-16 lg:py-24"
+        >
             <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
                 <div className="rounded-3xl bg-white p-8 shadow-md lg:p-14">
                     <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12">

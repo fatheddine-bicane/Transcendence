@@ -46,7 +46,10 @@ async function CounselorShowcase() {
     const t = await getTranslations('homePage.counselorShowcase');
 
     return (
-        <section className="bg-surface w-full py-16 lg:py-24">
+        <section
+            id="psychologists"
+            className="bg-surface w-full scroll-mt-24 py-16 lg:py-24"
+        >
             <div className="max-w-8xl mx-auto flex flex-col gap-12 px-4 md:px-6 lg:px-8">
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                     <div className="flex max-w-xl flex-col gap-3">

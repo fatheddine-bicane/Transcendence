@@ -48,7 +48,10 @@ async function Benefits() {
     const t = await getTranslations('homePage.benefits');
 
     return (
-        <section className="bg-accent w-full py-16 lg:py-24">
+        <section
+            id="about"
+            className="bg-accent w-full scroll-mt-24 py-16 lg:py-24"
+        >
             <div className="max-w-8xl mx-auto flex flex-col items-center gap-12 px-4 md:px-6 lg:px-8">
                 <div className="flex max-w-3xl flex-col items-center gap-3 text-center">
                     <p className="text-primary-deep bg-primary-lighter inline-flex rounded-full px-3 py-1 text-[0.6875rem] font-semibold tracking-wider uppercase">

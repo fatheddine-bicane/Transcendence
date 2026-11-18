@@ -39,7 +39,7 @@ async function RootLayout({ children }: LayoutProps<'/[locale]'>) {
             className={cn(
                 inter.variable,
                 plusJakartaSans.variable,
-                'h-full antialiased',
+                'h-full scroll-smooth antialiased',
             )}
         >
             <body className="size-full">
