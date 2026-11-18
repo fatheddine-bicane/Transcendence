@@ -108,6 +108,28 @@
             "availabilityToday6": "Hoy 18:00",
             "availabilityTomorrow11": "Mañana 11:00",
             "availabilityToday830": "Hoy 20:30"
+        },
+        "forProfessionals": {
+            "badge": "Para terapeutas y médicos marroquíes",
+            "title": "Expande tu práctica en las 12 regiones de Marruecos",
+            "description": "¿Eres psicólogo clínico, psicoterapeuta o psiquiatra acreditado en Marruecos? Únete a NafsCare para romper barreras geográficas y ofrecer teleconsulta a los pacientes que más necesitan tu expertise.",
+            "feature1Title": "Pagos MAD garantizados",
+            "feature1Description": "Transferencias bancarias quincenales (RIB) con facturación automática.",
+            "feature2Title": "Autonomía total de agenda",
+            "feature2Description": "Define tu disponibilidad: jornada completa, fines de semana o noches.",
+            "feature3Title": "Espacio de trabajo seguro integrado",
+            "feature3Description": "Sin software externo. Suite de teleconsulta HD integrada.",
+            "feature4Title": "Sin carga administrativa",
+            "feature4Description": "Nosotros gestionamos la captación de pacientes, comisiones de pago y recordatorios.",
+            "cta": "Solicitar unirse a la red de profesionales",
+            "dashboardTitle": "Panel del consejero",
+            "livePlatform": "Plataforma en vivo",
+            "earningsLabel": "Ingresos del mes",
+            "earningsValue": "18.200 MAD",
+            "consultationsLabel": "Teleconsultas",
+            "consultationsValue": "52 completadas",
+            "quote": "«NafsCare me permitió atender a pacientes de regiones remotas que antes no tenían acceso a un especialista.»",
+            "quoteAuthor": "Dr. M. Tazi • Psicólogo clínico"
         }
     },
     "notFoundPage": {

@@ -108,6 +108,28 @@
             "availabilityToday6": "Aujourd'hui 18:00",
             "availabilityTomorrow11": "Demain 11:00",
             "availabilityToday830": "Aujourd'hui 20:30"
+        },
+        "forProfessionals": {
+            "badge": "Pour les thérapeutes et médecins marocains",
+            "title": "Développez votre pratique dans les 12 régions du Maroc",
+            "description": "Vous êtes psychologue clinicien, psychothérapeute ou psychiatre agréé au Maroc ? Rejoignez NafsCare pour dépasser les frontières géographiques et offrir la téléconsultation aux patients qui ont le plus besoin de votre expertise.",
+            "feature1Title": "Paiements MAD garantis",
+            "feature1Description": "Virements bancaires bihebdomadaires (RIB) avec facturation automatique.",
+            "feature2Title": "Autonomie totale sur l'agenda",
+            "feature2Description": "Fixez vos disponibilités : temps plein, week-ends ou soirées.",
+            "feature3Title": "Espace de travail sécurisé intégré",
+            "feature3Description": "Aucun logiciel externe. Suite de téléconsultation HD intégrée.",
+            "feature4Title": "Zéro charge administrative",
+            "feature4Description": "Nous gérons l'acquisition de patients, les frais de paiement et les rappels.",
+            "cta": "Postuler au réseau de praticiens",
+            "dashboardTitle": "Tableau de bord conseiller",
+            "livePlatform": "Plateforme en direct",
+            "earningsLabel": "Revenus du mois",
+            "earningsValue": "18 200 MAD",
+            "consultationsLabel": "Téléconsultations",
+            "consultationsValue": "52 terminées",
+            "quote": "« NafsCare m'a permis de soigner des patients de régions isolées qui n'avaient auparavant aucun accès à un spécialiste. »",
+            "quoteAuthor": "Dr. M. Tazi • Psychologue clinicien"
         }
     },
     "notFoundPage": {

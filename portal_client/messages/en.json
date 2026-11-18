@@ -108,6 +108,28 @@
             "availabilityToday6": "Today 6:00 PM",
             "availabilityTomorrow11": "Tomorrow 11:00 AM",
             "availabilityToday830": "Today 8:30 PM"
+        },
+        "forProfessionals": {
+            "badge": "For Moroccan Therapists & Doctors",
+            "title": "Expand Your Practice Across All 12 Regions of Morocco",
+            "description": "Are you an accredited clinical psychologist, psychotherapist, or psychiatrist registered in Morocco? Join NafsCare to break geographical boundaries and deliver telehealth to patients who need your expertise most.",
+            "feature1Title": "Guaranteed MAD Payouts",
+            "feature1Description": "Bi-weekly direct bank transfers (RIB) with automatic invoicing.",
+            "feature2Title": "Total Schedule Autonomy",
+            "feature2Description": "Set your availability: full-time, weekends, or evening hours.",
+            "feature3Title": "Built-in Secure Workspace",
+            "feature3Description": "No external software needed. Integrated HD tele-consult suite.",
+            "feature4Title": "No Administrative Hassle",
+            "feature4Description": "We handle patient acquisition, payment gateway fees, and reminders.",
+            "cta": "Apply to Join the Provider Network",
+            "dashboardTitle": "Counselor Dashboard",
+            "livePlatform": "Live Platform",
+            "earningsLabel": "This Month Earnings",
+            "earningsValue": "18,200 MAD",
+            "consultationsLabel": "Tele-Consultations",
+            "consultationsValue": "52 Completed",
+            "quote": "\"NafsCare allowed me to treat patients from remote regions who previously had zero access to a specialist.\"",
+            "quoteAuthor": "Dr. M. Tazi • Clinical Psychologist"
         }
     },
     "notFoundPage": {
