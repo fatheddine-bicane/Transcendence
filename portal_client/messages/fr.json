@@ -130,6 +130,15 @@
             "consultationsValue": "52 terminées",
             "quote": "« NafsCare m'a permis de soigner des patients de régions isolées qui n'avaient auparavant aucun accès à un spécialiste. »",
             "quoteAuthor": "Dr. M. Tazi • Psychologue clinicien"
+        },
+        "closingCta": {
+            "badge": "Votre bien-être avant tout",
+            "title": "Faites le premier pas vers la sérénité dès aujourd'hui",
+            "description": "Pas de listes d'attente. Pas de visites gênantes. Juste un soutien humain et agréé, dans un cadre en ligne privé conçu pour le Maroc.",
+            "primaryCta": "Trouver votre conseiller maintenant",
+            "secondaryCta": "Parcourir tous les thérapeutes",
+            "encrypted": "Séances 100 % chiffrées",
+            "flexible": "Annulez ou changez de thérapeute à tout moment"
         }
     },
     "notFoundPage": {

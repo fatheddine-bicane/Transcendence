@@ -1,4 +1,5 @@
 import Benefits from '@/components/Home/Benefits';
+import ClosingCta from '@/components/Home/ClosingCta';
 import CounselorShowcase from '@/components/Home/CounselorShowcase';
 import ForProfessionals from '@/components/Home/ForProfessionals';
 import Hero from '@/components/Home/Hero';
@@ -14,6 +15,7 @@ export default function Home() {
             <Benefits />
             <CounselorShowcase />
             <ForProfessionals />
+            <ClosingCta />
         </>
     );
 }

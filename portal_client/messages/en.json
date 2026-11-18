@@ -130,6 +130,15 @@
             "consultationsValue": "52 Completed",
             "quote": "\"NafsCare allowed me to treat patients from remote regions who previously had zero access to a specialist.\"",
             "quoteAuthor": "Dr. M. Tazi • Clinical Psychologist"
+        },
+        "closingCta": {
+            "badge": "Your Wellbeing Comes First",
+            "title": "Take the First Step Toward Peace of Mind Today",
+            "description": "No waiting lists. No awkward visits. Just accredited, human support in a private online setting designed specifically for Morocco.",
+            "primaryCta": "Find Your Counselor Now",
+            "secondaryCta": "Browse All Therapists",
+            "encrypted": "100% Encrypted Sessions",
+            "flexible": "Cancel or switch therapists anytime"
         }
     },
     "notFoundPage": {

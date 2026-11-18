@@ -130,6 +130,15 @@
             "consultationsValue": "52 completadas",
             "quote": "«NafsCare me permitió atender a pacientes de regiones remotas que antes no tenían acceso a un especialista.»",
             "quoteAuthor": "Dr. M. Tazi • Psicólogo clínico"
+        },
+        "closingCta": {
+            "badge": "Tu bienestar es lo primero",
+            "title": "Da el primer paso hacia la tranquilidad hoy",
+            "description": "Sin listas de espera. Sin visitas incómodas. Solo apoyo humano y acreditado en un entorno online privado diseñado para Marruecos.",
+            "primaryCta": "Encuentra tu consejero ahora",
+            "secondaryCta": "Explorar todos los terapeutas",
+            "encrypted": "Sesiones 100 % cifradas",
+            "flexible": "Cancela o cambia de terapeuta en cualquier momento"
         }
     },
     "notFoundPage": {
