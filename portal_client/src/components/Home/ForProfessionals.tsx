@@ -48,6 +48,24 @@ const features: Feature[] = [
     },
 ];
 
+function ApplyCta({ label }: { label: string }) {
+    return (
+        <Link
+            href="/for-professionals"
+            className={cn(
+                buttonVariants({ size: 'lg' }),
+                'bg-secondary hover:bg-secondary/90 h-auto w-full max-w-full gap-2 rounded-xl px-5 py-3 text-center text-sm font-semibold whitespace-normal text-white shadow-md sm:w-auto sm:px-7 sm:py-3.5 sm:text-base sm:whitespace-nowrap',
+            )}
+        >
+            {label}
+            <ArrowRight
+                className="icon-forward size-3.5 shrink-0"
+                aria-hidden
+            />
+        </Link>
+    );
+}
+
 async function ForProfessionals() {
     const t = await getTranslations('homePage.forProfessionals');
 
@@ -57,9 +75,9 @@ async function ForProfessionals() {
             className="bg-secondary-lighter/50 w-full scroll-mt-24 py-16 lg:py-24"
         >
             <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
-                <div className="rounded-3xl bg-white p-8 shadow-md lg:p-14">
-                    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12">
-                        <div className="flex flex-col gap-6 lg:col-span-7">
+                <div className="rounded-3xl bg-white p-6 shadow-md sm:p-8 lg:p-14">
+                    <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
+                        <div className="flex min-w-0 flex-col gap-6 lg:col-span-7">
                             <p className="text-secondary bg-secondary-soft inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-[0.6875rem] font-semibold tracking-wider uppercase">
                                 <BrainCircuit
                                     className="size-3.5 shrink-0"
@@ -91,7 +109,7 @@ async function ForProfessionals() {
                                                 className="text-secondary mt-1 size-5 shrink-0"
                                                 aria-hidden
                                             />
-                                            <div>
+                                            <div className="min-w-0">
                                                 <p className="text-input text-lg font-semibold">
                                                     {t(titleKey)}
                                                 </p>
@@ -104,20 +122,8 @@ async function ForProfessionals() {
                                 )}
                             </ul>
 
-                            <div className="pt-2">
-                                <Link
-                                    href="/for-professionals"
-                                    className={cn(
-                                        buttonVariants({ size: 'lg' }),
-                                        'bg-secondary hover:bg-secondary/90 h-auto gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-white shadow-md',
-                                    )}
-                                >
-                                    {t('cta')}
-                                    <ArrowRight
-                                        className="icon-forward size-3.5"
-                                        aria-hidden
-                                    />
-                                </Link>
+                            <div className="hidden pt-2 lg:block">
+                                <ApplyCta label={t('cta')} />
                             </div>
                         </div>
 
@@ -171,6 +177,10 @@ async function ForProfessionals() {
                                     </footer>
                                 </blockquote>
                             </aside>
+                        </div>
+
+                        <div className="min-w-0 lg:hidden">
+                            <ApplyCta label={t('cta')} />
                         </div>
                     </div>
                 </div>
