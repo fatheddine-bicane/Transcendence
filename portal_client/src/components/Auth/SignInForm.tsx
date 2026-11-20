@@ -1,23 +1,18 @@
 'use client';
 
-import { useState, type SubmitEvent } from 'react';
+import { type SubmitEvent } from 'react';
 import { useTranslations } from 'next-intl';
-import {
-    ClipboardList,
-    Eye,
-    EyeOff,
-    KeyRound,
-    Lock,
-    Mail,
-    Stethoscope,
-} from 'lucide-react';
+import { ClipboardList, Lock, Mail, Stethoscope } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { buttonVariants } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { InputPassword } from '@/components/ui/input-password';
+import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 
 function SignInForm() {
     const t = useTranslations('signInPage');
-    const [showPassword, setShowPassword] = useState(false);
 
     function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -43,37 +38,23 @@ function SignInForm() {
             </div>
 
             <div className="relative mt-8 flex flex-col gap-1.5">
-                <label
-                    htmlFor="signin-email"
-                    className="text-input text-sm font-medium"
-                >
-                    {t('emailLabel')}
-                </label>
-                <div className="relative">
-                    <Mail
-                        className="text-muted-foreground pointer-events-none absolute inset-s-4 top-1/2 size-4 -translate-y-1/2"
-                        aria-hidden
-                    />
-                    <input
-                        id="signin-email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        required
-                        placeholder={t('emailPlaceholder')}
-                        className="bg-accent text-input placeholder:text-popover-foreground/70 focus-visible:ring-primary-light/30 w-full rounded-xl py-4 ps-11 pe-4 text-base outline-none focus-visible:ring-3"
-                    />
-                </div>
+                <Label htmlFor="signin-email">{t('emailLabel')}</Label>
+                <Input
+                    id="signin-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    placeholder={t('emailPlaceholder')}
+                    startIcon={<Mail />}
+                />
             </div>
 
             <div className="relative mt-2 flex flex-col gap-1.5">
                 <div className="flex items-center justify-between gap-3">
-                    <label
-                        htmlFor="signin-password"
-                        className="text-input text-sm font-medium"
-                    >
+                    <Label htmlFor="signin-password">
                         {t('passwordLabel')}
-                    </label>
+                    </Label>
                     <Link
                         href="/signin"
                         className="text-primary-light shrink-0 text-xs font-medium tracking-wide hover:underline"
@@ -81,46 +62,24 @@ function SignInForm() {
                         {t('forgotPassword')}
                     </Link>
                 </div>
-                <div className="relative">
-                    <KeyRound
-                        className="text-muted-foreground pointer-events-none absolute inset-s-4 top-1/2 size-4 -translate-y-1/2"
-                        aria-hidden
-                    />
-                    <input
-                        id="signin-password"
-                        name="password"
-                        type={showPassword ? 'text' : 'password'}
-                        autoComplete="current-password"
-                        required
-                        placeholder={t('passwordPlaceholder')}
-                        className="bg-accent text-input placeholder:text-popover-foreground/70 focus-visible:ring-primary-light/30 w-full rounded-xl py-4 ps-11 pe-12 text-base outline-none focus-visible:ring-3"
-                    />
-                    <button
-                        type="button"
-                        onClick={() => setShowPassword((value) => !value)}
-                        className="text-muted-foreground hover:text-input absolute inset-e-3 top-1/2 -translate-y-1/2 rounded-md p-1.5 transition-colors"
-                        aria-label={
-                            showPassword ? t('hidePassword') : t('showPassword')
-                        }
-                    >
-                        {showPassword ? (
-                            <EyeOff className="size-4" aria-hidden />
-                        ) : (
-                            <Eye className="size-4" aria-hidden />
-                        )}
-                    </button>
-                </div>
+                <InputPassword
+                    id="signin-password"
+                    name="password"
+                    autoComplete="current-password"
+                    required
+                    placeholder={t('passwordPlaceholder')}
+                    showPasswordLabel={t('showPassword')}
+                    hidePasswordLabel={t('hidePassword')}
+                />
             </div>
 
-            <label className="text-foreground relative flex cursor-pointer items-center gap-2.5 pt-1 text-sm">
-                <input
-                    type="checkbox"
-                    name="remember"
-                    defaultChecked
-                    className="border-border text-primary-light focus-visible:ring-primary-light/30 size-4 rounded-[2.5px] accent-[#1d6033]"
-                />
+            <Label
+                htmlFor="signin-remember"
+                className="relative flex cursor-pointer items-center gap-2.5 pt-1"
+            >
+                <Checkbox id="signin-remember" name="remember" defaultChecked />
                 {t('rememberDevice')}
-            </label>
+            </Label>
 
             <div className="relative mt-8">
                 <button
