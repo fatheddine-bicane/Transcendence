@@ -161,6 +161,34 @@
             "copyright": "© 2025 NafsCare. Todos los derechos reservados."
         }
     },
+    "signInPage": {
+        "ribbonEyebrow": "Reino de Marruecos • Protocolo nacional de privacidad de telesalud",
+        "ribbonTitle": "Portal protegido para pacientes y clínicos",
+        "cndpBadge": "Conforme a la ley CNDP 09-08",
+        "sslBadge": "Cifrado SSL de 256 bits",
+        "title": "Bienvenido a tu santuario de paciente",
+        "description": "Inicia sesión para acceder a citas confidenciales, tu diario y conectar con tu terapeuta marroquí colegiado.",
+        "emailLabel": "Correo electrónico personal",
+        "emailPlaceholder": "amina.bennani@domain.ma",
+        "passwordLabel": "Contraseña",
+        "forgotPassword": "¿Olvidaste tu contraseña?",
+        "passwordPlaceholder": "Introduce tu contraseña",
+        "showPassword": "Mostrar contraseña",
+        "hidePassword": "Ocultar contraseña",
+        "rememberDevice": "Recordar este dispositivo durante 30 días",
+        "submit": "Entrar al espacio del paciente",
+        "matchingLink": "¿Nuevo en NafsCare? Haz la evaluación de emparejamiento",
+        "counselorLink": "¿Consejero colegiado? Únete a la red",
+        "confidentialityTitle": "Garantía de confidencialidad",
+        "confidentialityBody": "Todas las consultas cumplen la ley marroquí 09-08 sobre protección de datos personales. El cifrado de extremo a extremo garantiza que las sesiones, registros clínicos y evaluaciones permanezcan estrictamente confidenciales entre paciente y médico certificado.",
+        "dataResidency": "Datos almacenados de forma segura en servidores soberanos de Casablanca",
+        "trust1Title": "Especialistas acreditados",
+        "trust1Description": "Solo psiquiatras y psicólogos clínicos marroquíes verificados",
+        "trust2Title": "Tarifas en dirhams (MAD)",
+        "trust2Description": "Precios transparentes desde 250 MAD por sesión",
+        "trust3Title": "Apoyo de emergencia",
+        "trust3Description": "Enlace inmediato al SAMU 15 y atención de urgencia regional"
+    },
     "notFoundPage": {
         "title": "Página no encontrada",
         "description": "parece que te has perdido"
