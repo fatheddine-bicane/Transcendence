@@ -1,12 +1,6 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-import {
-    ArrowRight,
-    BrainCircuit,
-    Lock,
-    ShieldCheck,
-    Video,
-} from 'lucide-react';
+import { ArrowRight, BrainCircuit, Lock, ShieldCheck, Video } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -35,9 +29,7 @@ async function Hero() {
                     <h1 className="font-jakarta text-input text-3xl leading-tight font-bold tracking-tight sm:text-4xl lg:text-5xl">
                         {t.rich('title', {
                             highlight: (chunks) => (
-                                <span className="text-primary-deep italic">
-                                    {chunks}
-                                </span>
+                                <span className="text-primary-deep italic">{chunks}</span>
                             ),
                         })}
                     </h1>
@@ -56,10 +48,7 @@ async function Hero() {
                         )}
                     >
                         {t('findCounselor')}
-                        <ArrowRight
-                            className="icon-forward size-3.5"
-                            aria-hidden
-                        />
+                        <ArrowRight className="icon-forward size-3.5" aria-hidden />
                     </Link>
 
                     <Link
@@ -83,10 +72,7 @@ async function Hero() {
                         {t('languages')}
                     </p>
                     <p className="text-foreground flex items-center gap-1.5">
-                        <Lock
-                            className="text-ternary size-3.5 shrink-0"
-                            aria-hidden
-                        />
+                        <Lock className="text-ternary size-3.5 shrink-0" aria-hidden />
                         {t('discretion')}
                     </p>
                 </div>
@@ -106,10 +92,7 @@ async function Hero() {
 
                 <aside className="absolute inset-s-4 top-4 z-10 flex max-w-60 items-center gap-3 rounded-2xl bg-white p-3 shadow-lg sm:-inset-s-6 sm:-top-5 sm:max-w-64 sm:p-4">
                     <div className="bg-primary-lighter flex size-12 shrink-0 items-center justify-center rounded-xl">
-                        <BrainCircuit
-                            className="text-primary size-5"
-                            aria-hidden
-                        />
+                        <BrainCircuit className="text-primary size-5" aria-hidden />
                     </div>
                     <div className="min-w-0">
                         <p className="text-foreground text-[0.6875rem] font-semibold tracking-[0.06em] uppercase">
@@ -137,27 +120,19 @@ async function Hero() {
                             {t('teleRoom')}
                         </span>
                         <span className="text-foreground flex items-center gap-1.5 text-xs font-medium tracking-wide">
-                            <span
-                                className="bg-primary-light size-2 rounded-full"
-                                aria-hidden
-                            />
+                            <span className="bg-primary-light size-2 rounded-full" aria-hidden />
                             {t('encrypted')}
                         </span>
                     </div>
                     <div className="flex items-center gap-3 pt-1">
                         <div className="bg-secondary-soft flex size-10 shrink-0 items-center justify-center rounded-full">
-                            <Video
-                                className="text-secondary size-4"
-                                aria-hidden
-                            />
+                            <Video className="text-secondary size-4" aria-hidden />
                         </div>
                         <div className="min-w-0">
                             <p className="text-input truncate text-base font-semibold">
                                 {t('doctorName')}
                             </p>
-                            <p className="text-foreground truncate text-sm">
-                                {t('doctorRole')}
-                            </p>
+                            <p className="text-foreground truncate text-sm">{t('doctorRole')}</p>
                         </div>
                     </div>
                 </aside>

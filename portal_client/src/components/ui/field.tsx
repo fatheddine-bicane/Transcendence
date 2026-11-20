@@ -50,23 +50,20 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'>) {
     );
 }
 
-const fieldVariants = cva(
-    'group/field flex w-full gap-1.5 data-[invalid=true]:text-destructive',
-    {
-        variants: {
-            orientation: {
-                vertical: 'flex-col *:w-full [&>.sr-only]:w-auto',
-                horizontal:
-                    'flex-row items-center has-[>[data-slot=field-content]]:items-start *:data-[slot=field-label]:flex-auto has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px',
-                responsive:
-                    'flex-col *:w-full [&>.sr-only]:w-auto @md/field-group:flex-row @md/field-group:items-center @md/field-group:*:w-auto @md/field-group:has-[>[data-slot=field-content]]:items-start @md/field-group:*:data-[slot=field-label]:flex-auto @md/field-group:has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px',
-            },
-        },
-        defaultVariants: {
-            orientation: 'vertical',
+const fieldVariants = cva('group/field flex w-full gap-1.5 data-[invalid=true]:text-destructive', {
+    variants: {
+        orientation: {
+            vertical: 'flex-col *:w-full [&>.sr-only]:w-auto',
+            horizontal:
+                'flex-row items-center has-[>[data-slot=field-content]]:items-start *:data-[slot=field-label]:flex-auto has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px',
+            responsive:
+                'flex-col *:w-full [&>.sr-only]:w-auto @md/field-group:flex-row @md/field-group:items-center @md/field-group:*:w-auto @md/field-group:has-[>[data-slot=field-content]]:items-start @md/field-group:*:data-[slot=field-label]:flex-auto @md/field-group:has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px',
         },
     },
-);
+    defaultVariants: {
+        orientation: 'vertical',
+    },
+});
 
 function Field({
     className,
@@ -97,10 +94,7 @@ function FieldContent({ className, ...props }: React.ComponentProps<'div'>) {
     );
 }
 
-function FieldLabel({
-    className,
-    ...props
-}: React.ComponentProps<typeof Label>) {
+function FieldLabel({ className, ...props }: React.ComponentProps<typeof Label>) {
     return (
         <Label
             data-slot="field-label"
@@ -158,10 +152,7 @@ function FieldSeparator({
             )}
             {...props}
         >
-            <div
-                className="border-border/20 absolute inset-0 top-1/2 border-t"
-                aria-hidden
-            />
+            <div className="border-border/20 absolute inset-0 top-1/2 border-t" aria-hidden />
             {children && (
                 <span
                     data-slot="field-separator-content"

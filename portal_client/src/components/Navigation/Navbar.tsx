@@ -85,18 +85,11 @@ function Navbar({ locale, t, className }: Props) {
                 </Link>
 
                 <LocaleSwitcher locale={locale}>
-                    <span className="sm:hidden lg:inline">
-                        {localeLabel.name}
-                    </span>
+                    <span className="sm:hidden lg:inline">{localeLabel.name}</span>
                 </LocaleSwitcher>
                 <Drawer swipeDirection="right">
                     <DrawerTrigger
-                        render={
-                            <Button
-                                variant="ghost"
-                                className="hover:text-primary md:hidden"
-                            />
-                        }
+                        render={<Button variant="ghost" className="hover:text-primary md:hidden" />}
                     >
                         <span className="sr-only">{t.openMenu}</span>
                         <Menu className="size-4" />
@@ -192,10 +185,7 @@ function Logo({ label }: { label: string }) {
                     />
                 </svg>
             </Link>
-            <p
-                aria-hidden
-                className="font-jakarta text-lg font-semibold lg:text-xl"
-            >
+            <p aria-hidden className="font-jakarta text-lg font-semibold lg:text-xl">
                 Nafs
                 <span className="text-primary-light">Care</span>
             </p>

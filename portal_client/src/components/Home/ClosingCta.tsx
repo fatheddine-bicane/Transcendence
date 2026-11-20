@@ -32,10 +32,7 @@ async function ClosingCta() {
                             )}
                         >
                             {t('primaryCta')}
-                            <ArrowRight
-                                className="icon-forward size-3.5"
-                                aria-hidden
-                            />
+                            <ArrowRight className="icon-forward size-3.5" aria-hidden />
                         </Link>
                         <Link
                             href="/psychologists"
@@ -55,10 +52,7 @@ async function ClosingCta() {
                             {t('encrypted')}
                         </p>
                         <p className="flex items-center gap-1.5">
-                            <RefreshCw
-                                className="size-3.5 shrink-0"
-                                aria-hidden
-                            />
+                            <RefreshCw className="size-3.5 shrink-0" aria-hidden />
                             {t('flexible')}
                         </p>
                     </div>

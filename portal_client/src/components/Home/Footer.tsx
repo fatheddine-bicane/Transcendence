@@ -29,22 +29,11 @@ async function Footer() {
             <div className="bg-warning-lighter w-full py-3">
                 <div className="max-w-8xl mx-auto flex flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between md:px-6 lg:px-8">
                     <p className="text-warning-deep flex items-start gap-1.5 text-xs font-medium tracking-wide sm:items-center">
-                        <Asterisk
-                            className="mt-0.5 size-3.5 shrink-0 sm:mt-0"
-                            aria-hidden
-                        />
+                        <Asterisk className="mt-0.5 size-3.5 shrink-0 sm:mt-0" aria-hidden />
                         <span>
                             {t.rich('emergency', {
-                                samu: (chunks) => (
-                                    <strong className="font-bold">
-                                        {chunks}
-                                    </strong>
-                                ),
-                                civil: (chunks) => (
-                                    <strong className="font-bold">
-                                        {chunks}
-                                    </strong>
-                                ),
+                                samu: (chunks) => <strong className="font-bold">{chunks}</strong>,
+                                civil: (chunks) => <strong className="font-bold">{chunks}</strong>,
                             })}
                         </span>
                     </p>
@@ -61,10 +50,7 @@ async function Footer() {
                             key={labelKey}
                             className="text-input inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-xs font-medium tracking-wide shadow-sm"
                         >
-                            <Icon
-                                className="text-primary-light size-3.5 shrink-0"
-                                aria-hidden
-                            />
+                            <Icon className="text-primary-light size-3.5 shrink-0" aria-hidden />
                             {t(labelKey)}
                         </li>
                     ))}
@@ -75,9 +61,7 @@ async function Footer() {
                         <p className="text-input text-lg leading-snug font-semibold whitespace-pre-line">
                             {t('brand')}
                         </p>
-                        <p className="text-foreground text-sm leading-5">
-                            {t('tagline')}
-                        </p>
+                        <p className="text-foreground text-sm leading-5">{t('tagline')}</p>
                     </div>
 
                     <div className="text-foreground flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
@@ -87,10 +71,7 @@ async function Footer() {
                         >
                             {t('privacy')}
                         </Link>
-                        <Link
-                            href="/legal"
-                            className="hover:text-input text-sm transition-colors"
-                        >
+                        <Link href="/legal" className="hover:text-input text-sm transition-colors">
                             {t('legal')}
                         </Link>
                         <p className="text-xs font-medium tracking-wide whitespace-pre-line">

@@ -24,8 +24,7 @@ import { Link } from '@/i18n/navigation';
 
 type TrustCard = {
     titleKey: 'trust1Title' | 'trust2Title' | 'trust3Title';
-    descriptionKey:
-        'trust1Description' | 'trust2Description' | 'trust3Description';
+    descriptionKey: 'trust1Description' | 'trust2Description' | 'trust3Description';
     icon: LucideIcon;
     iconWrapClassName: string;
     iconClassName: string;
@@ -64,27 +63,19 @@ export default async function SignIn() {
                 <div className="bg-background/70 flex flex-col gap-3 rounded-2xl px-4 py-3 shadow-sm backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6">
                     <div className="flex min-w-0 items-start gap-3 sm:items-center">
                         <div className="bg-primary-lighter flex size-9 shrink-0 items-center justify-center rounded-xl">
-                            <Shield
-                                className="text-primary-light size-4"
-                                aria-hidden
-                            />
+                            <Shield className="text-primary-light size-4" aria-hidden />
                         </div>
                         <div className="min-w-0">
                             <p className="text-foreground text-[0.6875rem] font-semibold tracking-wider uppercase">
                                 {t('ribbonEyebrow')}
                             </p>
-                            <p className="text-input text-sm font-semibold">
-                                {t('ribbonTitle')}
-                            </p>
+                            <p className="text-input text-sm font-semibold">{t('ribbonTitle')}</p>
                         </div>
                     </div>
 
                     <div className="flex shrink-0 flex-wrap items-center gap-3">
                         <p className="text-foreground flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-xs font-medium tracking-wide shadow-sm">
-                            <ShieldCheck
-                                className="size-3.5 shrink-0"
-                                aria-hidden
-                            />
+                            <ShieldCheck className="size-3.5 shrink-0" aria-hidden />
                             {t('cndpBadge')}
                         </p>
                         <p className="text-foreground flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-xs font-medium tracking-wide shadow-sm">
@@ -130,10 +121,7 @@ export default async function SignIn() {
                                     href="/for-professionals"
                                     className="text-secondary flex flex-1 items-start gap-1 text-sm leading-5 font-medium hover:underline sm:justify-end"
                                 >
-                                    <Stethoscope
-                                        className="mt-0.5 size-3.5 shrink-0"
-                                        aria-hidden
-                                    />
+                                    <Stethoscope className="mt-0.5 size-3.5 shrink-0" aria-hidden />
                                     <span>{t('counselorLink')}</span>
                                 </Link>
                             </CardFooter>
@@ -142,10 +130,7 @@ export default async function SignIn() {
 
                     <aside className="bg-background flex flex-col gap-1.5 rounded-3xl p-6 shadow-sm lg:col-span-5">
                         <div className="flex items-center gap-1.5">
-                            <Shield
-                                className="text-primary-light size-4.5 shrink-0"
-                                aria-hidden
-                            />
+                            <Shield className="text-primary-light size-4.5 shrink-0" aria-hidden />
                             <h2 className="text-input text-lg leading-6.5 font-semibold">
                                 {t('confidentialityTitle')}
                             </h2>
@@ -154,10 +139,7 @@ export default async function SignIn() {
                             {t('confidentialityBody')}
                         </p>
                         <p className="text-foreground flex items-center gap-2 pt-2 text-xs font-medium tracking-wide">
-                            <Database
-                                className="size-3.5 shrink-0"
-                                aria-hidden
-                            />
+                            <Database className="size-3.5 shrink-0" aria-hidden />
                             {t('dataResidency')}
                         </p>
                     </aside>

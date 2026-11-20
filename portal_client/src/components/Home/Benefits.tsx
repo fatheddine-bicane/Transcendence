@@ -1,15 +1,8 @@
 import { getTranslations } from 'next-intl/server';
-import {
-    CalendarClock,
-    Car,
-    EyeOff,
-    HeartHandshake,
-    type LucideIcon,
-} from 'lucide-react';
+import { CalendarClock, Car, EyeOff, HeartHandshake, type LucideIcon } from 'lucide-react';
 
 const benefits: {
-    titleKey:
-        'benefit1Title' | 'benefit2Title' | 'benefit3Title' | 'benefit4Title';
+    titleKey: 'benefit1Title' | 'benefit2Title' | 'benefit3Title' | 'benefit4Title';
     descriptionKey:
         | 'benefit1Description'
         | 'benefit2Description'
@@ -48,10 +41,7 @@ async function Benefits() {
     const t = await getTranslations('homePage.benefits');
 
     return (
-        <section
-            id="about"
-            className="bg-accent w-full scroll-mt-24 py-16 lg:py-24"
-        >
+        <section id="about" className="bg-accent w-full scroll-mt-24 py-16 lg:py-24">
             <div className="max-w-8xl mx-auto flex flex-col items-center gap-12 px-4 md:px-6 lg:px-8">
                 <div className="flex max-w-3xl flex-col items-center gap-3 text-center">
                     <p className="text-primary-deep bg-primary-lighter inline-flex rounded-full px-3 py-1 text-[0.6875rem] font-semibold tracking-wider uppercase">
@@ -66,39 +56,37 @@ async function Benefits() {
                 </div>
 
                 <ul className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {benefits.map(
-                        ({ titleKey, descriptionKey, icon: Icon, tone }) => (
-                            <li
-                                key={titleKey}
-                                className="flex flex-col rounded-3xl bg-white p-7 shadow-sm"
+                    {benefits.map(({ titleKey, descriptionKey, icon: Icon, tone }) => (
+                        <li
+                            key={titleKey}
+                            className="flex flex-col rounded-3xl bg-white p-7 shadow-sm"
+                        >
+                            <div
+                                className={
+                                    tone === 'primary'
+                                        ? 'bg-primary-lighter flex size-12 items-center justify-center rounded-2xl'
+                                        : 'bg-secondary-lighter flex size-12 items-center justify-center rounded-2xl'
+                                }
                             >
-                                <div
+                                <Icon
                                     className={
                                         tone === 'primary'
-                                            ? 'bg-primary-lighter flex size-12 items-center justify-center rounded-2xl'
-                                            : 'bg-secondary-lighter flex size-12 items-center justify-center rounded-2xl'
+                                            ? 'text-primary-light size-5'
+                                            : 'text-secondary size-5'
                                     }
-                                >
-                                    <Icon
-                                        className={
-                                            tone === 'primary'
-                                                ? 'text-primary-light size-5'
-                                                : 'text-secondary size-5'
-                                        }
-                                        aria-hidden
-                                    />
-                                </div>
-                                <div className="mt-4 flex flex-col gap-2">
-                                    <h3 className="font-jakarta text-input text-xl leading-7 font-semibold">
-                                        {t(titleKey)}
-                                    </h3>
-                                    <p className="text-foreground text-sm leading-relaxed">
-                                        {t(descriptionKey)}
-                                    </p>
-                                </div>
-                            </li>
-                        ),
-                    )}
+                                    aria-hidden
+                                />
+                            </div>
+                            <div className="mt-4 flex flex-col gap-2">
+                                <h3 className="font-jakarta text-input text-xl leading-7 font-semibold">
+                                    {t(titleKey)}
+                                </h3>
+                                <p className="text-foreground text-sm leading-relaxed">
+                                    {t(descriptionKey)}
+                                </p>
+                            </div>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </section>

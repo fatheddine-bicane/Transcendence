@@ -4,10 +4,7 @@ import * as React from 'react';
 import { Eye, EyeOff, KeyRound } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 
-type InputPasswordProps = Omit<
-    React.ComponentProps<typeof Input>,
-    'type' | 'endIcon'
-> & {
+type InputPasswordProps = Omit<React.ComponentProps<typeof Input>, 'type' | 'endIcon'> & {
     showPasswordLabel?: string;
     hidePasswordLabel?: string;
 };
