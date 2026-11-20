@@ -15,8 +15,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 type Feature = {
-    titleKey:
-        'feature1Title' | 'feature2Title' | 'feature3Title' | 'feature4Title';
+    titleKey: 'feature1Title' | 'feature2Title' | 'feature3Title' | 'feature4Title';
     descriptionKey:
         | 'feature1Description'
         | 'feature2Description'
@@ -58,10 +57,7 @@ function ApplyCta({ label }: { label: string }) {
             )}
         >
             {label}
-            <ArrowRight
-                className="icon-forward size-3.5 shrink-0"
-                aria-hidden
-            />
+            <ArrowRight className="icon-forward size-3.5 shrink-0" aria-hidden />
         </Link>
     );
 }
@@ -79,10 +75,7 @@ async function ForProfessionals() {
                     <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
                         <div className="flex min-w-0 flex-col gap-6 lg:col-span-7">
                             <p className="text-secondary bg-secondary-soft inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-[0.6875rem] font-semibold tracking-wider uppercase">
-                                <BrainCircuit
-                                    className="size-3.5 shrink-0"
-                                    aria-hidden
-                                />
+                                <BrainCircuit className="size-3.5 shrink-0" aria-hidden />
                                 {t('badge')}
                             </p>
 
@@ -95,31 +88,22 @@ async function ForProfessionals() {
                             </p>
 
                             <ul className="grid grid-cols-1 gap-4 pt-2 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4">
-                                {features.map(
-                                    ({
-                                        titleKey,
-                                        descriptionKey,
-                                        icon: Icon,
-                                    }) => (
-                                        <li
-                                            key={titleKey}
-                                            className="flex items-start gap-3"
-                                        >
-                                            <Icon
-                                                className="text-secondary mt-1 size-5 shrink-0"
-                                                aria-hidden
-                                            />
-                                            <div className="min-w-0">
-                                                <p className="text-input text-lg font-semibold">
-                                                    {t(titleKey)}
-                                                </p>
-                                                <p className="text-foreground text-sm leading-5">
-                                                    {t(descriptionKey)}
-                                                </p>
-                                            </div>
-                                        </li>
-                                    ),
-                                )}
+                                {features.map(({ titleKey, descriptionKey, icon: Icon }) => (
+                                    <li key={titleKey} className="flex items-start gap-3">
+                                        <Icon
+                                            className="text-secondary mt-1 size-5 shrink-0"
+                                            aria-hidden
+                                        />
+                                        <div className="min-w-0">
+                                            <p className="text-input text-lg font-semibold">
+                                                {t(titleKey)}
+                                            </p>
+                                            <p className="text-foreground text-sm leading-5">
+                                                {t(descriptionKey)}
+                                            </p>
+                                        </div>
+                                    </li>
+                                ))}
                             </ul>
 
                             <div className="hidden pt-2 lg:block">
@@ -162,10 +146,7 @@ async function ForProfessionals() {
                                             {t('consultationsValue')}
                                         </p>
                                     </div>
-                                    <Video
-                                        className="text-secondary size-6 shrink-0"
-                                        aria-hidden
-                                    />
+                                    <Video className="text-secondary size-6 shrink-0" aria-hidden />
                                 </div>
 
                                 <blockquote className="flex flex-col gap-1 rounded-2xl bg-white p-3">

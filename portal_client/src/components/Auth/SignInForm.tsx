@@ -7,12 +7,7 @@ import { Lock, Mail } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
-import {
-    Field,
-    FieldError,
-    FieldGroup,
-    FieldLabel,
-} from '@/components/ui/field';
+import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { InputPassword } from '@/components/ui/input-password';
 import { createSignInSchema, signInDefaultValues } from '@/validation/sign-in';
@@ -52,15 +47,11 @@ function SignInForm() {
             <FieldGroup className="mt-5 gap-1.5">
                 <form.Field name="email">
                     {(field) => {
-                        const isInvalid =
-                            field.state.meta.isTouched &&
-                            !field.state.meta.isValid;
+                        const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
 
                         return (
                             <Field data-invalid={isInvalid || undefined}>
-                                <FieldLabel htmlFor="signin-email">
-                                    {t('emailLabel')}
-                                </FieldLabel>
+                                <FieldLabel htmlFor="signin-email">{t('emailLabel')}</FieldLabel>
                                 <Input
                                     id="signin-email"
                                     name={field.name}
@@ -68,18 +59,12 @@ function SignInForm() {
                                     autoComplete="email"
                                     value={field.state.value}
                                     onBlur={field.handleBlur}
-                                    onChange={(event) =>
-                                        field.handleChange(event.target.value)
-                                    }
+                                    onChange={(event) => field.handleChange(event.target.value)}
                                     aria-invalid={isInvalid}
                                     placeholder={t('emailPlaceholder')}
                                     startIcon={<Mail />}
                                 />
-                                {isInvalid && (
-                                    <FieldError
-                                        errors={field.state.meta.errors}
-                                    />
-                                )}
+                                {isInvalid && <FieldError errors={field.state.meta.errors} />}
                             </Field>
                         );
                     }}
@@ -87,15 +72,10 @@ function SignInForm() {
 
                 <form.Field name="password">
                     {(field) => {
-                        const isInvalid =
-                            field.state.meta.isTouched &&
-                            !field.state.meta.isValid;
+                        const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
 
                         return (
-                            <Field
-                                data-invalid={isInvalid || undefined}
-                                className="mt-2"
-                            >
+                            <Field data-invalid={isInvalid || undefined} className="mt-2">
                                 <div className="flex items-center justify-between gap-3">
                                     <FieldLabel htmlFor="signin-password">
                                         {t('passwordLabel')}
@@ -113,19 +93,13 @@ function SignInForm() {
                                     autoComplete="current-password"
                                     value={field.state.value}
                                     onBlur={field.handleBlur}
-                                    onChange={(event) =>
-                                        field.handleChange(event.target.value)
-                                    }
+                                    onChange={(event) => field.handleChange(event.target.value)}
                                     aria-invalid={isInvalid}
                                     placeholder={t('passwordPlaceholder')}
                                     showPasswordLabel={t('showPassword')}
                                     hidePasswordLabel={t('hidePassword')}
                                 />
-                                {isInvalid && (
-                                    <FieldError
-                                        errors={field.state.meta.errors}
-                                    />
-                                )}
+                                {isInvalid && <FieldError errors={field.state.meta.errors} />}
                             </Field>
                         );
                     }}
@@ -138,15 +112,10 @@ function SignInForm() {
                                 id="signin-remember"
                                 name={field.name}
                                 checked={field.state.value}
-                                onCheckedChange={(checked) =>
-                                    field.handleChange(checked === true)
-                                }
+                                onCheckedChange={(checked) => field.handleChange(checked === true)}
                                 onBlur={field.handleBlur}
                             />
-                            <FieldLabel
-                                htmlFor="signin-remember"
-                                className="cursor-pointer"
-                            >
+                            <FieldLabel htmlFor="signin-remember" className="cursor-pointer">
                                 {t('rememberDevice')}
                             </FieldLabel>
                         </Field>
@@ -154,12 +123,7 @@ function SignInForm() {
                 </form.Field>
 
                 <div className="mt-8">
-                    <form.Subscribe
-                        selector={(state) => [
-                            state.canSubmit,
-                            state.isSubmitting,
-                        ]}
-                    >
+                    <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
                         {([canSubmit, isSubmitting]) => (
                             <Button
                                 type="submit"

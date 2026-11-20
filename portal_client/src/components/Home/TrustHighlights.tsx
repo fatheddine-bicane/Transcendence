@@ -1,19 +1,10 @@
 import { getTranslations } from 'next-intl/server';
-import {
-    Banknote,
-    GraduationCap,
-    Laptop,
-    type LucideIcon,
-    Shield,
-} from 'lucide-react';
+import { Banknote, GraduationCap, Laptop, type LucideIcon, Shield } from 'lucide-react';
 
 const items: {
     titleKey: 'remoteTitle' | 'licensedTitle' | 'pricingTitle' | 'cndpTitle';
     descriptionKey:
-        | 'remoteDescription'
-        | 'licensedDescription'
-        | 'pricingDescription'
-        | 'cndpDescription';
+        'remoteDescription' | 'licensedDescription' | 'pricingDescription' | 'cndpDescription';
     icon: LucideIcon;
     tone: 'primary' | 'secondary';
 }[] = [
@@ -71,9 +62,7 @@ async function TrustHighlights() {
                             <p className="text-input text-lg leading-snug font-semibold">
                                 {t(titleKey)}
                             </p>
-                            <p className="text-foreground text-sm leading-5">
-                                {t(descriptionKey)}
-                            </p>
+                            <p className="text-foreground text-sm leading-5">{t(descriptionKey)}</p>
                         </div>
                     </li>
                 ))}

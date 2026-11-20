@@ -8,26 +8,15 @@ async function CrisisNotice() {
         <section className="bg-warning-lighter w-full py-6">
             <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 px-4 sm:flex-row sm:items-center md:px-6 lg:px-8">
                 <div className="flex items-start gap-3">
-                    <TriangleAlert
-                        className="text-ternary mt-0.5 size-5 shrink-0"
-                        aria-hidden
-                    />
+                    <TriangleAlert className="text-ternary mt-0.5 size-5 shrink-0" aria-hidden />
                     <div>
                         <h2 className="text-warning-deep text-lg leading-snug font-semibold">
                             {t('title')}
                         </h2>
                         <p className="text-warning mt-0.5 text-sm leading-5">
                             {t.rich('description', {
-                                samu: (chunks) => (
-                                    <strong className="font-bold">
-                                        {chunks}
-                                    </strong>
-                                ),
-                                rescue: (chunks) => (
-                                    <strong className="font-bold">
-                                        {chunks}
-                                    </strong>
-                                ),
+                                samu: (chunks) => <strong className="font-bold">{chunks}</strong>,
+                                rescue: (chunks) => <strong className="font-bold">{chunks}</strong>,
                             })}
                         </p>
                     </div>

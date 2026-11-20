@@ -46,10 +46,7 @@ async function CounselorShowcase() {
     const t = await getTranslations('homePage.counselorShowcase');
 
     return (
-        <section
-            id="psychologists"
-            className="bg-surface w-full scroll-mt-24 py-16 lg:py-24"
-        >
+        <section id="psychologists" className="bg-surface w-full scroll-mt-24 py-16 lg:py-24">
             <div className="max-w-8xl mx-auto flex flex-col gap-12 px-4 md:px-6 lg:px-8">
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                     <div className="flex max-w-xl flex-col gap-3">
@@ -59,19 +56,14 @@ async function CounselorShowcase() {
                         <h2 className="font-jakarta text-input text-3xl font-semibold tracking-tight lg:text-4xl lg:leading-11">
                             {t('title')}
                         </h2>
-                        <p className="text-foreground text-base leading-6">
-                            {t('description')}
-                        </p>
+                        <p className="text-foreground text-base leading-6">{t('description')}</p>
                     </div>
                     <Link
                         href="/psychologists"
                         className="text-primary-light hover:text-primary inline-flex shrink-0 items-center gap-1.5 text-sm font-medium transition-colors"
                     >
                         {t('exploreAll')}
-                        <ArrowRight
-                            className="icon-forward size-3"
-                            aria-hidden
-                        />
+                        <ArrowRight className="icon-forward size-3" aria-hidden />
                     </Link>
                 </div>
 
