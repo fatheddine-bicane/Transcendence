@@ -3,13 +3,24 @@ import {
     Asterisk,
     Banknote,
     BriefcaseMedical,
+    ClipboardList,
     Database,
     Lock,
     type LucideIcon,
     Shield,
     ShieldCheck,
+    Stethoscope,
 } from 'lucide-react';
 import SignInForm from '@/components/Auth/SignInForm';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
+import { Link } from '@/i18n/navigation';
 
 type TrustCard = {
     titleKey: 'trust1Title' | 'trust2Title' | 'trust3Title';
@@ -85,7 +96,48 @@ export default async function SignIn() {
 
                 <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-8">
                     <div className="min-w-0 lg:col-span-7">
-                        <SignInForm />
+                        <Card className="relative gap-3 sm:py-12 sm:[--card-spacing:--spacing(8)]">
+                            <div
+                                className="bg-primary-lighter/70 pointer-events-none absolute -inset-e-24 -top-24 size-80 rounded-full blur-3xl"
+                                aria-hidden
+                            />
+
+                            <CardHeader className="relative">
+                                <CardTitle className="text-[1.875rem] leading-9.5">
+                                    {t('title')}
+                                </CardTitle>
+                                <CardDescription className="text-base">
+                                    {t('description')}
+                                </CardDescription>
+                            </CardHeader>
+
+                            <CardContent className="relative">
+                                <SignInForm />
+                            </CardContent>
+
+                            <CardFooter className="relative flex-col items-stretch gap-3 pt-3.5 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                                <Link
+                                    href="/psychologists"
+                                    className="text-primary-light flex flex-1 items-start gap-1 text-sm leading-5 font-medium hover:underline"
+                                >
+                                    <ClipboardList
+                                        className="mt-0.5 size-3.5 shrink-0"
+                                        aria-hidden
+                                    />
+                                    <span>{t('matchingLink')}</span>
+                                </Link>
+                                <Link
+                                    href="/for-professionals"
+                                    className="text-secondary flex flex-1 items-start gap-1 text-sm leading-5 font-medium hover:underline sm:justify-end"
+                                >
+                                    <Stethoscope
+                                        className="mt-0.5 size-3.5 shrink-0"
+                                        aria-hidden
+                                    />
+                                    <span>{t('counselorLink')}</span>
+                                </Link>
+                            </CardFooter>
+                        </Card>
                     </div>
 
                     <aside className="bg-background flex flex-col gap-1.5 rounded-3xl p-6 shadow-sm lg:col-span-5">
