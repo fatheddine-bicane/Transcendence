@@ -9,6 +9,9 @@ const serverEnvSchema = z.object({
  * fail during `next build` / config load (via next.config import) and on
  * first server import — not silently at request time.
  */
-export const env = serverEnvSchema.parse({
-    API_URL: process.env.API_URL,
-});
+export const env = {
+    ...serverEnvSchema.parse({
+        API_URL: process.env.API_URL,
+    }),
+    isProd: process.env.NODE_ENV === 'production',
+};

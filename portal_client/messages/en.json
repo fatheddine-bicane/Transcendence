@@ -178,6 +178,8 @@
         "rememberDevice": "Remember this device for 30 days",
         "submit": "Log In to Patient Space",
         "submitting": "Signing in…",
+        "invalidCredentials": "Invalid email or password.",
+        "genericError": "Something went wrong. Please try again.",
         "matchingLink": "New to NafsCare? Take matching assessment",
         "counselorLink": "Licensed counselor? Apply to join network",
         "confidentialityTitle": "Confidentiality Guarantee",

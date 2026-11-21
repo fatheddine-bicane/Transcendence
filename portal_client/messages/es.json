@@ -178,6 +178,8 @@
         "rememberDevice": "Recordar este dispositivo durante 30 días",
         "submit": "Entrar al espacio del paciente",
         "submitting": "Iniciando sesión…",
+        "invalidCredentials": "Correo o contraseña incorrectos.",
+        "genericError": "Algo salió mal. Inténtalo de nuevo.",
         "matchingLink": "¿Nuevo en NafsCare? Haz la evaluación de emparejamiento",
         "counselorLink": "¿Consejero colegiado? Únete a la red",
         "confidentialityTitle": "Garantía de confidencialidad",
