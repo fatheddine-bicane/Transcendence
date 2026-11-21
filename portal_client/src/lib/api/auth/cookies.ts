@@ -38,6 +38,30 @@ async function setAuthCookies({ accessToken, refreshToken }: AuthCookies) {
     });
 }
 
+async function setAccessTokenCookie(accessToken: string) {
+    const jar = await cookies();
+
+    jar.set(ACCESS_TOKEN_COOKIE, accessToken, {
+        ...cookieBase,
+        path: '/',
+        maxAge: ACCESS_TOKEN_MAX_AGE_SECONDS,
+    });
+}
+
+async function clearAuthCookies() {
+    const jar = await cookies();
+    jar.delete({ name: ACCESS_TOKEN_COOKIE, path: '/' });
+    jar.delete({
+        name: REFRESH_TOKEN_COOKIE,
+        path: AUTH_REFRESH_PATH,
+    });
+}
+
+async function getAccessTokenCookie() {
+    const jar = await cookies();
+    return jar.get(ACCESS_TOKEN_COOKIE)?.value;
+}
+
 function parseCookieFromSetCookie(headers: Headers, name: string) {
     const prefix = `${name}=`;
 
@@ -51,5 +75,11 @@ function parseCookieFromSetCookie(headers: Headers, name: string) {
     return undefined;
 }
 
-export { setAuthCookies, parseCookieFromSetCookie };
+export {
+    setAuthCookies,
+    setAccessTokenCookie,
+    clearAuthCookies,
+    getAccessTokenCookie,
+    parseCookieFromSetCookie,
+};
 export type { AuthCookies };

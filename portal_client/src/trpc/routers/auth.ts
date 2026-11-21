@@ -1,10 +1,11 @@
 import { TRPCError } from '@trpc/server';
 import { getTranslations } from 'next-intl/server';
-import { localizedInput } from '@/trpc/localized-input';
+import { z } from 'zod';
 import { authSignIn, ApiUnauthorizedError } from '@/lib/api/auth';
-import { setAuthCookies } from '@/lib/api/auth/cookies';
+import { clearAuthCookies, setAccessTokenCookie, setAuthCookies } from '@/lib/api/auth/cookies';
 import { createSignInSchema, signInInputSchema } from '@/validation/sign-in';
-import { baseProcedure, createTRPCRouter } from '@/trpc/init';
+import { authenticatedProcedure, baseProcedure, createTRPCRouter } from '@/trpc/init';
+import { localizedInput } from '@/trpc/localized-input';
 
 export const authRouter = createTRPCRouter({
     signIn: baseProcedure
@@ -18,7 +19,10 @@ export const authRouter = createTRPCRouter({
                 return { ok: true };
             }
 
-            const t = await getTranslations({ locale: ctx.locale, namespace: 'signInPage' });
+            const t = await getTranslations({
+                locale: ctx.locale,
+                namespace: 'signInPage',
+            });
 
             if (error instanceof ApiUnauthorizedError) {
                 throw new TRPCError({
@@ -32,4 +36,16 @@ export const authRouter = createTRPCRouter({
                 message: t('genericError'),
             });
         }),
+
+    setAccessToken: authenticatedProcedure
+        .input(z.object({ token: z.string().min(1) }))
+        .mutation(async ({ input }) => {
+            await setAccessTokenCookie(input.token);
+            return { ok: true as const };
+        }),
+
+    signOut: baseProcedure.mutation(async () => {
+        await clearAuthCookies();
+        return { ok: true as const };
+    }),
 });
