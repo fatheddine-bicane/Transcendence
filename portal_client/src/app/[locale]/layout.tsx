@@ -44,7 +44,7 @@ async function RootLayout({ children }: LayoutProps<'/[locale]'>) {
             )}
         >
             <body className="size-full">
-                <TRPCReactProvider>
+                <TRPCReactProvider locale={locale}>
                     <NextIntlClientProvider>{children}</NextIntlClientProvider>
                 </TRPCReactProvider>
             </body>
