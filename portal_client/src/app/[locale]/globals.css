@@ -27,7 +27,16 @@
     --accent: #fafaf7;
     --accent-foreground: #4b5563;
     --border: #4b5563;
+    --muted: #ecebe6;
     --muted-foreground: #4b5563;
+    --sidebar: #ffffff;
+    --sidebar-foreground: #1f2937;
+    --sidebar-primary: #387949;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #eaf3ed;
+    --sidebar-accent-foreground: #28523d;
+    --sidebar-border: #e5e4df;
+    --sidebar-ring: #1d6033;
 }
 
 @theme inline {
@@ -57,7 +66,16 @@
     --color-accent: var(--accent);
     --color-accent-foreground: var(--accent-foreground);
     --color-border: var(--border);
+    --color-muted: var(--muted);
     --color-muted-foreground: var(--muted-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
     --font-sans: var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;
     --font-jakarta: var(--font-jakarta-family), ui-sans-serif, system-ui, sans-serif;
     --font-inter: var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;

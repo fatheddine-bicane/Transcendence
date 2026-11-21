@@ -15,7 +15,10 @@
         "closeMenu": "Close"
     },
     "sidenav": {
-        "appointments": "Appointments"
+        "brand": "NafsCare",
+        "menu": "Menu",
+        "appointments": "Appointments",
+        "logout": "Log out"
     },
     "homePage": {
         "hero": {

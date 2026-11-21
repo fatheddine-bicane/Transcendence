@@ -1,4 +1,5 @@
 import { Suspense, type ReactNode } from 'react';
+import { RequireAccessSkeleton } from '@/components/Auth/RequireAccessSkeleton';
 import { SilentRefresh } from '@/components/Auth/SilentRefresh';
 import { getValidAccessToken } from '@/lib/api/auth';
 
@@ -21,7 +22,7 @@ async function RequireAccessGate({ children }: { children: ReactNode }) {
  * RSC gate: valid access cookie → children; missing/expired → SilentRefresh.
  * Wraps the cookie/`Date.now()` check in Suspense for Cache Components.
  */
-function RequireAccess({ children, fallback = null }: RequireAccessProps) {
+function RequireAccess({ children, fallback = <RequireAccessSkeleton /> }: RequireAccessProps) {
     return (
         <Suspense fallback={fallback}>
             <RequireAccessGate>{children}</RequireAccessGate>

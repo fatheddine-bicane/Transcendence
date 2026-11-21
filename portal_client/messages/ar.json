@@ -15,7 +15,10 @@
         "closeMenu": "إغلاق"
     },
     "sidenav": {
-        "appointments": "المواعيد"
+        "brand": "NafsCare",
+        "menu": "القائمة",
+        "appointments": "المواعيد",
+        "logout": "تسجيل الخروج"
     },
     "homePage": {
         "hero": {

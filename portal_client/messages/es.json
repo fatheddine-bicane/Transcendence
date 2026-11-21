@@ -15,7 +15,10 @@
         "closeMenu": "Cerrar"
     },
     "sidenav": {
-        "appointments": "Citas"
+        "brand": "NafsCare",
+        "menu": "Menú",
+        "appointments": "Citas",
+        "logout": "Cerrar sesión"
     },
     "homePage": {
         "hero": {

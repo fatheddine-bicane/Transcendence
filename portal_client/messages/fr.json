@@ -15,7 +15,10 @@
         "closeMenu": "Fermer"
     },
     "sidenav": {
-        "appointments": "Rendez-vous"
+        "brand": "NafsCare",
+        "menu": "Menu",
+        "appointments": "Rendez-vous",
+        "logout": "Se déconnecter"
     },
     "homePage": {
         "hero": {
