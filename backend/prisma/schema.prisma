@@ -60,6 +60,7 @@ model counselors {
     user_id Int   @unique
     users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
+    appointments appointments[]
     slots        slots[]
 }
 
@@ -69,7 +70,36 @@ model patients {
     // one on one with the User table
     user_id Int   @unique
     users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+    appointments appointments[]
 }
+
+enum appointment_state {
+    PENDING
+    CANCELED
+    LIVE
+    EXPIRED
+    COMPLETED
+    NO_SHOW
+}
+
+model appointments {
+    id Int @id @default(autoincrement())
+
+    created_at       DateTime          @default(now())
+    state            appointment_state @default(PENDING)
+    canceling_reason String?
+
+    slot_id Int   @unique
+    slots   slots @relation(fields: [slot_id], references: [id])
+
+    counselor_id Int
+    counselors   counselors @relation(fields: [counselor_id], references: [id], onDelete: Cascade)
+
+    patient_id Int
+    patients   patients @relation(fields: [patient_id], references: [id])
+}
+
 enum slot_state {
     CANCELED
     BOOKED
@@ -86,4 +116,6 @@ model slots {
 
     counselor_id Int
     counselors   counselors @relation(fields: [counselor_id], references: [id])
+
+    appointement appointments?
 }
