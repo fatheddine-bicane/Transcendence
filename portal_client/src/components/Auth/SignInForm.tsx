@@ -1,35 +1,48 @@
 'use client';
 
+import { useMutation } from '@tanstack/react-query';
+import { TRPCClientError } from '@trpc/client';
 import { useTranslations } from 'next-intl';
 import { Lock, Mail } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
-import { useAppForm } from '@/components/form';
+import { Link, useRouter } from '@/i18n/navigation';
+import { AppForm, useAppForm } from '@/components/form';
 import { FieldGroup } from '@/components/ui/field';
+import { useTRPC } from '@/trpc/client';
 import { signInDefaultValues, useSignInSchema } from '@/validation/sign-in';
 
 function SignInForm() {
     const t = useTranslations('signInPage');
     const formSchema = useSignInSchema();
+    const router = useRouter();
+    const trpc = useTRPC();
+
+    const signInMutation = useMutation(trpc.auth.signIn.mutationOptions());
 
     const form = useAppForm({
         defaultValues: signInDefaultValues,
         validators: {
             onSubmit: formSchema,
+            onSubmitAsync: async ({ value }) => {
+                try {
+                    await signInMutation.mutateAsync(value);
+                    return null;
+                } catch (error) {
+                    return {
+                        form: error instanceof TRPCClientError ? error.message : t('genericError'),
+                    };
+                }
+            },
         },
-        onSubmit: async ({ value }) => {
-            // Auth API wiring comes next.
-            console.log(value);
+        onSubmit: async () => {
+            router.push('/dashboard');
         },
     });
 
     return (
-        <form
-            onSubmit={(event) => {
-                event.preventDefault();
-                form.handleSubmit();
-            }}
-        >
+        <AppForm form={form}>
             <FieldGroup className="mt-5 gap-1.5">
+                <form.FormSubmitError className="mb-2" />
+
                 <form.AppField name="email">
                     {(field) => (
                         <field.TextField
@@ -76,19 +89,17 @@ function SignInForm() {
                 </form.AppField>
 
                 <div className="mt-8">
-                    <form.AppForm>
-                        <form.SubmitButton
-                            size="lg"
-                            submittingLabel={t('submitting')}
-                            className="bg-primary-light hover:bg-primary-light/90 h-auto w-full gap-2 rounded-xl px-6 py-4 text-sm font-medium whitespace-normal text-white shadow-md"
-                        >
-                            <Lock className="size-4 shrink-0" aria-hidden />
-                            {t('submit')}
-                        </form.SubmitButton>
-                    </form.AppForm>
+                    <form.SubmitButton
+                        size="lg"
+                        submittingLabel={t('submitting')}
+                        className="bg-primary-light hover:bg-primary-light/90 h-auto w-full gap-2 rounded-xl px-6 py-4 text-sm font-medium whitespace-normal text-white shadow-md"
+                    >
+                        <Lock className="size-4 shrink-0" aria-hidden />
+                        {t('submit')}
+                    </form.SubmitButton>
                 </div>
             </FieldGroup>
-        </form>
+        </AppForm>
     );
 }
 
