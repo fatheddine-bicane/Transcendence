@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
+import { env } from '@/lib/env';
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -15,6 +16,14 @@ const nextConfig: NextConfig = {
                 as: '*.css',
             },
         },
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/auth/refresh',
+                destination: `${env.API_URL}/auth/refresh`,
+            },
+        ];
     },
 };
 
