@@ -1,7 +1,8 @@
 import { hasLocale, type Locale } from 'next-intl';
 import { initTRPC } from '@trpc/server';
+import { LOCALE_HEADER } from '@/lib/constants';
+import { NEXT_INTL_LOCALE_HEADER } from '@/lib/constants.server';
 import { routing } from '@/i18n/routing';
-import { LOCALE_HEADER } from './locale-header';
 
 function resolveLocale(headers: Headers): Locale {
     const fromClient = headers.get(LOCALE_HEADER);
@@ -10,7 +11,7 @@ function resolveLocale(headers: Headers): Locale {
     }
 
     // Present on RSC/page requests where next-intl middleware ran.
-    const fromMiddleware = headers.get('x-next-intl-locale');
+    const fromMiddleware = headers.get(NEXT_INTL_LOCALE_HEADER);
     if (hasLocale(routing.locales, fromMiddleware)) {
         return fromMiddleware;
     }
