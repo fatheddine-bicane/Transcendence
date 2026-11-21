@@ -1,6 +1,7 @@
 import 'server-only';
 
 import { decodeJwt } from 'jose';
+import { connection } from 'next/server';
 import { getAccessTokenCookie } from './cookies';
 
 /** Raw access JWT from the httpOnly cookie (may be missing or expired). */
@@ -11,7 +12,7 @@ async function getAccessToken() {
 /**
  * Soft expiry check from JWT `exp` (decode only — Nest remains the authority).
  * `skewSeconds` treats near-expiry as expired so RSC can render SilentRefresh early.
- * Call after request-time I/O (e.g. cookies) inside a Suspense boundary — uses `Date.now()`.
+ * Requires request time (`connection()` / cookies) inside Suspense — uses `Date.now()`.
  */
 function isAccessTokenExpired(token: string, skewSeconds = 30) {
     try {
@@ -27,6 +28,9 @@ function isAccessTokenExpired(token: string, skewSeconds = 30) {
 
 /** Cookie present and not past `exp` (with skew); otherwise `null` → SilentRefresh gate. */
 async function getValidAccessToken() {
+    // Date.now() below needs request time; RequireAccess wraps this in Suspense.
+    await connection();
+
     const token = await getAccessToken();
     if (!token || isAccessTokenExpired(token)) return null;
     return token;
