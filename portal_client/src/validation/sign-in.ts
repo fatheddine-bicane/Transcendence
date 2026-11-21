@@ -7,6 +7,13 @@ type SignInValidationMessages = {
     passwordMin: string;
 };
 
+const signInMessageKeys = [
+    'emailRequired',
+    'emailInvalid',
+    'passwordRequired',
+    'passwordMin',
+] as const satisfies ReadonlyArray<keyof SignInValidationMessages>;
+
 const signInInputSchema = z.object({
     email: z.email(),
     password: z.string().min(8),
@@ -35,5 +42,10 @@ const signInDefaultValues: SignInPayload = {
     remember: true,
 };
 
-export { createSignInSchema, signInDefaultValues, signInInputSchema };
+export {
+    createSignInSchema,
+    signInDefaultValues,
+    signInInputSchema,
+    signInMessageKeys,
+};
 export type { SignInPayload, SignInValidationMessages };
