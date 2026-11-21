@@ -1,17 +1,12 @@
-import { SilentRefresh } from '@/components/Auth/SilentRefresh';
-import { getValidAccessToken } from '@/lib/api/auth';
+import { RequireAccess } from '@/components/Auth/RequireAccess';
 
-async function Dashboard() {
-    const accessToken = await getValidAccessToken();
-
-    if (!accessToken) {
-        return <SilentRefresh />;
-    }
-
+function Dashboard() {
     return (
-        <main>
-            <h1>Dashboard</h1>
-        </main>
+        <RequireAccess>
+            <main>
+                <h1>Dashboard</h1>
+            </main>
+        </RequireAccess>
     );
 }
 

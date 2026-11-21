@@ -11,6 +11,7 @@ async function getAccessToken() {
 /**
  * Soft expiry check from JWT `exp` (decode only — Nest remains the authority).
  * `skewSeconds` treats near-expiry as expired so RSC can render SilentRefresh early.
+ * Call after request-time I/O (e.g. cookies) inside a Suspense boundary — uses `Date.now()`.
  */
 function isAccessTokenExpired(token: string, skewSeconds = 30) {
     try {
