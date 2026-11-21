@@ -1,18 +1,7 @@
+import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import { z } from 'zod';
-
-type SignInValidationMessages = {
-    emailRequired: string;
-    emailInvalid: string;
-    passwordRequired: string;
-    passwordMin: string;
-};
-
-const signInMessageKeys = [
-    'emailRequired',
-    'emailInvalid',
-    'passwordRequired',
-    'passwordMin',
-] as const satisfies ReadonlyArray<keyof SignInValidationMessages>;
+import type { ValidationTranslator } from './messages';
 
 const signInInputSchema = z.object({
     email: z.email(),
@@ -22,18 +11,23 @@ const signInInputSchema = z.object({
 
 type SignInPayload = z.infer<typeof signInInputSchema>;
 
-function createSignInSchema(messages: SignInValidationMessages) {
+function createSignInSchema(v: ValidationTranslator) {
     return z.object({
         email: z
             .string()
-            .min(1, messages.emailRequired)
-            .pipe(z.email(messages.emailInvalid)),
+            .min(1, v('required'))
+            .pipe(z.email(v('email'))),
         password: z
             .string()
-            .min(1, messages.passwordRequired)
-            .min(8, messages.passwordMin),
+            .min(1, v('required'))
+            .min(8, v('min8')),
         remember: z.boolean(),
     }) satisfies z.ZodType<SignInPayload>;
+}
+
+function useSignInSchema() {
+    const v = useTranslations('validation');
+    return useMemo(() => createSignInSchema(v), [v]);
 }
 
 const signInDefaultValues: SignInPayload = {
@@ -46,6 +40,6 @@ export {
     createSignInSchema,
     signInDefaultValues,
     signInInputSchema,
-    signInMessageKeys,
+    useSignInSchema,
 };
-export type { SignInPayload, SignInValidationMessages };
+export type { SignInPayload };

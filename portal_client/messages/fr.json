@@ -176,10 +176,6 @@
         "showPassword": "Afficher le mot de passe",
         "hidePassword": "Masquer le mot de passe",
         "rememberDevice": "Se souvenir de cet appareil pendant 30 jours",
-        "emailRequired": "L'e-mail est requis.",
-        "emailInvalid": "Saisissez une adresse e-mail valide.",
-        "passwordRequired": "Le mot de passe est requis.",
-        "passwordMin": "Le mot de passe doit contenir au moins 8 caractères.",
         "submit": "Se connecter à l'espace patient",
         "submitting": "Connexion…",
         "matchingLink": "Nouveau sur NafsCare ? Faire le test d'orientation",
@@ -193,6 +189,12 @@
         "trust2Description": "Tarification transparente dès 250 MAD par séance",
         "trust3Title": "Soutien d'urgence",
         "trust3Description": "Lien immédiat vers le SAMU 15 et les soins d'urgence régionaux"
+    },
+    "validation": {
+        "required": "Ce champ est requis.",
+        "email": "Saisissez une adresse e-mail valide.",
+        "min8": "Doit contenir au moins 8 caractères.",
+        "invalid": "Entrée invalide."
     },
     "notFoundPage": {
         "title": "Page introuvable",
