@@ -43,7 +43,6 @@ model users {
 
     // one on one with the Patient table
     patients patients?
-
 }
 
 model internals {
@@ -58,14 +57,33 @@ model counselors {
     id Int @id @default(autoincrement())
 
     // one on one with the User table
-    user_id Int  @unique
-    users    users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id Int   @unique
+    users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+    slots        slots[]
 }
 
 model patients {
     id Int @id @default(autoincrement())
 
     // one on one with the User table
-    user_id Int  @unique
-    users    users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id Int   @unique
+    users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+enum slot_state {
+    CANCELED
+    BOOKED
+    LIVE
+    EXPIRED
+}
+
+model slots {
+    id Int @id @default(autoincrement())
+
+    start_time DateTime
+    end_time   DateTime
+    slot_state slot_state @default(LIVE)
+
+    counselor_id Int
+    counselors   counselors @relation(fields: [counselor_id], references: [id])
 }
