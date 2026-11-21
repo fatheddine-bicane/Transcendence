@@ -11,6 +11,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { RefreshTokenSchedule } from './auth/tasks/refresh-tokens.schedule.js';
 import { AppointmentsModule } from './appointments/appointments.module.js';
 import { SlotsModule } from './slots/slots.module.js';
+import { CleanCanceledSchedule } from './common/tasks/clean-canceled.schedule.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -45,6 +46,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
         { provide: APP_GUARD, useClass: AuthorizationGuard },
 
         RefreshTokenSchedule,
+        CleanCanceledSchedule,
     ],
 })
 export class AppModule {}
