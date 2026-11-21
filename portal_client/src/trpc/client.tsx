@@ -6,8 +6,8 @@ import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import { createTRPCContext } from '@trpc/tanstack-react-query';
 import type { Locale } from 'next-intl';
 import { useMemo } from 'react';
+import { LOCALE_HEADER, TRPC_ENDPOINT } from '@/lib/constants';
 import { makeQueryClient } from './query-client';
-import { LOCALE_HEADER } from './locale-header';
 import type { AppRouter } from './routers/_app';
 
 export const { TRPCProvider, useTRPC } = createTRPCContext<AppRouter>();
@@ -35,7 +35,7 @@ export function TRPCReactProvider(props: Props) {
             createTRPCClient<AppRouter>({
                 links: [
                     httpBatchLink({
-                        url: '/api/trpc',
+                        url: TRPC_ENDPOINT,
                         headers: {
                             [LOCALE_HEADER]: props.locale,
                         },
