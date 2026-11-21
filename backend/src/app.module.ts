@@ -9,6 +9,7 @@ import { AuthenticationGuard } from './auth/guards/authentication.guard.js';
 import { AuthorizationGuard } from './auth/guards/authorization.guard.js';
 import { ScheduleModule } from '@nestjs/schedule';
 import { RefreshTokenSchedule } from './auth/tasks/refresh-tokens.schedule.js';
+import { AppointmentsModule } from './appointments/appointments.module.js';
 import { SlotsModule } from './slots/slots.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
@@ -36,6 +37,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
         PrismaModule,
         AuthModule,
         UsersModule,
+        AppointmentsModule,
         SlotsModule,
     ],
     providers: [

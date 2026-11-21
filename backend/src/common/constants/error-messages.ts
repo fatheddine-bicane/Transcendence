@@ -21,4 +21,9 @@ export const ERROR_MESSAGES = {
         TIME_CONFLICT:
             'The selected time range overlaps with an existing scheduling slot for this counselor.',
     },
+
+    APPOINTMENT: {
+        NOT_FOUND:
+            'The requested appointment does not exist or was already deleted.',
+    },
 } as const;
