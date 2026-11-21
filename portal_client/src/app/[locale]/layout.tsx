@@ -5,6 +5,7 @@ import './globals.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { getLocaleTxtDir, routing } from '@/i18n/routing';
+import { TRPCReactProvider } from '@/trpc/client';
 
 const inter = Inter({
     variable: '--font-inter-family',
@@ -43,7 +44,9 @@ async function RootLayout({ children }: LayoutProps<'/[locale]'>) {
             )}
         >
             <body className="size-full">
-                <NextIntlClientProvider>{children}</NextIntlClientProvider>
+                <TRPCReactProvider>
+                    <NextIntlClientProvider>{children}</NextIntlClientProvider>
+                </TRPCReactProvider>
             </body>
         </html>
     );
