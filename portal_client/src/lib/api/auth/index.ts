@@ -4,6 +4,13 @@ import { parseCookieFromSetCookie } from './cookies';
 import { REFRESH_TOKEN_COOKIE } from '@/lib/constants.server';
 import { apiFetch, ApiRequestError, ApiUnauthorizedError } from '@/lib/fetch';
 
+export { apiFetchAuth } from './fetch';
+export {
+    getAccessToken,
+    getValidAccessToken,
+    isAccessTokenExpired,
+} from './session';
+
 class ApiMissingRefreshTokenError extends Error {
     constructor() {
         super('API sign-in response missing refreshToken cookie');
