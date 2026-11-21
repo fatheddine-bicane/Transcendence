@@ -176,10 +176,6 @@
         "showPassword": "Mostrar contraseña",
         "hidePassword": "Ocultar contraseña",
         "rememberDevice": "Recordar este dispositivo durante 30 días",
-        "emailRequired": "El correo es obligatorio.",
-        "emailInvalid": "Introduce un correo electrónico válido.",
-        "passwordRequired": "La contraseña es obligatoria.",
-        "passwordMin": "La contraseña debe tener al menos 8 caracteres.",
         "submit": "Entrar al espacio del paciente",
         "submitting": "Iniciando sesión…",
         "matchingLink": "¿Nuevo en NafsCare? Haz la evaluación de emparejamiento",
@@ -193,6 +189,12 @@
         "trust2Description": "Precios transparentes desde 250 MAD por sesión",
         "trust3Title": "Apoyo de emergencia",
         "trust3Description": "Enlace inmediato al SAMU 15 y atención de urgencia regional"
+    },
+    "validation": {
+        "required": "Este campo es obligatorio.",
+        "email": "Introduce un correo electrónico válido.",
+        "min8": "Debe tener al menos 8 caracteres.",
+        "invalid": "Entrada no válida."
     },
     "notFoundPage": {
         "title": "Página no encontrada",

@@ -1,26 +1,15 @@
 'use client';
 
-import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { Lock, Mail } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { useAppForm } from '@/components/form';
 import { FieldGroup } from '@/components/ui/field';
-import { createSignInSchema, signInDefaultValues } from '@/validation/sign-in';
+import { signInDefaultValues, useSignInSchema } from '@/validation/sign-in';
 
 function SignInForm() {
     const t = useTranslations('signInPage');
-
-    const formSchema = useMemo(
-        () =>
-            createSignInSchema({
-                emailRequired: t('emailRequired'),
-                emailInvalid: t('emailInvalid'),
-                passwordRequired: t('passwordRequired'),
-                passwordMin: t('passwordMin'),
-            }),
-        [t],
-    );
+    const formSchema = useSignInSchema();
 
     const form = useAppForm({
         defaultValues: signInDefaultValues,

@@ -176,10 +176,6 @@
         "showPassword": "Show password",
         "hidePassword": "Hide password",
         "rememberDevice": "Remember this device for 30 days",
-        "emailRequired": "Email is required.",
-        "emailInvalid": "Enter a valid email address.",
-        "passwordRequired": "Password is required.",
-        "passwordMin": "Password must be at least 8 characters.",
         "submit": "Log In to Patient Space",
         "submitting": "Signing in…",
         "matchingLink": "New to NafsCare? Take matching assessment",
@@ -193,6 +189,12 @@
         "trust2Description": "Transparent session pricing starting from 250 MAD",
         "trust3Title": "Emergency Response Support",
         "trust3Description": "Immediate crisis linkage to SAMU 15 & regional emergency care"
+    },
+    "validation": {
+        "required": "This field is required.",
+        "email": "Enter a valid email address.",
+        "min8": "Must be at least 8 characters.",
+        "invalid": "Invalid input."
     },
     "notFoundPage": {
         "title": "Page not found",
