@@ -17,6 +17,11 @@ enum refresh_token_status {
     USED
     REVOKED
 }
+enum counselors_approved_status {
+    PENDING
+    APPROVED
+    REJECTED
+}
 
 model refresh_tokens {
     jti        String               @id @db.Uuid
@@ -60,6 +65,9 @@ model counselors {
     // one on one with the User table
     user_id Int  @unique
     users    users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+    status counselors_approved_status @default(PENDING)
+    feedback String? @db.Text
 }
 
 model patients {
