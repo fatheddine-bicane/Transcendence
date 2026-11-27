@@ -43,7 +43,6 @@ model users {
 
     // one on one with the Patient table
     patients patients?
-
 }
 
 model internals {
@@ -58,14 +57,14 @@ model counselors {
     id Int @id @default(autoincrement())
 
     // one on one with the User table
-    user_id Int  @unique
-    users    users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id   Int         @unique
+    users     users       @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }
 
 model patients {
     id Int @id @default(autoincrement())
 
     // one on one with the User table
-    user_id Int  @unique
-    users    users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id Int   @unique
+    users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }
