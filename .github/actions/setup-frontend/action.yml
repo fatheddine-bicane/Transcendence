@@ -9,6 +9,9 @@ runs:
         node-version: "24.22.x"
         cache: npm
         cache-dependency-path: frontend/package-lock.json
+    # Match frontend/package.json devEngines.packageManager (Node 24 ships an older npm).
+    - run: npm install -g npm@11.20.0
+      shell: bash
     - run: npm ci
       shell: bash
       working-directory: frontend
