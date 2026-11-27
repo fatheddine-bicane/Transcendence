@@ -59,10 +59,8 @@
     --color-border: var(--border);
     --color-muted-foreground: var(--muted-foreground);
     --font-sans: var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;
-    --font-jakarta:
-        var(--font-jakarta-family), ui-sans-serif, system-ui, sans-serif;
-    --font-inter:
-        var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;
+    --font-jakarta: var(--font-jakarta-family), ui-sans-serif, system-ui, sans-serif;
+    --font-inter: var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;
     --container-8xl: 96rem;
 }
 

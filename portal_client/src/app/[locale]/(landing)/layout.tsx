@@ -9,11 +9,7 @@ async function LandingLayout({ children, params }: LayoutProps<'/[locale]'>) {
     return (
         <>
             <header className="bg-white">
-                <Navbar
-                    t={t.navigation}
-                    locale={locale}
-                    className="max-w-8xl mx-auto"
-                />
+                <Navbar t={t.navigation} locale={locale} className="max-w-8xl mx-auto" />
             </header>
             <main>{children}</main>
             <Footer />

@@ -60,15 +60,10 @@ function Dropdown({ locale, children, className }: Props) {
             }}
         >
             <SelectTrigger
-                className={cn(
-                    'min-h-7 gap-2 border-none bg-transparent sm:min-h-8',
-                    className,
-                )}
+                className={cn('min-h-7 gap-2 border-none bg-transparent sm:min-h-8', className)}
             >
                 <Globe className="text-primary-light size-4" />
-                <SelectValue placeholder={selected.name}>
-                    {children}
-                </SelectValue>
+                <SelectValue placeholder={selected.name}>{children}</SelectValue>
             </SelectTrigger>
             <SelectContent align="end" alignItemWithTrigger={false}>
                 {routingLabels.map((label) => (

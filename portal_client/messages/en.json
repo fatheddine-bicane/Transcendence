@@ -161,6 +161,41 @@
             "copyright": "© 2025 NafsCare. All rights reserved."
         }
     },
+    "signInPage": {
+        "ribbonEyebrow": "Kingdom of Morocco • National Telehealth Privacy Protocol",
+        "ribbonTitle": "Protected Patient & Clinician Gateway",
+        "cndpBadge": "CNDP Law 09-08 Compliant",
+        "sslBadge": "256-Bit SSL Encrypted",
+        "title": "Welcome to your Patient Sanctuary",
+        "description": "Sign in to access confidential appointments, journal reflections, and connect with your licensed Moroccan therapist.",
+        "emailLabel": "Personal Email Address",
+        "emailPlaceholder": "amina.bennani@domain.ma",
+        "passwordLabel": "Password",
+        "forgotPassword": "Forgot password?",
+        "passwordPlaceholder": "Enter your password",
+        "showPassword": "Show password",
+        "hidePassword": "Hide password",
+        "rememberDevice": "Remember this device for 30 days",
+        "submit": "Log In to Patient Space",
+        "submitting": "Signing in…",
+        "matchingLink": "New to NafsCare? Take matching assessment",
+        "counselorLink": "Licensed counselor? Apply to join network",
+        "confidentialityTitle": "Confidentiality Guarantee",
+        "confidentialityBody": "All consultations comply with Moroccan Law 09-08 regarding individual personal data protection. End-to-end encryption guarantees that therapy sessions, clinical logs, and diagnostic evaluations remain strictly confidential between patient and certified doctor.",
+        "dataResidency": "Data stored securely on Casablanca sovereign servers",
+        "trust1Title": "Accredited Specialists",
+        "trust1Description": "Only vetted Moroccan psychiatrists and clinical psychologists",
+        "trust2Title": "Moroccan Dirham (MAD) Rates",
+        "trust2Description": "Transparent session pricing starting from 250 MAD",
+        "trust3Title": "Emergency Response Support",
+        "trust3Description": "Immediate crisis linkage to SAMU 15 & regional emergency care"
+    },
+    "validation": {
+        "required": "This field is required.",
+        "email": "Enter a valid email address.",
+        "min8": "Must be at least 8 characters.",
+        "invalid": "Invalid input."
+    },
     "notFoundPage": {
         "title": "Page not found",
         "description": "you seem to be lost"

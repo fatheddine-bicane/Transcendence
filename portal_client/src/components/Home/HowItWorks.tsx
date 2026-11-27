@@ -1,18 +1,11 @@
 import { getTranslations } from 'next-intl/server';
-import {
-    ClipboardList,
-    Globe2,
-    Lock,
-    type LucideIcon,
-    ShieldCheck,
-} from 'lucide-react';
+import { ClipboardList, Globe2, Lock, type LucideIcon, ShieldCheck } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 
 const steps: {
     number: string;
     titleKey: 'step1Title' | 'step2Title' | 'step3Title';
-    descriptionKey:
-        'step1Description' | 'step2Description' | 'step3Description';
+    descriptionKey: 'step1Description' | 'step2Description' | 'step3Description';
     tagKey: 'step1Tag' | 'step2Tag' | 'step3Tag';
     footerKey: 'step1Footer' | 'step2Footer' | 'step3Footer';
     footerIcon: LucideIcon;
@@ -51,10 +44,7 @@ async function HowItWorks() {
     const t = await getTranslations('homePage.howItWorks');
 
     return (
-        <section
-            id="how-it-works"
-            className="bg-surface w-full scroll-mt-24 py-16 lg:py-24"
-        >
+        <section id="how-it-works" className="bg-surface w-full scroll-mt-24 py-16 lg:py-24">
             <div className="max-w-8xl mx-auto flex flex-col gap-12 px-4 md:px-6 lg:px-8">
                 <div className="flex max-w-2xl flex-col gap-3">
                     <p className="text-primary-deep bg-primary-lighter inline-flex w-fit rounded-full px-3 py-1 text-[0.6875rem] font-semibold tracking-wider uppercase">
@@ -112,10 +102,7 @@ async function HowItWorks() {
                                             : 'text-secondary mt-6 flex items-center gap-1.5 text-sm font-medium'
                                     }
                                 >
-                                    <FooterIcon
-                                        className="size-3.5 shrink-0"
-                                        aria-hidden
-                                    />
+                                    <FooterIcon className="size-3.5 shrink-0" aria-hidden />
                                     {t(footerKey)}
                                 </p>
                             </li>
@@ -129,9 +116,7 @@ async function HowItWorks() {
                             className="text-primary-light mt-0.5 size-5 shrink-0 sm:mt-0"
                             aria-hidden
                         />
-                        <p className="text-input text-base leading-6">
-                            {t('quizPrompt')}
-                        </p>
+                        <p className="text-input text-base leading-6">{t('quizPrompt')}</p>
                     </div>
                     <Link
                         href="/psychologists"

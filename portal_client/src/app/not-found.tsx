@@ -9,10 +9,7 @@ import Error from 'next/error';
 
 export default function GlobalNotFound() {
     return (
-        <html
-            lang={routing.defaultLocale}
-            dir={getLocaleTxtDir(routing.defaultLocale)}
-        >
+        <html lang={routing.defaultLocale} dir={getLocaleTxtDir(routing.defaultLocale)}>
             <body>
                 <Error statusCode={404} />;
             </body>
