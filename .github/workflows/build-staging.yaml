@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       backend: ${{ steps.filter.outputs.backend }}
-      portal_client: ${{ steps.filter.outputs.portal_client }}
+      frontend: ${{ steps.filter.outputs.frontend }}
     steps:
       - uses: actions/checkout@v7
       - uses: dorny/paths-filter@v4
@@ -23,8 +23,8 @@ jobs:
           filters: |
             backend:
               - 'backend/**'
-            portal_client:
-              - 'portal_client/**'
+            frontend:
+              - 'frontend/**'
 
   lint-backend:
     needs: detect-changes
@@ -53,3 +53,29 @@ jobs:
       - run: npx prisma generate
       - run: npm run build
       - run: npm test
+
+  lint-frontend:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-frontend
+      - run: npm run lint
+
+  build-frontend:
+    needs: [detect-changes, lint-frontend]
+    if: needs.detect-changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    env:
+      API_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-frontend
+      - run: npm run build
