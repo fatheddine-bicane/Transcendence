@@ -17,10 +17,7 @@ function createSignInSchema(v: ValidationTranslator) {
             .string()
             .min(1, v('required'))
             .pipe(z.email(v('email'))),
-        password: z
-            .string()
-            .min(1, v('required'))
-            .min(8, v('min8')),
+        password: z.string().min(1, v('required')).min(8, v('min8')),
         remember: z.boolean(),
     }) satisfies z.ZodType<SignInPayload>;
 }
@@ -31,15 +28,10 @@ function useSignInSchema() {
 }
 
 const signInDefaultValues: SignInPayload = {
-    email: '',
-    password: '',
+    email: 'test.patient@nafs.care',
+    password: 'TestPassword@2026',
     remember: true,
 };
 
-export {
-    createSignInSchema,
-    signInDefaultValues,
-    signInInputSchema,
-    useSignInSchema,
-};
+export { createSignInSchema, signInDefaultValues, signInInputSchema, useSignInSchema };
 export type { SignInPayload };

@@ -15,7 +15,10 @@
         "closeMenu": "إغلاق"
     },
     "sidenav": {
-        "appointments": "المواعيد"
+        "brand": "NafsCare",
+        "menu": "القائمة",
+        "appointments": "المواعيد",
+        "logout": "تسجيل الخروج"
     },
     "homePage": {
         "hero": {
@@ -178,6 +181,8 @@
         "rememberDevice": "تذكّر هذا الجهاز لمدة 30 يومًا",
         "submit": "تسجيل الدخول إلى مساحة المريض",
         "submitting": "جارٍ تسجيل الدخول…",
+        "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+        "genericError": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
         "matchingLink": "جديد على NafsCare؟ خض تقييم المطابقة",
         "counselorLink": "مستشار مرخّص؟ انضم إلى الشبكة",
         "confidentialityTitle": "ضمان السرية",

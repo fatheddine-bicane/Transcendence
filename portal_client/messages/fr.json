@@ -15,7 +15,10 @@
         "closeMenu": "Fermer"
     },
     "sidenav": {
-        "appointments": "Rendez-vous"
+        "brand": "NafsCare",
+        "menu": "Menu",
+        "appointments": "Rendez-vous",
+        "logout": "Se déconnecter"
     },
     "homePage": {
         "hero": {
@@ -178,6 +181,8 @@
         "rememberDevice": "Se souvenir de cet appareil pendant 30 jours",
         "submit": "Se connecter à l'espace patient",
         "submitting": "Connexion…",
+        "invalidCredentials": "E-mail ou mot de passe invalide.",
+        "genericError": "Une erreur est survenue. Veuillez réessayer.",
         "matchingLink": "Nouveau sur NafsCare ? Faire le test d'orientation",
         "counselorLink": "Conseiller agréé ? Rejoindre le réseau",
         "confidentialityTitle": "Garantie de confidentialité",

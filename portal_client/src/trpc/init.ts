@@ -1,5 +1,6 @@
 import { hasLocale, type Locale } from 'next-intl';
-import { initTRPC } from '@trpc/server';
+import { TRPCError, initTRPC } from '@trpc/server';
+import { getAccessTokenCookie } from '@/lib/api/auth/cookies';
 import { LOCALE_HEADER } from '@/lib/constants';
 import { NEXT_INTL_LOCALE_HEADER } from '@/lib/constants.server';
 import { routing } from '@/i18n/routing';
@@ -27,6 +28,7 @@ export const createTRPCContext = async (opts: { headers: Headers }) => {
     return {
         headers: opts.headers,
         locale: resolveLocale(opts.headers),
+        accessToken: await getAccessTokenCookie(),
     };
 };
 
@@ -38,3 +40,23 @@ export const createTRPCRouter = t.router;
 export const createCallerFactory = t.createCallerFactory;
 export const baseProcedure = t.procedure;
 export const middleware = t.middleware;
+
+/**
+ * Requires an `accessToken` cookie to be present (expiry is not checked —
+ * SilentRefresh may call authenticated procedures with an expired access cookie).
+ * Narrows `ctx.accessToken` to `string`.
+ */
+export const authenticatedProcedure = t.procedure.use(
+    middleware(async ({ ctx, next }) => {
+        if (!ctx.accessToken) {
+            throw new TRPCError({ code: 'UNAUTHORIZED' });
+        }
+
+        return next({
+            ctx: {
+                ...ctx,
+                accessToken: ctx.accessToken,
+            },
+        });
+    }),
+);
