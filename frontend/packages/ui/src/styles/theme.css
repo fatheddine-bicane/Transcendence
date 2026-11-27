@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+:root {
+    --background: #f4f3ee;
+    --surface: #f8f9ff;
+    --foreground-light: #4b5563;
+    --foreground: #4b5563;
+    --primary-lighter: #eaf3ed;
+    --primary-light: #1d6033;
+    --primary: #387949;
+    --primary-deep: #28523d;
+    --secondary-lighter: #edf5f5;
+    --secondary-soft: #b5e9e9;
+    --secondary: #346666;
+    --ternary: #a75d00;
+    --rating: #7f4500;
+    --warning-lighter: #fef7ec;
+    --warning: #6c3a00;
+    --warning-deep: #2e1500;
+    --neutral-light: #121c2a;
+    --neutral: #1f2937;
+    --input: #121c2a;
+    --ring: #ffffff;
+    --destructive: #ea4335;
+    --popover: #f4f3ee;
+    --popover-foreground: #404940;
+    --accent: #fafaf7;
+    --accent-foreground: #4b5563;
+    --border: #4b5563;
+    --muted: #ecebe6;
+    --muted-foreground: #4b5563;
+    --sidebar: #ffffff;
+    --sidebar-foreground: #1f2937;
+    --sidebar-primary: #387949;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #eaf3ed;
+    --sidebar-accent-foreground: #28523d;
+    --sidebar-border: #e5e4df;
+    --sidebar-ring: #1d6033;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-surface: #f8f9ff;
+    --color-foreground-light: var(--foreground-light);
+    --color-foreground: var(--foreground);
+    --color-primary-lighter: var(--primary-lighter);
+    --color-primary-light: var(--primary-light);
+    --color-primary: var(--primary);
+    --color-primary-deep: var(--primary-deep);
+    --color-secondary-lighter: var(--secondary-lighter);
+    --color-secondary-soft: var(--secondary-soft);
+    --color-secondary: var(--secondary);
+    --color-ternary: var(--ternary);
+    --color-rating: #7f4500;
+    --color-warning-lighter: #fef7ec;
+    --color-warning: #6c3a00;
+    --color-warning-deep: #2e1500;
+    --color-neutral-light: var(--neutral-light);
+    --color-neutral: var(--neutral);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-destructive: var(--destructive);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-border: var(--border);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --font-sans: var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;
+    --font-jakarta: var(--font-jakarta-family), ui-sans-serif, system-ui, sans-serif;
+    --font-inter: var(--font-inter-family), ui-sans-serif, system-ui, sans-serif;
+    --container-8xl: 96rem;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    position: relative;
+}
+
+[dir='rtl'] .icon-forward {
+    transform: scaleX(-1);
+}
