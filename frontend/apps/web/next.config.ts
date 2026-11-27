@@ -1,4 +1,8 @@
 import type { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
+import { env } from '@/lib/env';
+
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
     /* config options here */
@@ -14,6 +18,14 @@ const nextConfig: NextConfig = {
             },
         },
     },
+    async rewrites() {
+        return [
+            {
+                source: '/auth/refresh',
+                destination: `${env.API_URL}/auth/refresh`,
+            },
+        ];
+    },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

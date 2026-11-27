@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Scan this package — Tailwind won't see workspace packages via node_modules. */
+@source '../**/*.{ts,tsx}';
+
 :root {
     --background: #f4f3ee;
     --surface: #f8f9ff;
