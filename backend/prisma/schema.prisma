@@ -58,16 +58,50 @@ model internals {
     user_id Int   @unique
     users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }
+enum document_type{
+    CIN 
+    CV 
+    MEDICAL_CERTIFICATE
+}
+
+model document_types {
+    id   Int    @id @default(autoincrement())
+    name String @unique
+
+    documents counselor_documents[]
+}
+
+model counselor_documents {
+    id Int @id @default(autoincrement())
+
+    counselor_id Int
+    counselor    counselors @relation(fields: [counselor_id], references: [id], onDelete: Cascade)
+
+    document_type_id Int
+    document_type    document_types @relation(fields: [document_type_id], references: [id])
+
+    file_name String
+    file_path String
+    mime_type String
+    file_size Int
+
+    uploaded_at DateTime @default(now())
+
+    @@unique([counselor_id, document_type_id])
+}
 
 model counselors {
     id Int @id @default(autoincrement())
 
     // one on one with the User table
-    user_id Int  @unique
-    users    users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id Int   @unique
+    users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
-    status counselors_approved_status @default(PENDING)
-    feedback String? @db.Text
+    // Documents uploaded by the counselor
+    documents counselor_documents[]
+
+    status   counselors_approved_status @default(PENDING)
+    feedback String?                    @db.Text
 }
 
 model patients {
