@@ -28,8 +28,8 @@ function useSignInSchema() {
 }
 
 const signInDefaultValues: SignInPayload = {
-    email: 'test.patient@nafs.care',
-    password: 'TestPassword@2026',
+    email: 'patient1@example.com',
+    password: 'Password123!',
     remember: true,
 };
 

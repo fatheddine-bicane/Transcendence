@@ -172,7 +172,7 @@
         "title": "Bienvenue dans votre sanctuaire patient",
         "description": "Connectez-vous pour accéder à vos rendez-vous confidentiels, à votre journal et à votre thérapeute marocain agréé.",
         "emailLabel": "Adresse e-mail personnelle",
-        "emailPlaceholder": "amina.bennani@domain.ma",
+        "emailPlaceholder": "patient1@example.com",
         "passwordLabel": "Mot de passe",
         "forgotPassword": "Mot de passe oublié ?",
         "passwordPlaceholder": "Saisissez votre mot de passe",

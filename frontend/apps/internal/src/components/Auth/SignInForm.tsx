@@ -48,7 +48,7 @@ function SignInForm() {
                             label="Work email"
                             type="email"
                             autoComplete="email"
-                            placeholder="you@nafs.care"
+                            placeholder="internal1@example.com"
                             startIcon={<Mail />}
                         />
                     )}

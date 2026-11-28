@@ -172,7 +172,7 @@
         "title": "Bienvenido a tu santuario de paciente",
         "description": "Inicia sesión para acceder a citas confidenciales, tu diario y conectar con tu terapeuta marroquí colegiado.",
         "emailLabel": "Correo electrónico personal",
-        "emailPlaceholder": "amina.bennani@domain.ma",
+        "emailPlaceholder": "patient1@example.com",
         "passwordLabel": "Contraseña",
         "forgotPassword": "¿Olvidaste tu contraseña?",
         "passwordPlaceholder": "Introduce tu contraseña",

@@ -172,7 +172,7 @@
         "title": "مرحبًا بك في ملاذك الآمن كمريض",
         "description": "سجّل الدخول للوصول إلى مواعيدك السرية ومذكراتك والتواصل مع معالجك المغربي المرخّص.",
         "emailLabel": "البريد الإلكتروني الشخصي",
-        "emailPlaceholder": "amina.bennani@domain.ma",
+        "emailPlaceholder": "patient1@example.com",
         "passwordLabel": "كلمة المرور",
         "forgotPassword": "نسيت كلمة المرور؟",
         "passwordPlaceholder": "أدخل كلمة المرور",
