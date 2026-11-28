@@ -1,0 +1,14 @@
+{
+    "name": "@repo/eslint-config",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        "./next": "./next.js",
+        "./library": "./library.js"
+    },
+    "dependencies": {
+        "eslint": "^10.15.0",
+        "eslint-config-next": "16.4.6"
+    }
+}

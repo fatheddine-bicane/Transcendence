@@ -1,0 +1,28 @@
+{
+    "name": "frontend",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "lint": "turbo run lint",
+        "format": "turbo run format"
+    },
+    "devDependencies": {
+        "turbo": "^2.11.13"
+    },
+    "devEngines": {
+        "packageManager": {
+            "name": "npm",
+            "version": "11.20.0"
+        }
+    },
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "allowScripts": {
+        "@swc/core@1.16.22": true,
+        "@parcel/watcher@2.6.0": true
+    }
+}
