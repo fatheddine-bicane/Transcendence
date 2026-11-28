@@ -1,6 +1,6 @@
 import { hasLocale, type Locale } from 'next-intl';
 import { TRPCError, initTRPC } from '@trpc/server';
-import { getAccessTokenCookie } from '@/lib/api/auth/cookies';
+import { getAccessTokenCookie } from '@repo/api/auth/cookies';
 import { LOCALE_HEADER } from '@/lib/constants';
 import { NEXT_INTL_LOCALE_HEADER } from '@/lib/constants.server';
 import { routing } from '@/i18n/routing';

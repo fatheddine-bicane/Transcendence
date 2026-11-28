@@ -9,8 +9,8 @@ const signInSchema = z.object({
 type SignInPayload = z.infer<typeof signInSchema>;
 
 const signInDefaultValues: SignInPayload = {
-    email: '',
-    password: '',
+    email: 'internal1@example.com',
+    password: 'Password123!',
     remember: true,
 };
 

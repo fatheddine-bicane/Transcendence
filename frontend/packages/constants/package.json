@@ -1,0 +1,23 @@
+{
+    "name": "@repo/constants",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./src/index.ts",
+        "./server": "./src/server.ts"
+    },
+    "scripts": {
+        "format": "prettier --write \"src/**/*.ts\" \"package.json\""
+    },
+    "prettier": "@repo/prettier-config",
+    "dependencies": {
+        "server-only": "^0.0.1"
+    },
+    "devDependencies": {
+        "@repo/prettier-config": "*",
+        "@repo/typescript-config": "*",
+        "prettier": "^3.10.1",
+        "typescript": "^5"
+    }
+}

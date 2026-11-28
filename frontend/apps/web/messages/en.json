@@ -172,7 +172,7 @@
         "title": "Welcome to your Patient Sanctuary",
         "description": "Sign in to access confidential appointments, journal reflections, and connect with your licensed Moroccan therapist.",
         "emailLabel": "Personal Email Address",
-        "emailPlaceholder": "amina.bennani@domain.ma",
+        "emailPlaceholder": "patient1@example.com",
         "passwordLabel": "Password",
         "forgotPassword": "Forgot password?",
         "passwordPlaceholder": "Enter your password",
