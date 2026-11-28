@@ -28,13 +28,16 @@ cd frontend
 npm ci
 ```
 
-Copy env for the patient app:
+Copy env for each app that talks to Nest:
 
 ```bash
 cp apps/web/.env.example apps/web/.env.local
+cp apps/internal/.env.example apps/internal/.env.local
 ```
 
 `API_URL` should point at the Nest API (default `http://localhost:3000`).
+
+`internal` uses the same tRPC BFF auth pattern as `web` (English-only, no i18n) and only accepts sessions with JWT `user_type === internal`. See [docs/frontend/trpc-and-tanstack-query.md](../docs/frontend/trpc-and-tanstack-query.md).
 
 ## Scripts
 
@@ -43,7 +46,7 @@ From `frontend/`:
 | Command | Description |
 | --- | --- |
 | `npm run dev` | Start all apps that define `dev` |
-| `npm run build` | Build all apps (`API_URL` required for `web`) |
+| `npm run build` | Build all apps (`API_URL` required for `web` and `internal`) |
 | `npm run lint` | Lint via Turbo |
 | `npm run format` | Format via Turbo |
 
