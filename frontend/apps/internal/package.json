@@ -12,10 +12,17 @@
     "prettier": "@repo/prettier-config",
     "dependencies": {
         "@repo/ui": "*",
+        "@tanstack/react-query": "^5.108.2",
+        "@trpc/client": "^11.29.6",
+        "@trpc/server": "^11.29.6",
+        "@trpc/tanstack-react-query": "^11.29.6",
+        "client-only": "^0.0.1",
+        "jose": "^6.2.18",
         "lucide-react": "^1.77.0",
         "next": "16.4.6",
         "react": "19.3.1",
         "react-dom": "19.3.1",
+        "server-only": "^0.0.1",
         "zod": "^4.6.7"
     },
     "devDependencies": {

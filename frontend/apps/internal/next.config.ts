@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { env } from '@/lib/env';
 
 const nextConfig: NextConfig = {
     cacheComponents: true,
@@ -12,6 +13,14 @@ const nextConfig: NextConfig = {
                 as: '*.css',
             },
         },
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/auth/refresh',
+                destination: `${env.API_URL}/auth/refresh`,
+            },
+        ];
     },
 };
 
