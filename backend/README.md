@@ -1,18 +1,42 @@
 ## Getting Started
 
-Follow these steps to initialize the environment, install required packages, and prepare the database client for the authentication module.
+For a full walkthrough with a concrete Docker Compose example, see [docs/backend/local-docker-compose.md](../docs/backend/local-docker-compose.md).
 
-### 1. Install Dependencies
-
-Install the core dependencies, including the NestJS packages, Prisma ORM, and authentication libraries (such as Argon2 and JWT).
+### Quick start (Docker Compose Postgres)
 
 ```bash
+cp .env.example .env
+# edit .env — see example below
+
+docker compose up -d
 npm install
+npx prisma migrate dev
+npx prisma generate
+npm run db:seed          # optional
+npm run start:dev        # http://localhost:3000
 ```
+
+Example `.env` aligned with Compose:
+
+```env
+POSTGRES_USER=transcendance
+POSTGRES_PASSWORD=transcendance
+POSTGRES_DB=transcendance
+
+DATABASE_URL=postgresql://transcendance:transcendance@localhost:5432/transcendance
+
+MAX_POOL_CONNECTIONS=10
+MIN_POOL_CONNECTIONS=2
+
+JWT_SECRET_KEY=dev-only-change-me
+NODE_ENV=development
+```
+
+Compose starts Postgres on `localhost:5432` and Adminer on http://localhost:8080.
 
 ## Environment Configuration
 
-The backend service relies on environment variables to establish database connections, initialize containers, and manage security parameters. 
+The backend service relies on environment variables to establish database connections, initialize containers, and manage security parameters.
 
 Create a `.env` file in the root directory of the project. Below is the required structure, sectioned by the operational domain each variable controls:
 
@@ -31,7 +55,6 @@ JWT_SECRET_KEY=JWT secret key
 NODE_ENV=the node env
 
 ```
-
 
 ```POSTGRES_USER```: The username used to initialize the PostgreSQL database container.
 
@@ -62,11 +85,18 @@ Run the following command to execute the existing migration files against your d
 npx prisma migrate dev
 ```
 
-
 ### 2. Generate Prisma Client
 
 After the database schema is updated, generate the Prisma Client. This reads your Prisma schema and generates a tailored query builder inside node_modules/@prisma/client for your backend code to use.
 
 ```bash
 npx prisma generate
+```
+
+### 3. Seed Development Users
+
+Populate the database with 3 internals, 3 counselors, and 3 patients (password: `Password123!`):
+
+```bash
+npm run db:seed
 ```
