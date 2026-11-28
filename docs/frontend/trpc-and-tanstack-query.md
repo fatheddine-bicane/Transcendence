@@ -1,6 +1,6 @@
 # Why tRPC and TanStack Query
 
-We use **tRPC** and **TanStack Query** (`@trpc/tanstack-react-query`) in `portal_client` as the typed portal API layer inside Next.js—without a separate hand-maintained HTTP client for every procedure.
+We use **tRPC** and **TanStack Query** (`@trpc/tanstack-react-query`) in `frontend/apps/web` as the typed portal API layer inside Next.js—without a separate hand-maintained HTTP client for every procedure.
 
 ## Goals
 
