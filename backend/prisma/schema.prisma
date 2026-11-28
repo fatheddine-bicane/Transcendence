@@ -59,6 +59,7 @@ model counselors {
     // one on one with the User table
     user_id   Int         @unique
     users     users       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    documents documents[]
 }
 
 model patients {
@@ -67,4 +68,23 @@ model patients {
     // one on one with the User table
     user_id Int   @unique
     users   users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+enum document_type {
+    // couselor approval documents
+    PROFESSIONAL_LICENCE
+    ID_CARD
+    BACKGROUND_CHECK
+
+    // therapy workspace docuemnts
+    THERAPY_WORKSPACE
+}
+
+model documents {
+    id            Int           @id @default(autoincrement())
+    document_type document_type
+    object_key    String        @db.VarChar(1024)
+
+    counselor_id Int
+    counselors   counselors @relation(fields: [counselor_id], references: [id], onDelete: Cascade)
 }
