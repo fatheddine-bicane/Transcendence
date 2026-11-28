@@ -11,6 +11,7 @@
     },
     "prettier": "@repo/prettier-config",
     "dependencies": {
+        "@repo/api": "*",
         "@repo/constants": "*",
         "@repo/ui": "*",
         "@tanstack/react-query": "^5.108.2",

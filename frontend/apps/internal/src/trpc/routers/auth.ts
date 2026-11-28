@@ -5,7 +5,7 @@ import {
     ApiUnauthorizedError,
     isInternalAccessToken,
 } from '@/lib/api/auth';
-import { clearAuthCookies, setAccessTokenCookie, setAuthCookies } from '@/lib/api/auth/cookies';
+import { clearAuthCookies, setAccessTokenCookie, setAuthCookies } from '@repo/api/auth/cookies';
 import { signInSchema } from '@/validation/sign-in';
 import { authenticatedProcedure, baseProcedure, createTRPCRouter } from '@/trpc/init';
 

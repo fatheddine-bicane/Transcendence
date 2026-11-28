@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     cacheComponents: true,
     partialPrefetching: true,
     reactCompiler: true,
-    transpilePackages: ['@repo/constants', '@repo/ui'],
+    transpilePackages: ['@repo/api', '@repo/constants', '@repo/ui'],
     turbopack: {
         rules: {
             '*.css': {

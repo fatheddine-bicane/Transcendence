@@ -1,5 +1,5 @@
 import { TRPCError, initTRPC } from '@trpc/server';
-import { getAccessTokenCookie } from '@/lib/api/auth/cookies';
+import { getAccessTokenCookie } from '@repo/api/auth/cookies';
 
 /**
  * Context accepts `headers` so it can be reused in both the RSC server

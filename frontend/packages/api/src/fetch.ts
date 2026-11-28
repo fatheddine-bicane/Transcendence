@@ -1,7 +1,7 @@
 import 'server-only';
 
-import { env } from '@/lib/env';
-import { getErrorMessage } from '@repo/ui/lib/utils';
+import { getValidAccessToken } from './auth/session';
+import { env } from './env';
 
 type ApiResult<T> =
     | { data: T; error: null; meta: { headers: Headers } }
@@ -27,6 +27,16 @@ class ApiRequestError extends Error {
         this.name = 'ApiRequestError';
         this.status = status;
     }
+}
+
+function getErrorMessage(error: unknown) {
+    if (!error) return;
+    if (typeof error === 'string') return error;
+    if (typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
+        return error.message;
+    }
+
+    return String(error);
 }
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
@@ -90,5 +100,26 @@ async function apiFetch<T>(path: string, init: ApiFetchInit = {}): Promise<ApiRe
     }
 }
 
-export { apiFetch, ApiUnauthorizedError, ApiRequestError };
+/**
+ * Nest call with Bearer from a valid access cookie (or an explicit token).
+ * Missing/expired cookie → `ApiUnauthorizedError` (RSC should render SilentRefresh).
+ */
+async function apiFetchAuth<T>(path: string, init: ApiFetchInit = {}, accessToken?: string) {
+    const token = accessToken ?? (await getValidAccessToken());
+
+    if (!token) {
+        return {
+            data: null,
+            error: new ApiUnauthorizedError(),
+            meta: { headers: null },
+        } as const;
+    }
+
+    const headers = new Headers(init.headers);
+    headers.set('Authorization', `Bearer ${token}`);
+
+    return apiFetch<T>(path, { ...init, headers });
+}
+
+export { apiFetch, apiFetchAuth, ApiUnauthorizedError, ApiRequestError };
 export type { ApiResult, ApiFetchInit };

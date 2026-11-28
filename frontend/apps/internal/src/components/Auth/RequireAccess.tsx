@@ -3,7 +3,7 @@ import { Suspense, type ReactNode } from 'react';
 import { RequireAccessSkeleton } from '@/components/Auth/RequireAccessSkeleton';
 import { SilentRefresh } from '@/components/Auth/SilentRefresh';
 import { getValidAccessToken, isInternalAccessToken } from '@/lib/api/auth';
-import { clearAuthCookies } from '@/lib/api/auth/cookies';
+import { clearAuthCookies } from '@repo/api/auth/cookies';
 
 type RequireAccessProps = {
     children: ReactNode;

@@ -2,7 +2,7 @@ import { TRPCError } from '@trpc/server';
 import { getTranslations } from 'next-intl/server';
 import { z } from 'zod';
 import { authSignIn, ApiUnauthorizedError } from '@/lib/api/auth';
-import { clearAuthCookies, setAccessTokenCookie, setAuthCookies } from '@/lib/api/auth/cookies';
+import { clearAuthCookies, setAccessTokenCookie, setAuthCookies } from '@repo/api/auth/cookies';
 import { createSignInSchema, signInInputSchema } from '@/validation/sign-in';
 import { authenticatedProcedure, baseProcedure, createTRPCRouter } from '@/trpc/init';
 import { localizedInput } from '@/trpc/localized-input';

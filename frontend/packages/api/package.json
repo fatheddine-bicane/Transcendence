@@ -1,0 +1,33 @@
+{
+    "name": "@repo/api",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        "./env": "./src/env.ts",
+        "./fetch": "./src/fetch.ts",
+        "./auth/cookies": "./src/auth/cookies.ts",
+        "./auth/session": "./src/auth/session.ts"
+    },
+    "scripts": {
+        "format": "prettier --write \"src/**/*.ts\" \"package.json\""
+    },
+    "prettier": "@repo/prettier-config",
+    "dependencies": {
+        "@repo/constants": "*",
+        "jose": "^6.2.18",
+        "server-only": "^0.0.1",
+        "zod": "^4.6.7"
+    },
+    "peerDependencies": {
+        "next": "^16.0.0"
+    },
+    "devDependencies": {
+        "@repo/prettier-config": "*",
+        "@repo/typescript-config": "*",
+        "@types/node": "^26.6.6",
+        "next": "16.4.6",
+        "prettier": "^3.10.1",
+        "typescript": "^5"
+    }
+}
