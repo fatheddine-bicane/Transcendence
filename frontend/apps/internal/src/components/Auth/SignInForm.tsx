@@ -1,19 +1,38 @@
 'use client';
 
+import { useMutation } from '@tanstack/react-query';
+import { TRPCClientError } from '@trpc/client';
 import { Lock, Mail } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { AppForm, useAppForm } from '@repo/ui/components/form';
 import { FieldGroup } from '@repo/ui/components/ui/field';
+import { useTRPC } from '@/trpc/client';
 import { signInDefaultValues, signInSchema } from '@/validation/sign-in';
 
+const GENERIC_ERROR = 'Something went wrong. Please try again.';
+
 function SignInForm() {
+    const router = useRouter();
+    const trpc = useTRPC();
+    const signInMutation = useMutation(trpc.auth.signIn.mutationOptions());
+
     const form = useAppForm({
         defaultValues: signInDefaultValues,
         validators: {
             onSubmit: signInSchema,
+            onSubmitAsync: async ({ value }) => {
+                try {
+                    await signInMutation.mutateAsync(value);
+                    return null;
+                } catch (error) {
+                    return {
+                        form: error instanceof TRPCClientError ? error.message : GENERIC_ERROR,
+                    };
+                }
+            },
         },
-        onSubmit: async ({ value }) => {
-            // Auth wiring comes later — UI-only for now.
-            console.info('internal sign-in', value.email);
+        onSubmit: async () => {
+            router.push('/dashboard');
         },
     });
 
