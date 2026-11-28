@@ -1,13 +1,11 @@
 import 'server-only';
 
+export {
+    ACCESS_TOKEN_COOKIE,
+    ACCESS_TOKEN_MAX_AGE_SECONDS,
+    REFRESH_TOKEN_COOKIE,
+    REFRESH_TOKEN_MAX_AGE_SECONDS,
+} from '@repo/constants/server';
+
 /** Set by next-intl middleware on page/RSC requests. */
 export const NEXT_INTL_LOCALE_HEADER = 'x-next-intl-locale';
-
-export const ACCESS_TOKEN_COOKIE = 'accessToken';
-export const REFRESH_TOKEN_COOKIE = 'refreshToken';
-
-/** Matches Nest JwtModule `signOptions.expiresIn` (`15m`). */
-export const ACCESS_TOKEN_MAX_AGE_SECONDS = 60 * 15;
-
-/** Matches Nest refresh JWT lifetime (7 days). */
-export const REFRESH_TOKEN_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;

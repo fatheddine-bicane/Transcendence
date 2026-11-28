@@ -10,6 +10,7 @@ frontend/
 │   ├── web/        # Patient portal (Next.js, port 3001)
 │   └── internal/   # Staff portal (Next.js, port 3002)
 └── packages/
+    ├── constants/  # Shared portal constants (re-exported from each app)
     ├── eslint-config/
     ├── prettier-config/
     ├── typescript-config/
@@ -61,9 +62,10 @@ npm run dev --workspace=internal
 
 | Package | Role |
 | --- | --- |
+| `@repo/constants` | Shared auth/tRPC path + cookie constants (`@repo/constants/server` for server-only) |
 | `@repo/eslint-config` | Flat ESLint configs (`next`, `library`) |
 | `@repo/typescript-config` | Shared `tsconfig` bases |
 | `@repo/prettier-config` | Shared Prettier + Tailwind plugin |
 | `@repo/ui` | Theme CSS, UI primitives, TanStack Form helpers |
 
-Apps import UI like `@repo/ui/components/ui/button` and theme via `@repo/ui/styles.css`. Next apps must set `transpilePackages: ['@repo/ui']`.
+Apps import shared constants via local `@/lib/constants` / `@/lib/constants.server` (re-exports + app-specific overrides). UI: `@repo/ui/components/ui/button` and `@repo/ui/styles.css`. Next apps must set `transpilePackages: ['@repo/constants', '@repo/ui']`.
